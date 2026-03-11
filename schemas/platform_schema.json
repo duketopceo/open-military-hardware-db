@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Military Platform Entry",
+  "description": "Schema for validating military hardware platform entries",
+  "type": "object",
+  "required": ["platform_id", "common_name", "category_id", "subcategory_id", "manufacturer", "country_of_origin"],
+  "properties": {
+    "platform_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "description": "URL-safe unique identifier"
+    },
+    "common_name": { "type": "string", "minLength": 1 },
+    "official_designation": { "type": ["string", "null"] },
+    "nato_reporting_name": { "type": ["string", "null"] },
+    "category_id": {
+      "type": "string",
+      "enum": ["air", "land", "sea", "munition"]
+    },
+    "subcategory_id": { "type": "string" },
+    "manufacturer": { "type": "string", "minLength": 1 },
+    "country_of_origin": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code"
+    },
+    "development_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "first_flight_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "entered_service_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "production_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "production_end_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "units_built": { "type": ["integer", "null"], "minimum": 0 },
+    "units_built_approx": { "type": "boolean" },
+    "status_id": {
+      "type": "string",
+      "enum": ["in_production", "active_service", "limited_service", "retired", "prototype", "cancelled", "reserve"]
+    },
+    "description": { "type": ["string", "null"] },
+    "specifications": {
+      "type": "object",
+      "properties": {
+        "length_m": { "type": ["number", "null"], "minimum": 0 },
+        "width_m": { "type": ["number", "null"], "minimum": 0 },
+        "height_m": { "type": ["number", "null"], "minimum": 0 },
+        "displacement_tons": { "type": ["number", "null"], "minimum": 0 },
+        "weight_empty_kg": { "type": ["number", "null"], "minimum": 0 },
+        "weight_max_kg": { "type": ["number", "null"], "minimum": 0 },
+        "speed_max_kmh": { "type": ["number", "null"], "minimum": 0 },
+        "speed_cruise_kmh": { "type": ["number", "null"], "minimum": 0 },
+        "range_km": { "type": ["number", "null"], "minimum": 0 },
+        "combat_radius_km": { "type": ["number", "null"], "minimum": 0 },
+        "endurance_hours": { "type": ["number", "null"], "minimum": 0 },
+        "ceiling_m": { "type": ["number", "null"], "minimum": 0 },
+        "dive_depth_m": { "type": ["number", "null"], "minimum": 0 },
+        "crew_min": { "type": ["integer", "null"], "minimum": 0 },
+        "crew_max": { "type": ["integer", "null"], "minimum": 0 },
+        "troop_capacity": { "type": ["integer", "null"], "minimum": 0 },
+        "cargo_capacity_kg": { "type": ["number", "null"], "minimum": 0 },
+        "powerplant_type": { "type": ["string", "null"] },
+        "powerplant_model": { "type": ["string", "null"] },
+        "powerplant_count": { "type": ["integer", "null"], "minimum": 0 },
+        "power_output": { "type": ["string", "null"] },
+        "thrust_to_weight": { "type": ["number", "null"], "minimum": 0 },
+        "armor_type": { "type": ["string", "null"] },
+        "armor_thickness_mm": { "type": ["number", "null"], "minimum": 0 },
+        "radar_model": { "type": ["string", "null"] },
+        "radar_type": { "type": ["string", "null"] },
+        "ew_suite": { "type": ["string", "null"] },
+        "fire_control_system": { "type": ["string", "null"] }
+      }
+    },
+    "economics": {
+      "type": "object",
+      "properties": {
+        "unit_cost_usd": { "type": ["number", "null"], "minimum": 0 },
+        "unit_cost_year": { "type": ["integer", "null"], "minimum": 1940, "maximum": 2030 },
+        "unit_cost_adjusted_2024": { "type": ["number", "null"], "minimum": 0 },
+        "program_cost_usd": { "type": ["number", "null"], "minimum": 0 },
+        "program_cost_year": { "type": ["integer", "null"] },
+        "development_cost_usd": { "type": ["number", "null"], "minimum": 0 },
+        "maintenance_cost_per_hour": { "type": ["number", "null"], "minimum": 0 },
+        "cost_per_round_usd": { "type": ["number", "null"], "minimum": 0 },
+        "cost_notes": { "type": ["string", "null"] }
+      }
+    },
+    "armaments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["weapon_name"],
+        "properties": {
+          "weapon_name": { "type": "string" },
+          "weapon_type": { "type": ["string", "null"] },
+          "caliber_mm": { "type": ["number", "null"] },
+          "quantity": { "type": ["integer", "null"] },
+          "linked_munition_id": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["country_code"],
+        "properties": {
+          "country_code": { "type": "string", "pattern": "^[A-Z]{2}$" },
+          "quantity": { "type": ["integer", "null"] },
+          "quantity_approx": { "type": "boolean" },
+          "service_entry_year": { "type": ["integer", "null"] },
+          "retirement_year": { "type": ["integer", "null"] },
+          "variant": { "type": ["string", "null"] },
+          "branch": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["conflict_id"],
+        "properties": {
+          "conflict_id": { "type": "string" },
+          "role": { "type": ["string", "null"] },
+          "units_deployed": { "type": ["integer", "null"] },
+          "losses": { "type": ["integer", "null"] },
+          "kills": { "type": ["integer", "null"] },
+          "notes": { "type": ["string", "null"] },
+          "source_url": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "media_type"],
+        "properties": {
+          "media_type": { "type": "string", "enum": ["image", "diagram", "video", "document"] },
+          "media_subtype": { "type": ["string", "null"] },
+          "url": { "type": "string", "format": "uri" },
+          "caption": { "type": ["string", "null"] },
+          "attribution": { "type": ["string", "null"] },
+          "license": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_name", "source_url", "access_date"],
+        "properties": {
+          "source_name": { "type": "string" },
+          "source_url": { "type": "string", "format": "uri" },
+          "access_date": { "type": "string", "format": "date" },
+          "data_fields_sourced": { "type": ["string", "null"] },
+          "reliability_rating": { "type": ["string", "null"], "enum": ["primary", "secondary", "tertiary", null] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}
