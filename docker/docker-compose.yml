@@ -1,0 +1,304 @@
+# =============================================================================
+# OPEN MILITARY HARDWARE DATABASE - Docker Compose (Development)
+# =============================================================================
+# Start: docker compose up -d
+# Stop:  docker compose down
+# Logs:  docker compose logs -f [service]
+# =============================================================================
+
+version: '3.9'
+
+services:
+  # ===========================================================================
+  # DATABASES
+  # ===========================================================================
+  
+  # PostgreSQL with pgvector extension for vector similarity search
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: omhdb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: military_hardware
+      POSTGRES_USER: ${POSTGRES_USER:-omhdb}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpassword}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-omhdb} -d military_hardware"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching, sessions, and Celery message broker
+  redis:
+    image: redis:7-alpine
+    container_name: omhdb-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: redis-server --appendonly yes
+
+  # ===========================================================================
+  # VECTOR DATABASE (RAG)
+  # ===========================================================================
+  
+  # ChromaDB for vector embeddings storage
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: omhdb-chroma
+    restart: unless-stopped
+    ports:
+      - "8333:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+
+  # ===========================================================================
+  # LOCAL LLM (Optional - requires GPU)
+  # ===========================================================================
+  
+  # Ollama for local LLM inference
+  ollama:
+    image: ollama/ollama:latest
+    container_name: omhdb-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # Uncomment for GPU support (NVIDIA)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    profiles:
+      - llm  # Only start with: docker compose --profile llm up
+
+  # ===========================================================================
+  # BACKEND API
+  # ===========================================================================
+  
+  # FastAPI backend
+  api:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: omhdb-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-omhdb}:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/military_hardware
+      - REDIS_URL=redis://redis:6379/0
+      - CHROMA_URL=http://chroma:8000
+      - OLLAMA_URL=http://ollama:11434
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
+      - DEBUG=true
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    profiles:
+      - backend  # Only start with: docker compose --profile backend up
+
+  # RAG service
+  rag:
+    build:
+      context: ../rag
+      dockerfile: Dockerfile
+    container_name: omhdb-rag
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-omhdb}:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/military_hardware
+      - CHROMA_URL=http://chroma:8000
+      - OLLAMA_URL=http://ollama:11434
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+    depends_on:
+      - chroma
+    volumes:
+      - ../rag:/app
+    profiles:
+      - rag  # Only start with: docker compose --profile rag up
+
+  # Celery worker for background tasks
+  celery-worker:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: omhdb-celery-worker
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-omhdb}:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/military_hardware
+      - REDIS_URL=redis://redis:6379/0
+      - CHROMA_URL=http://chroma:8000
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - ../backend:/app
+    command: celery -A app.celery worker --loglevel=info
+    profiles:
+      - backend
+
+  # Celery beat for scheduled tasks
+  celery-beat:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: omhdb-celery-beat
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-omhdb}:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/military_hardware
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - ../backend:/app
+    command: celery -A app.celery beat --loglevel=info
+    profiles:
+      - backend
+
+  # ===========================================================================
+  # FRONTEND
+  # ===========================================================================
+  
+  # Next.js frontend
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: omhdb-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_RAG_URL=http://localhost:8001
+    depends_on:
+      - api
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+    profiles:
+      - frontend  # Only start with: docker compose --profile frontend up
+
+  # ===========================================================================
+  # MONITORING (Optional)
+  # ===========================================================================
+  
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    container_name: omhdb-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-lifecycle'
+    profiles:
+      - monitoring
+
+  # Grafana for dashboards
+  grafana:
+    image: grafana/grafana:10.4.0
+    container_name: omhdb-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+    profiles:
+      - monitoring
+
+  # ===========================================================================
+  # UTILITIES
+  # ===========================================================================
+  
+  # Adminer for database management
+  adminer:
+    image: adminer:4.8.1
+    container_name: omhdb-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres
+    depends_on:
+      - postgres
+    profiles:
+      - tools
+
+  # Flower for Celery monitoring
+  flower:
+    image: mher/flower:2.0
+    container_name: omhdb-flower
+    restart: unless-stopped
+    ports:
+      - "5555:5555"
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    profiles:
+      - tools
+
+# =============================================================================
+# VOLUMES
+# =============================================================================
+volumes:
+  postgres_data:
+    name: omhdb-postgres-data
+  redis_data:
+    name: omhdb-redis-data
+  chroma_data:
+    name: omhdb-chroma-data
+  ollama_data:
+    name: omhdb-ollama-data
+  prometheus_data:
+    name: omhdb-prometheus-data
+  grafana_data:
+    name: omhdb-grafana-data
+
+# =============================================================================
+# NETWORKS
+# =============================================================================
+networks:
+  default:
+    name: omhdb-network

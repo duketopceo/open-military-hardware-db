@@ -4,10 +4,23 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![SQLite](https://img.shields.io/badge/database-SQLite-green.svg)](https://sqlite.org/)
 [![Platforms](https://img.shields.io/badge/platforms-50-orange.svg)](#dataset-coverage)
+[![Version](https://img.shields.io/badge/version-1.1-brightgreen.svg)](docs/ROADMAP.md)
 
 A comprehensive, open-source relational database of military hardware systems spanning air, land, sea, and munitions categories. Designed for researchers, journalists, analysts, and defense enthusiasts.
 
+**🚀 Building towards an AI-powered research platform with RAG-based semantic search and beautiful UI/UX.**
+
 All data sourced from publicly available, open-source information with full citation tracking.
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| **[ROADMAP.md](docs/ROADMAP.md)** | Version roadmap (V1.0 → V5.0) with features and timeline |
+| **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** | Full system architecture and technical design |
+| **[TECH_STACK.md](docs/TECH_STACK.md)** | Complete open-source technology catalog |
 
 ---
 
@@ -191,12 +204,29 @@ entry, warnings = clean_and_validate(raw_data)
 
 ## Version Roadmap
 
-| Version | Status | Features |
-|---------|--------|----------|
-| **V1** | **Current** | 50 platforms, schema, collectors, CSV/JSON/SQL exports |
-| V2 | Planned | 200+ platforms, FastAPI, image pipeline, data versioning |
-| V3 | Planned | Visualizations, dashboards, geospatial data, infographics |
-| V4 | Planned | Inflation adjustment engine, similarity search, kill ratios |
+> **📋 See [docs/ROADMAP.md](docs/ROADMAP.md) for the full detailed roadmap.**
+
+| Version | Codename | Status | Focus |
+|---------|----------|--------|-------|
+| **V1.0** | Foundation | ✅ Complete | Core database, schema, data collection |
+| **V1.1** | Structure | 🚧 In Progress | Application framework, architecture docs |
+| **V2.0** | API | 📋 Q2 2026 | FastAPI backend, REST/GraphQL endpoints |
+| **V3.0** | Intelligence | 📋 Q3 2026 | RAG system, vector embeddings, AI search |
+| **V4.0** | Experience | 📋 Q4 2026 | Full UI/UX, dashboards, visualizations |
+| **V5.0** | Community | 📋 2027 | Multi-user, contributions, moderation |
+
+### Technology Stack Preview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    100% OPEN SOURCE STACK                        │
+├─────────────────────────────────────────────────────────────────┤
+│  Frontend:   Next.js • React • Tailwind CSS • shadcn/ui        │
+│  Backend:    FastAPI • PostgreSQL • Redis • Celery              │
+│  AI/RAG:     LangChain • ChromaDB • Ollama • Sentence-BERT     │
+│  DevOps:     Docker • Kubernetes • Traefik • Prometheus         │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ## Data Sources
 
