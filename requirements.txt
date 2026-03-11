@@ -1,0 +1,32 @@
+# Open Military Hardware Database - Python Dependencies
+# Install: pip install -r requirements.txt
+
+# Data collection
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+playwright>=1.40.0          # For JS-rendered pages (optional)
+
+# Data processing & validation
+pandas>=2.1.0
+jsonschema>=4.20.0
+pydantic>=2.5.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Export formats
+openpyxl>=3.1.0             # Excel export
+
+# Utilities
+python-dateutil>=2.8.0
+tqdm>=4.66.0                # Progress bars
+rich>=13.7.0                # Pretty console output
+python-dotenv>=1.0.0        # Environment variables
+
+# Future versions
+# fastapi>=0.104.0          # V2: API layer
+# uvicorn>=0.24.0           # V2: ASGI server
+# matplotlib>=3.8.0         # V3: Visualization
+# plotly>=5.18.0            # V3: Interactive charts
+# geopandas>=0.14.0         # V3: Geospatial
