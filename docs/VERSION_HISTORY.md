@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated after V2.1 push.
+> Last updated after V2.2 push.
 
 ---
 
@@ -17,6 +17,7 @@
 | **V1.1** | Framework | Complete | Copilot PR merged — ARCHITECTURE.md, ROADMAP.md, TECH_STACK.md, Docker compose, extended PostgreSQL schema |
 | **V2.0** | US Expansion | Complete | 165 platforms (115 new US systems), FastAPI REST API (6 endpoints), updated README |
 | **V2.1** | Hardening | Complete | 51-test suite, data quality audit (0 XX codes, 130→95 mfrs), Pydantic models, Dockerfile, GitHub Actions CI |
+| **V2.2** | Beta UI | Complete | React frontend (Explorer, Detail, Compare, Stats Dashboard), dark military theme, deployed beta |
 | **V3.0** | Global Data | Next Up | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, international research |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
 | **V4.0** | Experience | Planned | Next.js frontend, interactive dashboards, maps, comparison tool UI |
@@ -171,6 +172,37 @@
 - Non-root `appuser`
 - Built-in HEALTHCHECK
 - 2 uvicorn workers
+
+---
+
+### V2.2 — Beta UI (Just Completed)
+
+**Commit:** `63303cc feat: add React frontend — V2.2 beta UI`
+
+**Shipped:**
+- Full React frontend at `frontend/` — React + Vite + Tailwind CSS v3 + shadcn/ui
+- Dark military/defense theme (olive/slate palette, green primary accent, amber chart accent)
+- Four pages:
+  1. **Platform Explorer** — card grid with search, filter by category/status, sort (6 options), pagination (25/page)
+  2. **Platform Detail** — full specs, economics, armaments, operators, combat history, sources with external links
+  3. **Statistics Dashboard** — 8 KPI cards, category/status donut charts, era bar chart, top-countries horizontal bar chart (Recharts)
+  4. **Compare Tool** — search-to-add interface, side-by-side comparison table with specs, supports 2–10 platforms
+- Sidebar navigation with category quick-filters (Air, Land, Sea, Munitions)
+- Express backend proxies to FastAPI on port 8000
+- Hash-based routing for SPA deployment
+- Dark/light theme toggle (defaults dark)
+- Skeleton loaders for all data-fetching states
+- Empty states with icons and action prompts
+- Tabular numbers on all data displays (font-variant-numeric: tabular-nums)
+- Monospace font for technical designations and spec values
+- TanStack Query v5 for data fetching with cache management
+- Inter (body) + JetBrains Mono (data) font pairing
+- Custom SVG shield+database logo mark
+- Perplexity Computer attribution in sidebar footer
+
+**Tech stack:** React 19, Vite 6, Tailwind CSS 3, shadcn/ui, Recharts, wouter (hash routing), TanStack Query v5, Express (proxy), TypeScript
+
+**Beta deployment:** Published to Perplexity Computer hosting
 
 ---
 
@@ -896,4 +928,4 @@ open-military-hardware-db/           (17 commits, V2.1)
 
 ---
 
-*Last updated: March 12, 2026 — after V2.1 push*
+*Last updated: March 12, 2026 — after V2.2 push*
