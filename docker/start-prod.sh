@@ -26,10 +26,11 @@ EXPRESS_PID=$!
 
 echo "OMHDB is live on port 5000"
 
-# Wait for either process to exit
-wait -n $FASTAPI_PID $EXPRESS_PID
-EXIT_CODE=$?
+# Wait for either process to exit (POSIX-compatible, no wait -n)
+while kill -0 $FASTAPI_PID 2>/dev/null && kill -0 $EXPRESS_PID 2>/dev/null; do
+  sleep 2
+done
 
 # If one dies, kill the other
 kill $FASTAPI_PID $EXPRESS_PID 2>/dev/null
-exit $EXIT_CODE
+exit 1
