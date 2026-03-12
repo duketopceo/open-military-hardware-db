@@ -89,6 +89,7 @@ class StatsResponse(BaseModel):
     countries: dict[str, int]
     statuses: dict[str, int]
     eras: dict[str, int]
+    role_types: dict[str, int] = {}
 
 
 # ── Categories ───────────────────────────────────────────────────────────────

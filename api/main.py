@@ -30,11 +30,12 @@ logger = logging.getLogger("mildb.api")
 app = FastAPI(
     title="Open Military Hardware Database",
     description=(
-        "Free, open-source REST API for military hardware data. "
-        "165 platforms across air, land, sea, and munitions categories. "
+        "Free, open-source REST API for military hardware and software data. "
+        "183 platforms across air, land, sea, munitions, and software categories. "
+        "Includes Palantir, Anduril, and 90+ defense contractors. "
         "All data sourced from public-domain references with full citations."
     ),
-    version="2.1.0",
+    version="2.4.0",
     license_info={"name": "MIT", "url": "https://opensource.org/licenses/MIT"},
     docs_url="/docs",
     redoc_url="/redoc",
@@ -125,6 +126,7 @@ def list_platforms(
     country: Optional[str] = Query(None, description="Filter by country code (e.g., 'US', 'RU')"),
     status: Optional[str] = Query(None, description="Filter by status ID (e.g., 'active', 'retired')"),
     manufacturer: Optional[str] = Query(None, description="Partial match on manufacturer name"),
+    role_type: Optional[str] = Query(None, description="Filter by role type: offensive, defensive, dual, support, intelligence"),
     min_cost: Optional[float] = Query(None, description="Minimum unit cost in USD"),
     max_cost: Optional[float] = Query(None, description="Maximum unit cost in USD"),
     min_year: Optional[int] = Query(None, description="Earliest service entry year"),
@@ -148,6 +150,7 @@ def list_platforms(
         country=country,
         status=status,
         manufacturer=manufacturer,
+        role_type=role_type,
         min_cost=min_cost,
         max_cost=max_cost,
         min_year=min_year,
@@ -209,6 +212,18 @@ def get_conflicts():
     Each conflict includes a count of associated platforms.
     """
     return db.list_conflicts()
+
+
+# ── Manufacturers ────────────────────────────────────────────────────────────
+
+@app.get("/api/v1/manufacturers", tags=["reference"])
+def get_manufacturers():
+    """
+    List all manufacturers with platform counts and category coverage.
+
+    Useful for contractor-focused filtering and analysis.
+    """
+    return db.list_manufacturers()
 
 
 # ── Compare ──────────────────────────────────────────────────────────────────

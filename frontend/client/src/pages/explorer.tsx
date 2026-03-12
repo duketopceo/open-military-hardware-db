@@ -1,28 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useSearch } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
   Search, ChevronUp, ChevronDown, X, ArrowUpDown,
-  Plane, Truck, Ship, Crosshair, ExternalLink, Shield,
-  DollarSign, Swords, Globe, BookOpen
+  ExternalLink, Shield,
+  DollarSign, Swords, Globe, BookOpen, Factory, ChevronRight
 } from "lucide-react";
+import { MILITARY_ICONS, MissileIcon } from "@/components/MilitaryIcons";
 import type { PlatformListResponse, PlatformDetail } from "@/lib/api";
 import { categoryConfig, statusConfig } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
-const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  air: Plane, land: Truck, sea: Ship, munition: Crosshair,
-};
+const CATEGORY_ICONS = MILITARY_ICONS;
 
 const PAGE_SIZE = 50;
+
+const ROLE_TYPES = [
+  { id: "offensive", label: "OFFENSIVE", color: "var(--bp-red)" },
+  { id: "defensive", label: "DEFENSIVE", color: "var(--bp-cyan)" },
+  { id: "dual", label: "DUAL-ROLE", color: "var(--bp-accent)" },
+  { id: "support", label: "SUPPORT", color: "var(--bp-green)" },
+  { id: "intelligence", label: "INTEL", color: "var(--bp-orange)" },
+];
 
 // ─── Detail Panel (Right Pane) ───
 function DetailPanel({ platform }: { platform: PlatformDetail }) {
   const specs = platform.specifications || {};
   const econ = platform.economics || {};
-  const CatIcon = CATEGORY_ICONS[platform.category_id] || Crosshair;
+  const CatIcon = CATEGORY_ICONS[platform.category_id] || MissileIcon;
 
   const filteredSpecs = Object.entries(specs).filter(
     ([k, v]) => !k.endsWith("_id") && k !== "platform_id" && !k.includes("created_at") && !k.includes("updated_at") && v !== null && v !== undefined && v !== ""
@@ -51,6 +58,9 @@ function DetailPanel({ platform }: { platform: PlatformDetail }) {
           )}
           <span className="tag-chip">{platform.country_of_origin}</span>
           <span className="tag-chip">{platform.category_id}</span>
+          {(platform as any).role_type && (
+            <span className="tag-chip">{(platform as any).role_type.toUpperCase()}</span>
+          )}
           {platform.status_id && <span className="tag-chip">{platform.status_id.replace(/_/g, " ")}</span>}
         </div>
       </div>
@@ -214,25 +224,51 @@ function DetailPanel({ platform }: { platform: PlatformDetail }) {
 export default function ExplorerPage() {
   const searchString = useSearch();
   const params = new URLSearchParams(searchString);
-  const initialCategory = params.get("category") || "";
+  const urlCategory = params.get("category") || "";
 
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState(initialCategory);
+  const [category, setCategory] = useState(urlCategory);
+
+  // Sync URL category param to state
+  useEffect(() => {
+    setCategory(urlCategory);
+    setPage(0);
+  }, [urlCategory]);
+  const [roleType, setRoleType] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
   const [sortBy, setSortBy] = useState("common_name");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [mfgOpen, setMfgOpen] = useState(false);
+  const mfgRef = useRef<HTMLDivElement>(null);
+
+  // Fetch manufacturers list for dropdown
+  const { data: manufacturers } = useQuery<{ manufacturer: string; platform_count: number; categories: string[] }[]>({
+    queryKey: ["/api/v1/manufacturers"],
+  });
+
+  // Close manufacturer dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (mfgRef.current && !mfgRef.current.contains(e.target as Node)) setMfgOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const queryParams = useMemo(() => {
     const p = new URLSearchParams();
     if (search) p.set("search", search);
     if (category) p.set("category", category);
+    if (roleType) p.set("role_type", roleType);
+    if (manufacturer) p.set("manufacturer", manufacturer);
     p.set("sort_by", sortBy);
     p.set("sort_order", sortOrder);
     p.set("limit", String(PAGE_SIZE));
     p.set("offset", String(page * PAGE_SIZE));
     return p.toString();
-  }, [search, category, sortBy, sortOrder, page]);
+  }, [search, category, roleType, manufacturer, sortBy, sortOrder, page]);
 
   const { data, isLoading } = useQuery<PlatformListResponse>({
     queryKey: [`/api/v1/platforms?${queryParams}`],
@@ -295,6 +331,74 @@ export default function ExplorerPage() {
           </span>
         </div>
 
+        {/* Filter bar: Role type pills + Contractor dropdown */}
+        <div className="px-3 py-1.5 border-b border-[hsl(var(--bp-line-faint)/0.5)] flex items-center gap-2 flex-wrap">
+          {/* Role type pills */}
+          <span className="label-caps mr-1">Role</span>
+          {ROLE_TYPES.map((r) => (
+            <button
+              key={r.id}
+              onClick={() => { setRoleType(roleType === r.id ? "" : r.id); setPage(0); }}
+              data-testid={`filter-role-${r.id}`}
+              className={`tag-chip ${
+                roleType === r.id ? "active" : ""
+              }`}
+              style={roleType === r.id ? { borderColor: `hsl(${r.color})`, color: `hsl(${r.color})` } : {}}
+            >
+              {r.label}
+            </button>
+          ))}
+
+          <div className="w-px h-4 bg-[hsl(var(--bp-line-faint))] mx-1" />
+
+          {/* Contractor dropdown */}
+          <div className="relative" ref={mfgRef}>
+            <button
+              onClick={() => setMfgOpen(!mfgOpen)}
+              data-testid="filter-manufacturer"
+              className={`tag-chip flex items-center gap-1 ${manufacturer ? "active" : ""}`}
+            >
+              <Factory className="w-2.5 h-2.5 opacity-50" />
+              {manufacturer || "CONTRACTOR"}
+              <ChevronDown className="w-2.5 h-2.5 opacity-40" />
+            </button>
+            {mfgOpen && manufacturers && (
+              <div className="absolute z-30 top-full mt-1 left-0 w-72 max-h-64 overflow-y-auto rounded glass-heavy">
+                {manufacturer && (
+                  <button
+                    onClick={() => { setManufacturer(""); setMfgOpen(false); setPage(0); }}
+                    className="flex items-center gap-2 w-full px-3 py-1.5 text-[10px] hover:bg-[var(--glass-bg-hover)] transition-colors text-left text-[hsl(var(--bp-accent-text))]"
+                  >
+                    <X className="w-2.5 h-2.5" /> CLEAR FILTER
+                  </button>
+                )}
+                {manufacturers.map((m) => (
+                  <button
+                    key={m.manufacturer}
+                    onClick={() => { setManufacturer(m.manufacturer); setMfgOpen(false); setPage(0); }}
+                    className={`flex items-center gap-2 w-full px-3 py-1.5 text-[10px] hover:bg-[var(--glass-bg-hover)] transition-colors text-left ${
+                      manufacturer === m.manufacturer ? "text-[hsl(var(--bp-accent-text))]" : "text-[hsl(var(--bp-text-muted))]"
+                    }`}
+                  >
+                    <span className="flex-1 truncate font-mono">{m.manufacturer}</span>
+                    <span className="text-[9px] tabular-nums opacity-50">{m.platform_count}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Active filter clear */}
+          {(roleType || manufacturer) && (
+            <button
+              onClick={() => { setRoleType(""); setManufacturer(""); setPage(0); }}
+              className="text-[9px] text-[hsl(var(--bp-accent-text))] hover:underline tracking-wide ml-1"
+            >
+              CLEAR ALL
+            </button>
+          )}
+        </div>
+
         {/* Table */}
         <div className="flex-1 overflow-auto overscroll-contain">
           <table className="intel-table" data-testid="platform-table">
@@ -307,6 +411,9 @@ export default function ExplorerPage() {
                 <th>Designation</th>
                 <th onClick={() => toggleSort("category_id")}>
                   <span className="flex items-center gap-1">Type <SortIcon field="category_id" /></span>
+                </th>
+                <th onClick={() => toggleSort("role_type")}>
+                  <span className="flex items-center gap-1">Role <SortIcon field="role_type" /></span>
                 </th>
                 <th onClick={() => toggleSort("manufacturer")}>
                   <span className="flex items-center gap-1">Manufacturer <SortIcon field="manufacturer" /></span>
@@ -325,14 +432,14 @@ export default function ExplorerPage() {
               {isLoading ? (
                 Array.from({ length: 20 }).map((_, i) => (
                   <tr key={i}>
-                    <td colSpan={9}>
+                    <td colSpan={10}>
                       <div className="h-4 rounded animate-pulse" style={{ background: 'var(--glass-bg)', width: `${60 + Math.random() * 30}%` }} />
                     </td>
                   </tr>
                 ))
               ) : (
                 (data?.platforms || []).map((p) => {
-                  const CatIcon = CATEGORY_ICONS[p.category_id] || Crosshair;
+                  const CatIcon = CATEGORY_ICONS[p.category_id] || MissileIcon;
                   const isSelected = selectedId === p.platform_id;
                   return (
                     <tr
@@ -348,6 +455,9 @@ export default function ExplorerPage() {
                       <td className="text-[hsl(var(--bp-text-muted))]">{p.official_designation || "—"}</td>
                       <td>
                         <span className="tag-chip">{p.category_id}</span>
+                      </td>
+                      <td className="text-[10px] text-[hsl(var(--bp-text-faint))] uppercase tracking-wider">
+                        {(p as any).role_type || "—"}
                       </td>
                       <td className="text-[hsl(var(--bp-text-muted))]">{p.manufacturer}</td>
                       <td className="text-[hsl(var(--bp-text-muted))]">{p.country_of_origin}</td>

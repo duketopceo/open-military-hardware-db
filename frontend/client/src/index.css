@@ -10,7 +10,7 @@
  * Line work: off-white with low opacity
  * Glass: semi-transparent white panels with blur
  * Accent: warm amber for active/highlight states
- * Typography: JetBrains Mono (data) + Inter (UI)
+ * Typography: Share Tech Mono (data) + Barlow Condensed (UI)
  */
 
 :root {
@@ -82,8 +82,8 @@
   --chart-4: var(--bp-red);
   --chart-5: var(--bp-orange);
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", monospace;
+  --font-sans: "Barlow Condensed", system-ui, -apple-system, sans-serif;
+  --font-mono: "Share Tech Mono", "SF Mono", "Cascadia Code", monospace;
   --radius: 0.25rem;
   --spacing: 0.25rem;
   --tracking-normal: 0em;

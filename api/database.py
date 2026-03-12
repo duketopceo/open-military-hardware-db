@@ -31,6 +31,7 @@ def query_platforms(
     country: Optional[str] = None,
     status: Optional[str] = None,
     manufacturer: Optional[str] = None,
+    role_type: Optional[str] = None,
     min_cost: Optional[float] = None,
     max_cost: Optional[float] = None,
     min_year: Optional[int] = None,
@@ -65,6 +66,9 @@ def query_platforms(
     if manufacturer:
         conditions.append("p.manufacturer LIKE ?")
         params.append(f"%{manufacturer}%")
+    if role_type:
+        conditions.append("p.role_type = ?")
+        params.append(role_type)
     if min_year:
         conditions.append("p.entered_service_year >= ?")
         params.append(min_year)
@@ -99,7 +103,7 @@ def query_platforms(
     # Validate sort
     valid_sorts = {
         "common_name", "entered_service_year", "units_built",
-        "category_id", "country_of_origin", "manufacturer",
+        "category_id", "country_of_origin", "manufacturer", "role_type",
     }
     if sort_by not in valid_sorts:
         sort_by = "common_name"
@@ -245,6 +249,13 @@ def get_stats() -> dict:
     ).fetchall()
     stats["eras"] = {r["era"]: r["cnt"] for r in rows}
 
+    # Role type breakdown
+    rows = conn.execute(
+        "SELECT role_type, COUNT(*) as cnt FROM platforms "
+        "WHERE role_type IS NOT NULL GROUP BY role_type ORDER BY cnt DESC"
+    ).fetchall()
+    stats["role_types"] = {r["role_type"]: r["cnt"] for r in rows}
+
     conn.close()
     return stats
 
@@ -279,6 +290,27 @@ def list_conflicts() -> list[dict]:
     ).fetchall()
     conn.close()
     return [dict_from_row(r) for r in rows]
+
+
+def list_manufacturers() -> list[dict]:
+    """List all manufacturers with platform counts."""
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT manufacturer, COUNT(*) as platform_count,
+               GROUP_CONCAT(DISTINCT category_id) as categories
+           FROM platforms
+           GROUP BY manufacturer
+           ORDER BY platform_count DESC, manufacturer ASC"""
+    ).fetchall()
+    conn.close()
+    return [
+        {
+            "manufacturer": r["manufacturer"],
+            "platform_count": r["platform_count"],
+            "categories": r["categories"].split(",") if r["categories"] else [],
+        }
+        for r in rows
+    ]
 
 
 def compare_platforms(platform_ids: list[str]) -> list[dict]:

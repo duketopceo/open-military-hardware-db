@@ -1,16 +1,18 @@
 import { Link, useLocation } from "wouter";
 import { PerplexityAttribution } from "@/components/PerplexityAttribution";
 import {
-  Plane, Truck, Ship, Crosshair, BarChart3, Search,
+  BarChart3, Search,
   GitCompare, Database, ChevronDown, Satellite
 } from "lucide-react";
+import { FighterJetIcon, TankIcon, WarshipIcon, MissileIcon, SoftwareIcon } from "@/components/MilitaryIcons";
 import { useState } from "react";
 
 const domainFilters = [
-  { id: "air", label: "AIR", icon: Plane, count: 46 },
-  { id: "land", label: "LAND", icon: Truck, count: 67 },
-  { id: "sea", label: "SEA", icon: Ship, count: 23 },
-  { id: "munition", label: "MUNITION", icon: Crosshair, count: 29 },
+  { id: "air", label: "AIR", icon: FighterJetIcon, count: 53 },
+  { id: "land", label: "LAND", icon: TankIcon, count: 68 },
+  { id: "sea", label: "SEA", icon: WarshipIcon, count: 25 },
+  { id: "munition", label: "MUNITION", icon: MissileIcon, count: 29 },
+  { id: "software", label: "SOFTWARE", icon: SoftwareIcon, count: 8 },
 ];
 
 const navItems = [
@@ -58,7 +60,7 @@ export function AppShell({ children, rightPanel }: AppShellProps) {
           <Logo />
           <div className="flex flex-col">
             <span className="text-[11px] font-semibold tracking-[0.15em] text-[hsl(var(--bp-text))]">OMHDB</span>
-            <span className="text-[9px] font-mono tracking-[0.2em] text-[hsl(var(--bp-text-faint))]">v2.2 // INTEL</span>
+            <span className="text-[9px] font-mono tracking-[0.2em] text-[hsl(var(--bp-text-faint))]">v2.4 // INTEL</span>
           </div>
         </div>
 
@@ -127,7 +129,7 @@ export function AppShell({ children, rightPanel }: AppShellProps) {
         <div className="px-3 py-2.5 border-t border-[hsl(var(--bp-line-faint))] space-y-1.5">
           <div className="flex items-center gap-1.5 text-[9px] font-mono text-[hsl(var(--bp-text-faint))] tracking-wide">
             <Database className="w-3 h-3 opacity-40" />
-            <span>165 PLATFORMS // US ORIGIN</span>
+            <span>183 PLATFORMS // US ORIGIN</span>
           </div>
           <PerplexityAttribution />
         </div>

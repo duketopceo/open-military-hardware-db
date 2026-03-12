@@ -3,16 +3,15 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  Search, Plus, X, GitCompare, Plane, Truck, Ship, Crosshair,
+  Search, Plus, X, GitCompare,
   Shield, DollarSign, Swords, Globe
 } from "lucide-react";
+import { MILITARY_ICONS, MissileIcon } from "@/components/MilitaryIcons";
 import type { PlatformListResponse, CompareResponse, PlatformSummary } from "@/lib/api";
 import { categoryConfig } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
-const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  air: Plane, land: Truck, sea: Ship, munition: Crosshair,
-};
+const CATEGORY_ICONS = MILITARY_ICONS;
 
 export default function ComparePage() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -77,7 +76,7 @@ export default function ComparePage() {
                   .filter((p) => !selectedIds.includes(p.platform_id))
                   .slice(0, 6)
                   .map((p) => {
-                    const CatIcon = CATEGORY_ICONS[p.category_id] || Crosshair;
+                    const CatIcon = CATEGORY_ICONS[p.category_id] || MissileIcon;
                     return (
                       <button
                         key={p.platform_id}
@@ -140,7 +139,7 @@ export default function ComparePage() {
                     FIELD
                   </th>
                   {comparison.platforms.map((p) => {
-                    const CatIcon = CATEGORY_ICONS[p.category_id] || Crosshair;
+                    const CatIcon = CATEGORY_ICONS[p.category_id] || MissileIcon;
                     return (
                       <th key={p.platform_id} className="min-w-[160px]">
                         <span className="flex items-center gap-1.5">

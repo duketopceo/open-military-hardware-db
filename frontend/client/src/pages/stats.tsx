@@ -84,6 +84,12 @@ export default function StatsPage() {
     .slice(0, 8)
     .map(([k, v]) => ({ name: k, value: v }));
 
+  const roleData = Object.entries((stats as any).role_types || {})
+    .map(([k, v]) => ({
+      name: k.charAt(0).toUpperCase() + k.slice(1),
+      value: v as number,
+    }));
+
   return (
     <AppShell>
       <div className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-5">
@@ -110,7 +116,7 @@ export default function StatsPage() {
         </div>
 
         {/* Charts */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
           {/* Category */}
           <div className="glass rounded p-3 animate-in">
             <p className="label-caps mb-3">Distribution by domain</p>
@@ -153,6 +159,22 @@ export default function StatsPage() {
                 <Tooltip content={<BpTooltip />} />
                 <Bar dataKey="value" fill="hsl(38, 90%, 58%)" radius={[2, 2, 0, 0]} opacity={0.8} />
               </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Role type */}
+          <div className="glass rounded p-3 animate-in">
+            <p className="label-caps mb-3">Offensive / Defensive Classification</p>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie data={roleData} cx="50%" cy="50%" innerRadius={45} outerRadius={75} dataKey="value" stroke="none">
+                  {roleData.map((_, i) => (
+                    <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip content={<BpTooltip />} />
+                <Legend formatter={(v) => <span className="text-[10px] font-mono text-[hsl(var(--bp-text-muted))]">{v}</span>} />
+              </PieChart>
             </ResponsiveContainer>
           </div>
 
