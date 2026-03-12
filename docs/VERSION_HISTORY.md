@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated after V2.2 push.
+> Last updated after V2.3 push.
 
 ---
 
@@ -18,6 +18,7 @@
 | **V2.0** | US Expansion | Complete | 165 platforms (115 new US systems), FastAPI REST API (6 endpoints), updated README |
 | **V2.1** | Hardening | Complete | 51-test suite, data quality audit (0 XX codes, 130→95 mfrs), Pydantic models, Dockerfile, GitHub Actions CI |
 | **V2.2** | Beta UI | Complete | React frontend (Explorer, Detail, Compare, Stats Dashboard), dark military theme, deployed beta |
+| **V2.3** | Intel Console | Complete | Blueprint + liquid glass visual redesign, 3-pane intelligence console, dense sortable table, integrated detail pane |
 | **V3.0** | Global Data | Next Up | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, international research |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
 | **V4.0** | Experience | Planned | Next.js frontend, interactive dashboards, maps, comparison tool UI |
@@ -203,6 +204,58 @@
 **Tech stack:** React 19, Vite 6, Tailwind CSS 3, shadcn/ui, Recharts, wouter (hash routing), TanStack Query v5, Express (proxy), TypeScript
 
 **Beta deployment:** Published to Perplexity Computer hosting
+
+---
+
+### V2.3 — Intel Console (Just Completed)
+
+**Commit:** `713bb4a feat: blueprint intelligence console redesign — V2.3`
+
+**Shipped:**
+- Complete visual overhaul: "liquid glass meets mid-1960s technical blueprint" aesthetic
+- Design system:
+  - Blueprint palette: deep navy base (#0a1628), warm amber accents (38° HSL)
+  - Liquid glass surfaces via backdrop-filter blur + semi-transparent panels
+  - CSS grid background with layered major/minor gridlines
+  - Custom utility classes: `.glass`, `.glass-hover`, `.glass-active`, `.glass-heavy`
+  - `.tag-chip`, `.label-caps`, `.data-mono`, `.intel-table` for consistent intel styling
+  - `.timeline-strip` component for service history visualization
+  - Stagger-in and fade-in micro-animations
+  - Custom scrollbar theming
+- 3-pane intelligence console layout:
+  - Left sidebar: navigation + domain filters (AIR/LAND/SEA/MUNITION) with counts
+  - Center: primary content (table, charts, compare)
+  - Right: selected platform detail pane (Explorer only)
+- Explorer rebuilt:
+  - Dense sortable table with 9 columns (System, Designation, Type, Manufacturer, Origin, IOC, Built, Status)
+  - Click-to-select row opens integrated right detail pane
+  - Detail panel: description, timeline strip, specifications, economics, armaments, operators, conflicts, sources
+  - Null value filtering — only populated fields displayed
+  - Monospaced search input with syntax hints
+  - Record count and pagination footer
+- Stats rebuilt:
+  - 8 glass KPI cards with stagger animation
+  - Donut charts (domain distribution, operational status)
+  - Bar charts (platforms by era, top countries of origin with proper label width)
+  - Blueprint-themed Recharts with custom glass tooltips
+- Compare rebuilt:
+  - Glass-styled search dropdown
+  - Active tag chips for selected platforms
+  - Blueprint comparison table with sticky field column
+  - Specification section headers with icons
+- Routing simplified:
+  - Each page wraps its own AppShell (Explorer passes rightPanel prop)
+  - Removed ThemeProvider (always-dark — intelligence console has no light mode)
+  - Removed standalone platform-detail route (integrated into Explorer right pane)
+  - Blueprint-themed 404 page ("SIGNAL NOT FOUND")
+- SVG shield+grid logo updated with amber accent
+- Single-theme (always dark) — removed light mode toggle
+
+**Tech stack:** Same as V2.2 (React 19, Vite, Tailwind CSS 3, shadcn/ui, Recharts, wouter, TanStack Query v5, Express proxy, TypeScript)
+
+**Figma integration:** Connected for future design iteration
+
+**Beta deployment:** Updated at same Perplexity Computer URL
 
 ---
 
