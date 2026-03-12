@@ -41,3 +41,14 @@ cache/
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.idea/
+.cursor/
+.cursorrules
+.claude/
