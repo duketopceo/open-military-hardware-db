@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated after V2.4 push.
+> Last updated after V2.5 SIPRI integration (data staged, roadmap updated).
 
 ---
 
@@ -20,10 +20,11 @@
 | **V2.2** | Beta UI | Complete | React frontend (Explorer, Detail, Compare, Stats Dashboard), dark military theme, deployed beta |
 | **V2.3** | Intel Console | Complete | Blueprint + liquid glass visual redesign, 3-pane intelligence console, dense sortable table, integrated detail pane |
 | **V2.4** | Software & Roles | Complete | 18 new platforms (Palantir/Anduril), role classification, contractor filters, military fonts/icons |
-| **V3.0** | Global Data | Next Up | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, international research |
+| **V2.5** | SIPRI Integration | Next Up | SIPRI military expenditure, Top 100 arms companies, US arms transfers — 4 new database tables, horizontal data expansion |
+| **V3.0** | Global Data | Planned | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, SIPRI-informed prioritization |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
-| **V4.0** | Experience | Planned | Next.js frontend, interactive dashboards, maps, comparison tool UI |
-| **V4.1** | Deployment | Planned | Self-hosted on cluster1 via Tailscale, Cloudflare proxy, Docker Compose production |
+| **V4.0** | Experience | Planned | Advanced frontend features: interactive data visualizations, SIPRI charts, conflict maps, AI search chat |
+| **V4.1** | Deployment | Planned | Self-hosted production: Docker Compose, Cloudflare proxy, monitoring, backups |
 | **V5.0** | Community | Planned | Auth, user contributions, moderation queue, public API keys |
 
 ---
@@ -308,13 +309,128 @@
 
 ---
 
+## V2.5 — SIPRI Integration (Horizontal Data Expansion)
+
+**Goal:** Integrate external SIPRI datasets to expand the database horizontally — from platform-centric records to include country-level military expenditure, arms industry financials, and international arms transfer data.
+
+### Data Sources
+
+All data from [SIPRI](https://www.sipri.org/) (Stockholm International Peace Research Institute) — the world's leading independent research institute on conflict, armaments, and arms control. Data is free for non-commercial research use with attribution.
+
+| Dataset | Records | Coverage | File |
+|---------|---------|----------|------|
+| Military Expenditure | 175 countries × 76 years | 1949–2024, constant 2023 USD (millions) | `data/sipri/milex_constant_usd_millions.csv` |
+| Top 100 Arms Companies | 2,300 records, 271 companies | 2002–2024, annual revenue + rankings | `data/sipri/top100_arms_companies.csv` |
+| US Arms Transfers | 3,006 records, 130 recipients | 2000–2025, 450 weapon designations | `data/sipri/usa_arms_transfers_2000_2025_clean.csv` |
+
+### V2.5.1 — New Database Tables
+
+**Table: `country_military_expenditure`**
+```sql
+CREATE TABLE country_military_expenditure (
+    country_code    TEXT NOT NULL,       -- ISO 3166-1 alpha-3
+    country_name    TEXT NOT NULL,
+    region          TEXT,                -- SIPRI region grouping
+    year            INTEGER NOT NULL,
+    spending_usd_m  REAL,                -- constant 2023 USD millions
+    source          TEXT DEFAULT 'SIPRI MILEX',
+    PRIMARY KEY (country_code, year)
+);
+```
+
+**Table: `arms_companies`**
+```sql
+CREATE TABLE arms_companies (
+    company_id      TEXT PRIMARY KEY,    -- slug: 'lockheed-martin'
+    company_name    TEXT NOT NULL,
+    country         TEXT NOT NULL,
+    first_ranked    INTEGER,             -- first year in SIPRI Top 100
+    last_ranked     INTEGER,             -- most recent year in Top 100
+    source          TEXT DEFAULT 'SIPRI Arms Industry'
+);
+```
+
+**Table: `company_revenue_history`**
+```sql
+CREATE TABLE company_revenue_history (
+    company_id          TEXT REFERENCES arms_companies(company_id),
+    year                INTEGER NOT NULL,
+    rank                INTEGER,
+    arms_revenue_usd_m  REAL,            -- arms sales in USD millions
+    total_revenue_usd_m REAL,
+    arms_pct            REAL,            -- arms as % of total revenue
+    PRIMARY KEY (company_id, year)
+);
+```
+
+**Table: `arms_transfers`**
+```sql
+CREATE TABLE arms_transfers (
+    transfer_id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    supplier            TEXT NOT NULL DEFAULT 'United States',
+    recipient           TEXT NOT NULL,
+    weapon_designation  TEXT,
+    weapon_description  TEXT,
+    year_of_order       INTEGER,
+    number_ordered      INTEGER,
+    year_of_delivery    INTEGER,
+    number_delivered    INTEGER,
+    status              TEXT,            -- 'Delivered', 'On order', etc.
+    sipri_tiv_per_unit  REAL,            -- SIPRI Trend Indicator Value
+    sipri_tiv_total     REAL,
+    comments            TEXT,
+    platform_id         TEXT REFERENCES platforms(platform_id),  -- cross-ref where possible
+    source              TEXT DEFAULT 'SIPRI Arms Transfers'
+);
+```
+
+### V2.5.2 — Data Import Pipeline
+
+**Files to create:**
+
+| File | Description |
+|------|-------------|
+| `scripts/import_sipri_milex.py` | Parse clean CSV → insert into `country_military_expenditure` |
+| `scripts/import_sipri_companies.py` | Parse clean CSV → populate `arms_companies` + `company_revenue_history` |
+| `scripts/import_sipri_transfers.py` | Parse clean CSV → populate `arms_transfers`, auto-match `platform_id` where weapon designation matches existing platforms |
+| `schemas/005_sipri_tables.sql` | DDL for all 4 new tables + indexes |
+
+**Cross-reference logic (transfers → platforms):**
+- Match weapon designations to platform names/designations (e.g., "F-35A" → `f-35a-lightning-ii`)
+- Fuzzy match on common names (e.g., "HIMARS" → `m142-himars`)
+- Unmatchable transfers remain with `platform_id = NULL` (linkable later as more platforms are added)
+
+### V2.5.3 — API Endpoints
+
+**New endpoints:**
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET /api/v1/expenditure` | Military spending by country/year, filterable | Returns yearly spending data with optional country, year range, and region filters |
+| `GET /api/v1/expenditure/{country_code}` | Single country time series | Full spending history for one country |
+| `GET /api/v1/companies` | Arms companies list | Paginated, filterable by country and revenue range |
+| `GET /api/v1/companies/{company_id}` | Company detail + revenue history | Full company profile with yearly rankings |
+| `GET /api/v1/transfers` | US arms transfers | Filterable by recipient, weapon type, year range |
+| `GET /api/v1/platforms/{id}/transfers` | Transfers for a specific platform | Cross-referenced transfer records |
+
+### V2.5.4 — Frontend Integration
+
+- Add "Expenditure" tab to Analytics dashboard — country spending line chart, top spenders bar chart
+- Add "Arms Industry" tab — Top 100 company table, revenue treemap
+- Add "Transfers" section to platform detail panel — show export history for that platform
+- SIPRI attribution footer on all new data views
+
+**Target after V2.5:** 4 new database tables, 6 new API endpoints, SIPRI data fully integrated, cross-referenced transfers, frontend charts for expenditure and industry data.
+
+---
+
 ## Future Versions — Detailed Plan
 
 ---
 
 ## V3.0 — Global Data Expansion
 
-**Goal:** Scale from 165 to 500+ platforms covering NATO allies, near-peer adversaries, and key regional powers. Migrate from SQLite to PostgreSQL for production readiness.
+**Goal:** Scale from 183 to 500+ platforms covering NATO allies, near-peer adversaries, and key regional powers. Migrate from SQLite to PostgreSQL for production readiness. Leverage SIPRI arms transfer data (V2.5) to prioritize which international platforms to research first — countries receiving the most US weapons exports get priority.
 
 ### V3.0.1 — NATO Allies Research
 
@@ -512,142 +628,78 @@ Question: {user_question}
 
 ---
 
-## V4.0 — Experience (Frontend)
+## V4.0 — Experience (Advanced Frontend)
 
-**Goal:** Production web application with rich data visualization, accessible at a public URL.
+**Goal:** Enhance the existing React intelligence console with rich data visualizations, SIPRI-powered charts, interactive maps, and AI-powered search. No framework migration — iterate on the V2.2–V2.4 React/Vite frontend.
 
-### V4.0.1 — Next.js Application Scaffold
+### V4.0.1 — Data Visualization Layer
 
-**Tech stack:**
-- Next.js 14+ (App Router, React Server Components)
-- Tailwind CSS 3+ with custom design tokens
-- shadcn/ui component library
-- TanStack Query for data fetching
-- Zustand for client state
-- Framer Motion for animations
+**Libraries:**
+- D3.js or Recharts for charts (integrated into existing React app)
+- Leaflet or Mapbox GL for interactive maps
+- Existing blueprint aesthetic maintained (dark-only, liquid glass + mid-1960s technical blueprint)
 
-**Directory structure:**
-```
-frontend/
-├── app/
-│   ├── layout.tsx              # Root layout, theme provider, fonts
-│   ├── page.tsx                # Landing page / dashboard
-│   ├── platforms/
-│   │   ├── page.tsx            # Platform explorer (list + filters)
-│   │   └── [id]/
-│   │       └── page.tsx        # Platform detail page
-│   ├── compare/
-│   │   └── page.tsx            # Comparison tool
-│   ├── search/
-│   │   └── page.tsx            # AI search / RAG chat
-│   ├── stats/
-│   │   └── page.tsx            # Analytics dashboard
-│   ├── conflicts/
-│   │   └── page.tsx            # Conflict explorer
-│   └── api/                    # Next.js API routes (proxy to FastAPI)
-├── components/
-│   ├── ui/                     # shadcn/ui components
-│   ├── platform-card.tsx       # Platform summary card
-│   ├── platform-table.tsx      # TanStack Table with sorting/filtering
-│   ├── filter-sidebar.tsx      # Category/country/year filter panel
-│   ├── search-bar.tsx          # Global search with autocomplete
-│   ├── comparison-grid.tsx     # Side-by-side platform comparison
-│   ├── stat-card.tsx           # Metric display card
-│   ├── spec-radar-chart.tsx    # Multi-axis radar chart
-│   ├── cost-bar-chart.tsx      # Cost comparison chart
-│   ├── timeline-chart.tsx      # Service history timeline
-│   ├── operator-map.tsx        # World map with operator dots
-│   └── chat-interface.tsx      # RAG conversational search
-├── lib/
-│   ├── api-client.ts           # Typed FastAPI client (auto-generated from OpenAPI)
-│   ├── hooks.ts                # Custom React hooks
-│   ├── utils.ts                # Formatting, date, currency helpers
-│   └── store.ts                # Zustand state (selected filters, comparison list)
-├── styles/
-│   └── globals.css             # Tailwind config, custom properties
-├── public/
-│   └── og-image.png            # OpenGraph social preview
-├── next.config.ts
-├── tailwind.config.ts
-├── tsconfig.json
-└── package.json
-```
+**New components:**
 
-### V4.0.2 — Platform Explorer Page
+| Component | Description |
+|-----------|-------------|
+| `ExpenditureChart.jsx` | SIPRI military spending: line chart (time series), bar chart (top spenders), area chart (regional totals) |
+| `ArmsIndustryView.jsx` | Top 100 companies table with sparklines, revenue treemap by country |
+| `TransferMap.jsx` | Interactive world map: US arms export flows, click country for detail |
+| `TransferTimeline.jsx` | Stacked area chart: transfer volumes by recipient over time |
+| `PlatformTransfers.jsx` | Per-platform export history panel (integrated into detail view) |
+| `CompanyProfile.jsx` | Arms company detail: revenue history, rank trajectory, platform cross-references |
 
-**Features:**
-- **Filter sidebar:** Category checkboxes, country dropdown, year range slider, manufacturer search, status toggles, cost range
-- **Results grid:** Card view (image, name, category badge, country flag, key stat) or table view (TanStack Table with sortable columns)
-- **Pagination:** Infinite scroll or numbered pages
-- **URL state:** All filters reflected in URL params (shareable links)
-- **Responsive:** 1-column on mobile, 2-column on tablet, 3-4 column on desktop
+### V4.0.2 — Enhanced Explorer
 
-**Data flow:**
-1. Filter sidebar state → Zustand store
-2. TanStack Query watches store → calls `GET /api/v1/platforms` with params
-3. Server response → renders cards/table
-4. Debounced search input → same pipeline
+**Features to add to existing explorer:**
+- Year range slider for service date filtering
+- Cost range filter
+- Map view toggle (Leaflet world map with platform pins, color-coded by category)
+- Operator country filter ("Show platforms operated by Japan")
+- Improved responsive layout for mobile/tablet
 
-### V4.0.3 — Platform Detail Page
+### V4.0.3 — Enhanced Comparison Tool
 
-**Sections (scrollable single page):**
-1. **Hero header** — Name, designation, manufacturer, country flag, status badge, hero image
-2. **Quick stats row** — Speed, range, cost, crew, units built (icon + number cards)
-3. **Specifications table** — Full specs in grouped sections (dimensions, performance, propulsion, sensors, armor)
-4. **Economics panel** — Unit cost, program cost, maintenance cost (bar chart if multiple data points)
-5. **Armaments list** — Weapon name, type, quantity, description
-6. **Operators map** — World map with dots for each operating country, hover for details
-7. **Combat history timeline** — Horizontal timeline of conflicts with role annotations
-8. **Sources section** — Numbered source list with clickable URLs and access dates
-9. **Related platforms** — "Similar platforms" recommendations (same subcategory or manufacturer)
+**Upgrades to existing compare page:**
+- Radar chart overlay (speed, range, ceiling, payload, cost)
+- Color-coded spec comparison (green=best, red=worst per row)
+- Cost comparison with inflation-adjusted values from SIPRI expenditure context
+- Export comparison as PNG or PDF
 
-### V4.0.4 — Comparison Tool
+### V4.0.4 — SIPRI Analytics Dashboard
 
-**UX flow:**
-1. User adds platforms from explorer (click "Compare" button on cards)
-2. Comparison page shows 2-4 platforms side by side
-3. **Spec comparison table** — rows for each spec, columns for each platform, color-coded (green=best, red=worst)
-4. **Radar chart** — overlaid performance polygons (speed, range, ceiling, payload, cost)
-5. **Cost comparison** — bar chart with inflation-adjusted prices
-6. **Shared/unique features** — what they have in common vs. what's different
+**New analytics tabs (added to existing Stats page):**
+- **Global Expenditure** — world choropleth map, top 15 spenders bar chart, US spending over time
+- **Arms Industry** — Top 100 company rankings, revenue concentration (top 5 vs rest), country breakdown
+- **Transfer Flows** — Sankey diagram: US → recipient countries, filterable by weapon type and year
+- **Platform Economics** — cost rankings, program cost vs. unit cost scatter plot
 
-### V4.0.5 — Analytics Dashboard
-
-**Widgets:**
-- **Category breakdown** — donut chart (Air/Land/Sea/Munitions)
-- **Country distribution** — bar chart top 15 countries
-- **Era distribution** — stacked bar chart by decade
-- **Cost rankings** — top 10 most expensive platforms
-- **Status breakdown** — active vs. retired vs. in-production
-- **Conflict coverage** — which conflicts have the most platform data
-- **Data quality score** — overall database completeness meter
-
-### V4.0.6 — AI Chat Interface
+### V4.0.5 — AI Chat Interface (requires V3.1 RAG)
 
 **UX:**
-- Chat panel (slide-out or dedicated page)
-- User types natural language question
-- System shows thinking indicator
-- Response renders as formatted markdown with inline platform links
+- Chat panel (slide-out from intelligence console)
+- Natural language queries against the full database + SIPRI data
+- Response renders as formatted text with inline platform links
 - Source citations shown as clickable chips
 - Conversation history persisted in localStorage
-- Example questions shown as suggestion chips
+- Example questions as suggestion chips
 
-### V4.0.7 — Design System
+### V4.0.6 — Design System Polish
 
-**Typography:**
-- Headings: Inter or Geist Sans (bold)
-- Body: Inter or Geist Sans (regular)
-- Monospace: JetBrains Mono (specs, IDs, code)
+**Typography (already established):**
+- Headings: Barlow Condensed (bold, condensed military feel)
+- Body: system sans-serif stack
+- Monospace: Share Tech Mono (specs, IDs, data readouts)
 
-**Colors:**
-- Background: slate-950 (dark mode default), white (light)
-- Primary: blue-600
-- Category colors: Air=sky-500, Land=amber-600, Sea=blue-500, Munitions=red-500
-- Status: active=green-500, retired=gray-500, in-production=yellow-500
+**Colors (dark-only intelligence console):**
+- Background: deep slate/charcoal (no light mode)
+- Primary accent: teal/cyan blueprint glow
+- Category colors: Air=sky, Land=amber, Sea=blue, Munitions=red, Software=purple
+- Status: active=green, retired=gray, in-production=yellow
+- SIPRI data views: consistent with existing blueprint aesthetic
 
-**Components (shadcn/ui):**
-- Button, Card, Badge, Table, Dialog, Sheet, Command, Tooltip, Tabs, Accordion, Avatar, DropdownMenu, Select, Slider, Toggle
+**Target after V4.0:** Interactive SIPRI data visualizations, choropleth maps, transfer flow diagrams, enhanced explorer/compare, AI chat (post-RAG). All within existing React/Vite intelligence console.
 
 ---
 
@@ -664,7 +716,7 @@ frontend/
 | Service | Image | Port | Purpose |
 |---------|-------|------|---------|
 | `api` | `mildb-api:latest` (custom Dockerfile) | 8000 | FastAPI backend |
-| `frontend` | `mildb-frontend:latest` (Next.js standalone) | 3000 | Web application |
+| `frontend` | `mildb-frontend:latest` (Vite static build + nginx) | 80 | React SPA |
 | `postgres` | `postgres:16-alpine` | 5432 | Primary database |
 | `redis` | `redis:7-alpine` | 6379 | Query cache, session store |
 | `chromadb` | `chromadb/chroma:latest` | 8001 | Vector database |
@@ -882,7 +934,7 @@ CREATE TABLE user_reputation (
 
 ### V5.0.4 — Moderation Tools
 
-**Admin dashboard (Next.js):**
+**Admin dashboard (React):
 - `/admin/contributions` — Review queue with approve/reject/request-revision actions
 - `/admin/users` — User list with role management, ban capability
 - `/admin/audit-log` — Full audit trail of all data changes
@@ -953,6 +1005,15 @@ CREATE TABLE notifications (
 ## Complete Commit History
 
 ```
+a3091e9 docs: update README for V2.4 — 183 platforms, frontend, role classification, software category
+ff83821 fix: remove committed database file, update .gitignore
+3d5ebfb docs: update VERSION_HISTORY.md — V2.4 Software & Roles record
+0ee769f feat(v2.4): software platforms, role classification, contractor filters, military fonts/icons
+d2dfd34 docs: update VERSION_HISTORY.md — V2.3 intel console record
+713bb4a feat: blueprint intelligence console redesign — V2.3
+0c151b1 docs: update VERSION_HISTORY.md — V2.2 beta UI record
+63303cc feat: add React frontend — V2.2 beta UI
+88b35ee docs: update VERSION_HISTORY.md — V2.1 record + detailed V3-V5 plan
 32fe052 ci: add Dockerfile and GitHub Actions CI workflow
 1c572ff test: add comprehensive test suite (51 tests)
 8fcb4c4 feat: add Pydantic response models and structured error handling
@@ -978,7 +1039,7 @@ ca157a8 feat: initialize project structure and scaffolding
 ## File Inventory (current)
 
 ```
-open-military-hardware-db/           (17 commits, V2.1)
+open-military-hardware-db/           (26 commits, V2.4 + SIPRI data)
 ├── .github/workflows/ci.yml         # GitHub Actions CI
 ├── api/
 │   ├── __init__.py
@@ -986,21 +1047,37 @@ open-military-hardware-db/           (17 commits, V2.1)
 │   ├── main.py                       # FastAPI app (8 routes, middleware, error handling)
 │   └── models.py                     # Pydantic response models (11 models)
 ├── data/
-│   ├── csv/platforms.csv             # 165 rows, 48 columns (95 KB)
-│   ├── json/platforms.json           # 165 nested entries (690 KB)
-│   └── sql/
-│       ├── military_hardware.db      # SQLite database (748 KB)
-│       └── military_hardware_dump.sql # SQL text dump (490 KB)
+│   ├── csv/platforms.csv             # 183 rows, 48+ columns
+│   ├── json/platforms.json           # 183 nested entries
+│   ├── sql/
+│   │   └── military_hardware_dump.sql # SQL text dump
+│   ├── migrations/
+│   │   └── v2_4_software_roles.py    # V2.4 migration script
+│   └── sipri/                        # SIPRI external datasets (V2.5)
+│       ├── README.md                 # Attribution and data documentation
+│       ├── sipri_milex_1949_2024.xlsx       # Raw: military expenditure (852 KB)
+│       ├── sipri_top100_2002_2024.xlsx      # Raw: Top 100 arms companies (261 KB)
+│       ├── sipri_total_arms_revenue_2002_2024.xlsx  # Raw: aggregate revenue (20 KB)
+│       ├── sipri_usa_transfers_2000_2025.csv        # Raw: US arms transfers (437 KB)
+│       ├── milex_constant_usd_millions.csv         # Clean: 175 countries, 76 years
+│       ├── top100_arms_companies.csv               # Clean: 2,300 records, 271 companies
+│       └── usa_arms_transfers_2000_2025_clean.csv  # Clean: 3,006 records, 130 recipients
 ├── docker/
 │   ├── docker-compose.yml            # Multi-service dev environment
 │   └── .env.example
 ├── docs/
-│   ├── ARCHITECTURE.md               # System architecture (1,155 lines)
-│   ├── ROADMAP.md                    # Original roadmap (553 lines)
-│   ├── TECH_STACK.md                 # Technology catalog (448 lines)
-│   ├── V2_US_RESEARCH_OUTLINE.md     # V2 research plan (395 lines)
+│   ├── ARCHITECTURE.md               # System architecture
+│   ├── ROADMAP.md                    # Original roadmap
+│   ├── TECH_STACK.md                 # Technology catalog
+│   ├── V2_US_RESEARCH_OUTLINE.md     # V2 research plan
 │   ├── VERSION_HISTORY.md            # This file
 │   └── sample_queries.sql            # 20+ analytical SQL queries
+├── frontend/                         # React/Vite intelligence console (V2.2–V2.4)
+│   ├── src/                          # React components, pages, hooks
+│   ├── dist/public/                  # Production build (deployed to beta)
+│   ├── vite.config.js
+│   └── package.json
+├── images/                           # Platform reference images
 ├── schemas/
 │   ├── 001_create_tables.sql
 │   ├── 002_create_indexes.sql
@@ -1030,4 +1107,4 @@ open-military-hardware-db/           (17 commits, V2.1)
 
 ---
 
-*Last updated: March 12, 2026 — after V2.2 push*
+*Last updated: March 12, 2026 — after V2.5 SIPRI data integration*

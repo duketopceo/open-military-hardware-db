@@ -1,0 +1,2301 @@
+year,rank,company,country,arms_revenue_usd_m,total_revenue_usd_m,arms_pct_of_total
+2024,1,Lockheed Martin Corp.,United States,64650.0,71040.0,91.0
+2024,2,RTX,United States,43600.0,80740.0,54.0
+2024,3,Northrop Grumman Corp.,United States,37850.0,41030.0,92.2
+2024,4,BAE Systems,United Kingdom,33790.0,35400.0,95.5
+2024,5,General Dynamics Corp.,United States,33630.0,47720.0,70.5
+2024,6,Boeing,United States,30550.0,66520.0,45.9
+2024,7,Rostec,Russia,27120.0,38890.0,69.7
+2024,8,AVIC,China,20320.0,81290.0,25.0
+2024,9,CETC,China,18920.0,55230.0,34.3
+2024,10,L3Harris Technologies,United States,16210.0,21330.0,76.0
+2024,11,NORINCO,China,13970.0,61580.0,22.7
+2024,12,Leonardo,Italy,13830.0,19210.0,72.0
+2024,13,Airbus,Trans-European,13370.0,74890.0,17.9
+2024,14,CSSC,China,12330.0,49630.0,24.8
+2024,15,Thales,France,11800.0,22260.0,53.0
+2024,16,HII,United States,10280.0,11540.0,89.1
+2024,17,CASC,China,10230.0,34100.0,30.0
+2024,18,Leidos,United States,9370.0,16660.0,56.2
+2024,19,Amentum,United States,8330.0,13860.0,60.1
+2024,20,Rheinmetall,Germany,8240.0,10550.0,78.1
+2024,21,Hanwha Group,South Korea,7970.0,64100.0,12.4
+2024,22,Booz Allen Hamilton,United States,7810.0,11980.0,65.2
+2024,23,Rolls-Royce,United Kingdom,7200.0,22810.0,31.6
+2024,24,CACI International,United States,6510.0,8630.0,75.4
+2024,25,Elbit Systems,Israel,6280.0,6830.0,91.9
+2024,26,AECC,China,6260.0,,
+2024,27,Honeywell International,United States,6090.0,38500.0,15.8
+2024,28,Saab,Sweden,5550.0,6030.0,92.0
+2024,29,Safran,France,5320.0,29550.0,18.0
+2024,30,MBDA,Trans-European,5260.0,5310.0,99.1
+2024,31,Israel Aerospace Industries,Israel,5190.0,6110.0,84.9
+2024,32,Mitsubishi Heavy Industries,Japan,5030.0,33190.0,15.2
+2024,33,GE Aerospace,United States,4890.0,38700.0,12.6
+2024,34,Rafael,Israel,4700.0,4800.0,97.9
+2024,35,KBR,United States,4680.0,7740.0,60.5
+2024,36,Naval Group,France,4660.0,4710.0,98.9
+2024,37,EDGE Group,United Arab Emirates,4660.0,4900.0,95.1
+2024,38,CSGC,China,4580.0,44680.0,10.3
+2024,39,Babcock International Group,United Kingdom,4570.0,6170.0,74.1
+2024,40,Dassault Aviation Group,France,4290.0,6740.0,63.6
+2024,41,United Shipbuilding Corp.,Russia,4110.0,4960.0,82.9
+2024,42,KNDS,Trans-European,4110.0,4110.0,100.0
+2024,43,Science Applications International Corp.,United States,3890.0,7480.0,52.0
+2024,44,Hindustan Aeronautics,India,3810.0,4010.0,95.0
+2024,45,V2X,United States,3760.0,4320.0,87.0
+2024,46,Czechoslovak Group,Czechia,3630.0,4340.0,83.6
+2024,47,ASELSAN,Türkiye,3470.0,3660.0,94.8
+2024,48,Textron,United States,3290.0,13700.0,24.0
+2024,49,TransDigm Group,United States,3180.0,7940.0,40.1
+2024,50,NCSIST,Taiwan,3110.0,3190.0,97.5
+2024,51,PGZ,Poland,3040.0,3380.0,89.9
+2024,52,JSC Ukrainian Defense Industry,Ukraine,3010.0,3010.0,100.0
+2024,53,Fincantieri,Italy,2990.0,8790.0,34.0
+2024,54,Parker-Hannifin Corp.,United States,2740.0,19850.0,13.8
+2024,55,Kawasaki Heavy Industries,Japan,2650.0,14060.0,18.8
+2024,56,Bechtel Corp.,United States,2640.0,23000.0,11.5
+2024,57,ST Engineering,Singapore,2620.0,8440.0,31.0
+2024,58,Bharat Electronics,India,2470.0,2750.0,89.8
+2024,59,Serco Group,United Kingdom,2420.0,6760.0,35.8
+2024,60,LIG Nex1,South Korea,2400.0,2400.0,100.0
+2024,61,ThyssenKrupp,Germany,2290.0,37900.0,6.0
+2024,62,Hensoldt,Germany,2240.0,2420.0,92.6
+2024,63,Parsons Corp.,United States,2220.0,6750.0,32.9
+2024,64,Fujitsu,Japan,2190.0,23440.0,9.3
+2024,65,Turkish Aerospace Industries,Türkiye,2160.0,2700.0,80.0
+2024,66,Oshkosh Corp.,United States,2160.0,10730.0,20.1
+2024,67,Diehl,Germany,2110.0,5080.0,41.5
+2024,68,BWX Technologies,United States,2070.0,2700.0,76.7
+2024,69,Teledyne Technologies,United States,2050.0,5670.0,36.2
+2024,70,Korea Aerospace Industries,South Korea,2010.0,2640.0,76.1
+2024,71,QinetiQ,United Kingdom,1950.0,2470.0,78.9
+2024,72,Sierra Nevada Corp.,United States,1940.0,2000.0,97.0
+2024,73,Baykar,Türkiye,1900.0,2000.0,95.0
+2024,74,General Atomics,United States,1890.0,,
+2024,75,Eaton,United States,1870.0,24880.0,7.5
+2024,76,Mitsubishi Electric Corp.,Japan,1850.0,36460.0,5.1
+2024,77,SpaceX,United States,1810.0,,
+2024,78,Curtiss-Wright Corp.,United States,1790.0,3120.0,57.4
+2024,79,Kongsberg Gruppen,Norway,1780.0,4550.0,39.1
+2024,80,Hyundai Rotem,South Korea,1730.0,3210.0,53.9
+2024,81,Amphenol Corp.,United States,1670.0,15220.0,11.0
+2024,82,CNNC,China,1670.0,38750.0,4.3
+2024,83,NEC Corp.,Japan,1540.0,22600.0,6.8
+2024,84,United Launch Alliance,United States,1540.0,,
+2024,85,CAE,Canada,1460.0,3440.0,42.4
+2024,86,Moog,United States,1400.0,3610.0,38.8
+2024,87,Roketsan,Türkiye,1390.0,1390.0,100.0
+2024,88,Navantia,Spain,1270.0,1650.0,77.0
+2024,89,HEICO Corp.,United States,1250.0,3860.0,32.4
+2024,90,Melrose Industries,United Kingdom,1240.0,4430.0,28.0
+2024,91,Mazagon Dock Shipbuilders,India,1230.0,1370.0,89.8
+2024,92,ViaSat,United States,1220.0,4520.0,27.0
+2024,93,MKE,Türkiye,1210.0,1210.0,100.0
+2024,94,Howmet Aerospace,United States,1160.0,7430.0,15.6
+2024,95,Keysight Technologies,United States,1150.0,4980.0,23.1
+2024,96,DEFEND ID,Indonesia,1140.0,1640.0,69.5
+2024,97,TTM Technologies,United States,1130.0,2440.0,46.3
+2024,98,Mitre Corp.,United States,1120.0,,
+2024,99,The Aerospace Corp.,United States,1100.0,1400.0,78.6
+2024,100,Ultra Electronics Group,United Kingdom,1070.0,1240.0,86.3
+2023,1,Lockheed Martin Corp.,United States,60810.0,67570.0,90.0
+2023,2,RTX,United States,40660.0,68920.0,59.0
+2023,3,Northrop Grumman Corp.,United States,35570.0,39290.0,90.5
+2023,4,Boeing,United States,31100.0,77790.0,40.0
+2023,5,General Dynamics Corp.,United States,30200.0,42270.0,71.4
+2023,6,BAE Systems,United Kingdom,29040.0,30370.0,95.6
+2023,7,Rostec,Russia,21680.0,33350.0,65.0
+2023,8,CETC,China,21370.0,55990.0,38.2
+2023,9,AVIC,China,20850.0,83430.0,25.0
+2023,10,NORINCO,China,20560.0,76600.0,26.8
+2023,11,L3Harris Technologies,United States,14760.0,19420.0,76.0
+2023,12,Airbus,Trans-European,12890.0,70710.0,18.2
+2023,13,Leonardo,Italy,12390.0,16520.0,75.0
+2023,14,CASC,China,12350.0,41170.0,30.0
+2023,15,CSSC,China,11480.0,48950.0,23.5
+2023,16,Thales,France,10350.0,19910.0,52.0
+2023,17,HII,United States,10300.0,11450.0,90.0
+2023,18,CASIC,China,8850.0,27640.0,32.0
+2023,19,Leidos,United States,8730.0,15440.0,56.5
+2023,20,Booz Allen Hamilton,United States,6900.0,10660.0,64.7
+2023,21,Rolls-Royce,United Kingdom,6290.0,19120.0,32.9
+2023,22,AECC,China,5780.0,,
+2023,23,Amentum,United States,5760.0,7870.0,73.2
+2023,24,Hanwha Group,South Korea,5710.0,61350.0,9.3
+2023,25,CACI International,United States,5700.0,7660.0,74.4
+2023,26,Rheinmetall,Germany,5480.0,7750.0,70.7
+2023,27,Elbit Systems,Israel,5380.0,5980.0,90.0
+2023,28,CSGC,China,5130.0,43930.0,11.7
+2023,29,Honeywell International,United States,4990.0,36660.0,13.6
+2023,30,MBDA,Trans-European,4760.0,4810.0,99.0
+2023,31,General Electric,United States,4710.0,67950.0,6.9
+2023,32,Naval Group,France,4550.0,4600.0,98.9
+2023,33,Safran,France,4510.0,25060.0,18.0
+2023,34,Israel Aerospace Industries,Israel,4490.0,5330.0,84.2
+2023,35,Saab,Sweden,4360.0,4850.0,89.9
+2023,36,KBR,United States,4230.0,6960.0,60.8
+2023,37,Babcock International Group,United Kingdom,3970.0,5450.0,72.8
+2023,38,United Shipbuilding Corp.,Russia,3900.0,4700.0,83.0
+2023,39,Mitsubishi Heavy Industries,Japan,3890.0,33210.0,11.7
+2023,40,Science Applications International Corp.,United States,3870.0,7440.0,52.0
+2023,41,Rafael,Israel,3730.0,3810.0,97.9
+2023,42,Hindustan Aeronautics,India,3710.0,3910.0,94.9
+2023,43,KNDS,Trans-European,3510.0,3510.0,100.0
+2023,44,V2X,United States,3410.0,3960.0,86.1
+2023,45,Dassault Aviation Group,France,3220.0,5190.0,62.0
+2023,46,NCSIST,Taiwan,3220.0,3360.0,95.8
+2023,47,Bechtel Corp.,United States,2970.0,20600.0,14.4
+2023,48,Textron,United States,2940.0,13680.0,21.5
+2023,49,Fincantieri,Italy,2820.0,8270.0,34.1
+2023,50,Parker-Hannifin Corp.,United States,2600.0,19930.0,13.0
+2023,51,TransDigm Group,United States,2570.0,6590.0,39.0
+2023,52,ASELSAN,Türkiye,2440.0,2560.0,95.3
+2023,53,Jacobs Engineering Group,United States,2350.0,16350.0,14.4
+2023,54,Korea Aerospace Industries,South Korea,2290.0,2910.0,78.7
+2023,55,Serco Group,United Kingdom,2280.0,6640.0,34.3
+2023,56,ST Engineering,Singapore,2230.0,7520.0,29.7
+2023,57,JSC Ukrainian Defense Industry,Ukraine,2210.0,2210.0,100.0
+2023,58,General Atomics,United States,2120.0,,
+2023,59,Teledyne Technologies,United States,2110.0,5640.0,37.4
+2023,60,PGZ,Poland,2060.0,2290.0,90.0
+2023,61,Kawasaki Heavy Industries,Japan,2060.0,13190.0,15.6
+2023,62,Oshkosh Corp.,United States,2000.0,9660.0,20.7
+2023,63,ThyssenKrupp,Germany,1990.0,40550.0,4.9
+2023,64,Bharat Electronics,India,1940.0,2400.0,80.8
+2023,65,Sierra Nevada Corp.,United States,1930.0,1990.0,97.0
+2023,66,Baykar,Türkiye,1900.0,2000.0,95.0
+2023,67,BWX Technologies,United States,1890.0,2500.0,75.6
+2023,68,Fujitsu,Japan,1850.0,26790.0,6.9
+2023,69,QinetiQ,United Kingdom,1850.0,2370.0,78.1
+2023,70,Hensoldt,Germany,1850.0,2000.0,92.5
+2023,71,CNNC,China,1840.0,39680.0,4.6
+2023,72,Parsons Corp.,United States,1840.0,5440.0,33.8
+2023,73,LIG Nex1,South Korea,1770.0,1770.0,100.0
+2023,74,Eaton,United States,1710.0,23200.0,7.4
+2023,75,Turkish Aerospace Industries,Türkiye,1700.0,2210.0,76.9
+2023,76,Curtiss-Wright Corp.,United States,1580.0,2850.0,55.4
+2023,77,Kongsberg Gruppen,Norway,1500.0,3840.0,39.1
+2023,78,Amphenol Corp.,United States,1380.0,12560.0,11.0
+2023,79,CAE,Canada,1370.0,3170.0,43.2
+2023,80,Diehl,Germany,1350.0,4200.0,32.1
+2023,81,Czechoslovak Group,Czechia,1270.0,1880.0,67.6
+2023,82,Keysight Technologies,United States,1250.0,5460.0,22.9
+2023,83,Moog,United States,1240.0,3320.0,37.3
+2023,84,Hyundai Rotem,South Korea,1210.0,2750.0,44.0
+2023,85,Navantia,Spain,1190.0,1550.0,76.8
+2023,86,Melrose Industries,United Kingdom,1190.0,4160.0,28.6
+2023,87,ViaSat,United States,1140.0,4280.0,26.6
+2023,88,NEC Corp.,Japan,1140.0,24800.0,4.6
+2023,89,Fluor Corp.,United States,1110.0,15470.0,7.2
+2023,90,Mitre Corp.,United States,1100.0,2360.0,46.6
+2023,91,Mazagon Dock Shipbuilders,India,1090.0,1150.0,94.8
+2023,92,Roketsan,Türkiye,1080.0,1080.0,100.0
+2023,93,The Aerospace Corp.,United States,1060.0,1290.0,82.2
+2023,94,Mitsubishi Electric Corp.,Japan,1050.0,37500.0,2.8
+2023,95,HEICO Corp.,United States,1040.0,2970.0,35.0
+2023,96,United Launch Alliance,United States,1030.0,,
+2023,97,Howmet Aerospace,United States,1020.0,6640.0,15.4
+2023,98,NVL,Germany,1010.0,2020.0,50.0
+2023,99,TTM Technologies,United States,1010.0,2230.0,45.3
+2023,100,Arconic,United States,970.0,7840.0,12.4
+2022,1,Lockheed Martin Corp.,United States,59390.0,65980.0,90.0
+2022,2,Raytheon Technologies,United States,39570.0,67070.0,59.0
+2022,3,Northrop Grumman Corp.,United States,32300.0,36600.0,88.3
+2022,4,Boeing,United States,29300.0,66610.0,44.0
+2022,5,General Dynamics Corp.,United States,28120.0,39410.0,71.4
+2022,6,BAE Systems,United Kingdom,26480.0,27730.0,95.5
+2022,7,NORINCO,China,22060.0,82540.0,26.7
+2022,8,CETC,China,21820.0,56310.0,38.7
+2022,9,AVIC,China,20620.0,82500.0,25.0
+2022,10,Rostec,Russia,16810.0,30300.0,55.5
+2022,11,CASC,China,13960.0,44410.0,31.4
+2022,12,Leonardo,Italy,12840.0,15480.0,82.9
+2022,13,L3Harris Technologies,United States,12630.0,17060.0,74.0
+2022,14,Airbus,Trans-European,12090.0,61810.0,19.6
+2022,15,CASIC,China,11770.0,37360.0,31.5
+2022,16,CSSC,China,10440.0,51440.0,20.3
+2022,17,HII,United States,9630.0,10680.0,90.2
+2022,18,Thales,France,9420.0,18480.0,51.0
+2022,19,Leidos,United States,8240.0,14400.0,57.2
+2022,20,Booz Allen Hamilton,United States,5900.0,9260.0,63.7
+2022,21,CSGC,China,5880.0,42830.0,13.7
+2022,22,Amentum,United States,5730.0,7680.0,74.6
+2022,23,Rolls-Royce,United Kingdom,5670.0,15650.0,36.2
+2022,24,AECC,China,5140.0,,
+2022,25,Dassault Aviation Group,France,5070.0,7290.0,69.5
+2022,26,Elbit Systems,Israel,4960.0,5510.0,90.0
+2022,27,CACI International,United States,4820.0,6700.0,71.9
+2022,28,Honeywell International,United States,4630.0,35470.0,13.1
+2022,29,Rheinmetall,Germany,4550.0,6740.0,67.5
+2022,30,Naval Group,France,4530.0,4580.0,98.9
+2022,31,General Electric,United States,4410.0,76560.0,5.8
+2022,32,Peraton,United States,4410.0,7000.0,63.0
+2022,33,MBDA,Trans-European,4380.0,4430.0,98.9
+2022,34,United Shipbuilding Corp.,Russia,4280.0,5440.0,78.7
+2022,35,KBR,United States,4270.0,6560.0,65.1
+2022,36,Safran,France,4200.0,20020.0,21.0
+2022,37,Israel Aerospace Industries,Israel,4100.0,4970.0,82.5
+2022,38,Science Applications International Corp.,United States,3780.0,7700.0,49.1
+2022,39,Saab,Sweden,3700.0,4150.0,89.2
+2022,40,Babcock International Group,United Kingdom,3680.0,5470.0,67.3
+2022,41,Hindustan Aeronautics,India,3460.0,3640.0,95.1
+2022,42,Rafael,Israel,3380.0,3450.0,98.0
+2022,43,KNDS,Trans-European,3370.0,3370.0,100.0
+2022,44,Mitsubishi Heavy Industries,Japan,3360.0,32000.0,10.5
+2022,45,Textron,United States,2910.0,12870.0,22.6
+2022,46,Hanwha Aerospace,South Korea,2780.0,5560.0,50.0
+2022,47,Fincantieri,Italy,2760.0,7830.0,35.2
+2022,48,Bechtel Corp.,United States,2740.0,16800.0,16.3
+2022,49,NCSIST,Taiwan,2590.0,2860.0,90.6
+2022,50,V2X,United States,2520.0,2890.0,87.2
+2022,51,TransDigm Group,United States,2330.0,5430.0,42.9
+2022,52,Parker-Hannifin Corp.,United States,2270.0,19070.0,11.9
+2022,53,ManTech International Corp.,United States,2190.0,2690.0,81.4
+2022,54,ST Engineering,Singapore,2180.0,6550.0,33.3
+2022,55,General Atomics,United States,2140.0,,
+2022,56,Jacobs Engineering Group,United States,2090.0,14920.0,14.0
+2022,57,Oshkosh Corp.,United States,2060.0,8280.0,24.9
+2022,58,Teledyne Technologies,United States,2020.0,5460.0,37.0
+2022,59,ASELSAN,Türkiye,2020.0,2130.0,94.8
+2022,60,CNNC,China,1940.0,39050.0,5.0
+2022,61,ThyssenKrupp,Germany,1930.0,43270.0,4.5
+2022,62,Bharat Electronics,India,1920.0,2210.0,86.9
+2022,63,Serco Group,United Kingdom,1850.0,5880.0,31.5
+2022,64,Kawasaki Heavy Industries,Japan,1830.0,13140.0,13.9
+2022,65,LIG Nex1,South Korea,1720.0,1720.0,100.0
+2022,66,BWX Technologies,United States,1700.0,2230.0,76.2
+2022,67,Hensoldt,Germany,1660.0,1800.0,92.2
+2022,68,QinetiQ,United Kingdom,1620.0,1950.0,83.1
+2022,69,PGZ,Poland,1600.0,1780.0,89.9
+2022,70,Sierra Nevada Corp.,United States,1560.0,1660.0,94.0
+2022,71,Korea Aerospace Industries,South Korea,1550.0,2150.0,72.1
+2022,72,Parsons Corp.,United States,1540.0,4200.0,36.7
+2022,73,Eaton,United States,1520.0,20750.0,7.3
+2022,74,Aerojet Rocketdyne,United States,1500.0,2240.0,67.0
+2022,75,Baykar,Türkiye,1420.0,1500.0,94.7
+2022,76,CAE,Canada,1420.0,3230.0,44.0
+2022,77,Curtiss-Wright Corp.,United States,1390.0,2560.0,54.3
+2022,78,Moog,United States,1280.0,3040.0,42.1
+2022,79,Fujitsu,Japan,1270.0,28280.0,4.5
+2022,80,UkrOboronProm,Ukraine,1260.0,1280.0,98.4
+2022,81,Kongsberg Gruppen,Norway,1230.0,3310.0,37.2
+2022,82,Keysight Technologies,United States,1170.0,5420.0,21.6
+2022,83,Amphenol Corp.,United States,1140.0,12620.0,9.0
+2022,84,Turkish Aerospace Industries,Türkiye,1090.0,1480.0,73.6
+2022,85,United Launch Alliance,United States,1070.0,1160.0,92.2
+2022,86,Melrose Industries,United Kingdom,1060.0,9290.0,11.4
+2022,87,The Aerospace Corp.,United States,1040.0,1190.0,87.4
+2022,88,Fluor Corp.,United States,1030.0,13740.0,7.5
+2022,89,Mitre Corp.,United States,1020.0,2200.0,46.4
+2022,90,Navantia,Spain,990.0,1410.0,70.2
+2022,91,Austal,Australia,980.0,1100.0,89.1
+2022,92,Mazagon Dock Shipbuilders,India,970.0,1000.0,97.0
+2022,93,Mercury Systems,United States,960.0,970.0,99.0
+2022,94,Diehl,Germany,950.0,3690.0,25.7
+2022,95,Ball Corp.,United States,930.0,15350.0,6.1
+2022,96,Ultra Electronics Group,United Kingdom,930.0,1220.0,76.2
+2022,97,Howmet Aerospace,United States,920.0,5660.0,16.3
+2022,98,Roketsan,Türkiye,860.0,860.0,100.0
+2022,99,TTM Technologies,United States,860.0,2500.0,34.4
+2022,100,HEICO Corp.,United States,860.0,2210.0,38.9
+2021,1,Lockheed Martin Corp.,United States,60340.0,67040.0,90.0
+2021,2,Raytheon Technologies,United States,41850.0,64390.0,65.0
+2021,3,Boeing,United States,33420.0,62290.0,53.7
+2021,4,Northrop Grumman Corp.,United States,29880.0,35670.0,83.8
+2021,5,General Dynamics Corp.,United States,27550.0,38470.0,71.6
+2021,6,BAE Systems,United Kingdom,27080.0,28300.0,95.7
+2021,7,NORINCO,China,21570.0,81610.0,26.4
+2021,8,AVIC,China,20110.0,80450.0,25.0
+2021,9,Rostec,Russia,15550.0,28030.0,55.5
+2021,10,CETC,China,14990.0,55440.0,27.0
+2021,11,CASC,China,14260.0,43410.0,32.8
+2021,12,Leonardo,Italy,13870.0,16720.0,83.0
+2021,13,L3Harris Technologies,United States,13360.0,17810.0,75.0
+2021,14,CASIC,China,12870.0,40850.0,31.5
+2021,15,CSSC,China,10870.0,52650.0,20.6
+2021,16,Airbus,Trans-European,10850.0,61670.0,17.6
+2021,17,Thales,France,9770.0,19150.0,51.0
+2021,18,HII,United States,8570.0,9520.0,90.0
+2021,19,Leidos,United States,8030.0,13740.0,58.4
+2021,20,Dassault Aviation Group,France,6250.0,8550.0,73.1
+2021,21,CSGC,China,5910.0,44360.0,13.3
+2021,22,Rolls-Royce,United Kingdom,5650.0,15060.0,37.5
+2021,23,Booz Allen Hamilton,United States,5600.0,8360.0,67.0
+2021,24,Honeywell International,United States,5150.0,34390.0,15.0
+2021,25,Safran,France,5050.0,18040.0,28.0
+2021,26,Amentum,United States,5020.0,6400.0,78.4
+2021,27,MBDA,Trans-European,4960.0,5010.0,99.0
+2021,28,AECC,China,4940.0,,
+2021,29,Peraton,United States,4830.0,7000.0,69.0
+2021,30,Elbit Systems,Israel,4750.0,5280.0,90.0
+2021,31,Naval Group,France,4740.0,4790.0,99.0
+2021,32,Rheinmetall,Germany,4450.0,6690.0,66.5
+2021,33,CACI International,United States,4330.0,6200.0,69.8
+2021,34,General Electric,United States,4140.0,74200.0,5.6
+2021,35,Mitsubishi Heavy Industries,Japan,4110.0,35160.0,11.7
+2021,36,Saab,Sweden,4090.0,4570.0,89.5
+2021,37,United Shipbuilding Corp.,Russia,4020.0,5090.0,79.0
+2021,38,Tactical Missiles Corp.,Russia,3990.0,4070.0,98.0
+2021,39,Israel Aerospace Industries,Israel,3870.0,4480.0,86.4
+2021,40,Science Applications International Corp.,United States,3550.0,7390.0,48.0
+2021,41,KBR,United States,3530.0,7340.0,48.1
+2021,42,Textron,United States,3350.0,12380.0,27.1
+2021,43,Hindustan Aeronautics,India,3300.0,3470.0,95.1
+2021,44,Hanwha Aerospace,South Korea,3250.0,5610.0,57.9
+2021,45,KNDS,Trans-European,3190.0,3190.0,100.0
+2021,46,Babcock International Group,United Kingdom,3100.0,5640.0,55.0
+2021,47,Rafael,Israel,3010.0,3080.0,97.7
+2021,48,Fincantieri,Italy,2870.0,7880.0,36.4
+2021,49,General Atomics,United States,2570.0,,
+2021,50,Oshkosh Corp.,United States,2530.0,7740.0,32.7
+2021,51,Bechtel Corp.,United States,2470.0,17500.0,14.1
+2021,52,TransDigm Group,United States,2400.0,4800.0,50.0
+2021,53,ThyssenKrupp,Germany,2390.0,40230.0,5.9
+2021,54,ASELSAN,Türkiye,2160.0,2280.0,94.7
+2021,55,ST Engineering,Singapore,2160.0,5730.0,37.7
+2021,56,ManTech International Corp.,United States,2080.0,2550.0,81.6
+2021,57,Kawasaki Heavy Industries,Japan,2070.0,13670.0,15.1
+2021,58,Jacobs Engineering Group,United States,2040.0,14090.0,14.5
+2021,59,NCSIST,Taiwan,1970.0,2060.0,95.6
+2021,60,Serco Group,United Kingdom,1870.0,6410.0,29.2
+2021,61,Sierra Nevada Corp.,United States,1860.0,2110.0,88.2
+2021,62,Bharat Electronics,India,1830.0,2040.0,89.7
+2021,63,CNNC,China,1810.0,38250.0,4.7
+2021,64,Korea Aerospace Industries,South Korea,1800.0,2230.0,80.7
+2021,65,Parker-Hannifin Corp.,United States,1780.0,15860.0,11.2
+2021,66,BWX Technologies,United States,1650.0,2120.0,77.8
+2021,67,Teledyne Technologies,United States,1640.0,4610.0,35.6
+2021,68,Vectrus,United States,1630.0,1780.0,91.6
+2021,69,Hensoldt,Germany,1610.0,1740.0,92.5
+2021,70,LIG Nex1,South Korea,1590.0,1590.0,100.0
+2021,71,QinetiQ,United Kingdom,1510.0,1820.0,83.0
+2021,72,Aerojet Rocketdyne,United States,1470.0,2190.0,67.1
+2021,73,Eaton,United States,1460.0,19630.0,7.4
+2021,74,Fluor Corp.,United States,1430.0,12440.0,11.5
+2021,75,Parsons Corp.,United States,1430.0,3660.0,39.1
+2021,76,PGZ,Poland,1430.0,1580.0,90.5
+2021,77,Fujitsu,Japan,1410.0,32670.0,4.3
+2021,78,UkrOboronProm,Ukraine,1400.0,1480.0,94.6
+2021,79,Curtiss-Wright Corp.,United States,1380.0,2510.0,55.0
+2021,80,CAE,Canada,1280.0,2690.0,47.6
+2021,81,Moog,United States,1250.0,2850.0,43.9
+2021,82,Hanwha Corp.,South Korea,1240.0,3440.0,36.0
+2021,83,Turkish Aerospace Industries,Türkiye,1200.0,1400.0,85.7
+2021,84,Amphenol Corp.,United States,1200.0,10880.0,11.0
+2021,85,Melrose Industries,United Kingdom,1190.0,10310.0,11.5
+2021,86,Kongsberg Gruppen,Norway,1170.0,3190.0,36.7
+2021,87,Keysight Technologies,United States,1140.0,4940.0,23.1
+2021,88,Ball Corp.,United States,1090.0,13810.0,7.9
+2021,89,Navantia,Spain,1080.0,1540.0,70.1
+2021,90,Cobham,United Kingdom,1040.0,1740.0,59.8
+2021,91,The Aerospace Corp.,United States,1030.0,1160.0,88.8
+2021,92,Pacific Architects and Engineers,United States,980.0,2910.0,33.7
+2021,93,ViaSat,United States,980.0,2790.0,35.1
+2021,94,Mitre Corp.,United States,970.0,2100.0,46.2
+2021,95,Mercury Systems,United States,960.0,990.0,97.0
+2021,96,Howmet Aerospace,United States,950.0,4970.0,19.1
+2021,97,Austal,Australia,940.0,1070.0,87.9
+2021,98,Diehl,Germany,870.0,3750.0,23.2
+2021,99,Meggitt,United Kingdom,850.0,2050.0,41.5
+2021,100,Mitsubishi Electric Corp.,Japan,850.0,40780.0,2.1
+2020,1,Lockheed Martin Corp.,United States,58210.0,65400.0,89.0
+2020,2,Raytheon Technologies,United States,36780.0,56590.0,65.0
+2020,3,Boeing,United States,32740.0,58160.0,56.3
+2020,4,Northrop Grumman Corp.,United States,30420.0,36800.0,82.7
+2020,5,General Dynamics Corp.,United States,26950.0,37930.0,71.1
+2020,6,BAE Systems,United Kingdom,24640.0,25870.0,95.2
+2020,7,NORINCO,China,17930.0,71000.0,25.3
+2020,8,Rostec,Russia,17160.0,25970.0,66.1
+2020,9,AVIC,China,16980.0,67920.0,25.0
+2020,10,CETC,China,14610.0,34300.0,42.6
+2020,11,L3Harris Technologies,United States,14190.0,18190.0,78.0
+2020,12,CASC,China,13280.0,38730.0,34.3
+2020,13,Airbus,Trans-European,11990.0,56890.0,21.1
+2020,14,CASIC,China,11870.0,37690.0,31.5
+2020,15,Leonardo,Italy,11160.0,15290.0,73.0
+2020,16,CSSC,China,9370.0,46540.0,20.1
+2020,17,Thales,France,9050.0,19370.0,46.7
+2020,18,Huntington Ingalls Industries,United States,8240.0,9360.0,88.0
+2020,19,Leidos,United States,7340.0,12300.0,59.7
+2020,20,Almaz-Antey,Russia,6040.0,6570.0,91.9
+2020,21,Honeywell International,United States,5790.0,32640.0,17.7
+2020,22,Booz Allen Hamilton,United States,5500.0,7860.0,70.0
+2020,23,Rolls-Royce,United Kingdom,5380.0,15160.0,35.5
+2020,24,CSGC,China,5360.0,33860.0,15.8
+2020,25,EDGE Group,United Arab Emirates,4750.0,5000.0,95.0
+2020,26,General Electric,United States,4570.0,76620.0,6.0
+2020,27,Safran,France,4510.0,18810.0,24.0
+2020,28,Mitsubishi Heavy Industries,Japan,4420.0,34660.0,12.8
+2020,29,Rheinmetall,Germany,4240.0,6700.0,63.3
+2020,30,Elbit Systems,Israel,4240.0,4660.0,91.0
+2020,31,CACI International,United States,4190.0,6040.0,69.4
+2020,32,MBDA,Trans-European,4050.0,4090.0,99.0
+2020,33,AECC,China,3790.0,,
+2020,34,Naval Group,France,3750.0,3790.0,98.9
+2020,35,Dassault Aviation Group,France,3720.0,6260.0,59.4
+2020,36,United Shipbuilding Corp.,Russia,3700.0,4680.0,79.1
+2020,37,Textron,United States,3530.0,11650.0,30.3
+2020,38,Israel Aerospace Industries,Israel,3510.0,4180.0,84.0
+2020,39,Saab,Sweden,3390.0,3850.0,88.1
+2020,40,Science Applications International Corp.,United States,3320.0,7060.0,47.0
+2020,41,Tactical Missiles Corp.,Russia,3250.0,3320.0,97.9
+2020,42,Perspecta,United States,3160.0,4510.0,70.1
+2020,43,Amentum,United States,3090.0,4120.0,75.0
+2020,44,KBR,United States,3090.0,5770.0,53.6
+2020,45,Hindustan Aeronautics,India,2970.0,3120.0,95.2
+2020,46,Babcock International Group,United Kingdom,2850.0,5090.0,56.0
+2020,47,Hanwha Aerospace,South Korea,2810.0,4510.0,62.3
+2020,48,General Atomics,United States,2760.0,,
+2020,49,Rafael,Israel,2690.0,2750.0,97.8
+2020,50,Kawasaki Heavy Industries,Japan,2440.0,13940.0,17.5
+2020,51,Oshkosh Corp.,United States,2260.0,6860.0,32.9
+2020,52,ASELSAN,Türkiye,2200.0,2290.0,96.1
+2020,53,TransDigm Group,United States,2190.0,5100.0,42.9
+2020,54,Bechtel Corp.,United States,2170.0,17600.0,12.3
+2020,55,Fincantieri,Italy,2050.0,5920.0,34.6
+2020,56,ThyssenKrupp,Germany,2010.0,40400.0,5.0
+2020,57,Jacobs Engineering Group,United States,1990.0,13570.0,14.7
+2020,58,ManTech International Corp.,United States,1940.0,2520.0,77.0
+2020,59,Sierra Nevada Corp.,United States,1920.0,2380.0,80.7
+2020,60,Indian Ordnance Factories,India,1900.0,1940.0,97.9
+2020,61,ST Engineering,Singapore,1890.0,5220.0,36.2
+2020,62,Parker-Hannifin Corp.,United States,1840.0,14350.0,12.8
+2020,63,Korea Aerospace Industries,South Korea,1800.0,2380.0,75.6
+2020,64,Serco Group,United Kingdom,1730.0,5450.0,31.7
+2020,65,Fluor Corp.,United States,1700.0,15670.0,10.8
+2020,66,NCSIST,Taiwan,1690.0,1800.0,93.9
+2020,67,BWX Technologies,United States,1670.0,2120.0,78.8
+2020,68,Cobham,United Kingdom,1650.0,2540.0,65.0
+2020,69,DynCorp International,United States,1570.0,,
+2020,70,Melrose Industries,United Kingdom,1470.0,9900.0,14.8
+2020,71,CNNC,China,1470.0,32650.0,4.5
+2020,72,Bharat Electronics,India,1460.0,1870.0,78.1
+2020,73,Krauss-Maffei Wegmann,Germany,1410.0,1480.0,95.3
+2020,74,Parsons Corp.,United States,1380.0,3920.0,35.2
+2020,75,PGZ,Poland,1370.0,1530.0,89.5
+2020,76,LIG Nex1,South Korea,1360.0,1360.0,100.0
+2020,77,Vectrus,United States,1330.0,1400.0,95.0
+2020,78,Aerojet Rocketdyne,United States,1330.0,2070.0,64.3
+2020,79,Fujitsu,Japan,1320.0,33630.0,3.9
+2020,80,UkrOboronProm,Ukraine,1320.0,1390.0,95.0
+2020,81,Hensoldt,Germany,1270.0,1380.0,92.0
+2020,82,Curtiss-Wright Corp.,United States,1260.0,2390.0,52.7
+2020,83,QinetiQ,United Kingdom,1240.0,1640.0,75.6
+2020,84,Moog,United States,1200.0,2890.0,41.5
+2020,85,Nexter,France,1190.0,1250.0,95.2
+2020,86,Hanwha Corp.,South Korea,1170.0,3400.0,34.4
+2020,87,Pacific Architects and Engineers,United States,1090.0,2720.0,40.1
+2020,88,Ball Corp.,United States,1080.0,11780.0,9.2
+2020,89,Teledyne Technologies,United States,1050.0,3090.0,34.0
+2020,90,Amphenol Corp.,United States,1030.0,8560.0,12.0
+2020,91,United Launch Alliance,United States,1020.0,2000.0,51.0
+2020,92,Howmet Aerospace,United States,1020.0,5260.0,19.4
+2020,93,The Aerospace Corp.,United States,1000.0,1150.0,87.0
+2020,94,Meggitt,United Kingdom,980.0,2160.0,45.4
+2020,95,ViaSat,United States,960.0,2260.0,42.5
+2020,96,Keysight Technologies,United States,930.0,3130.0,29.7
+2020,97,Austal,Australia,920.0,1080.0,85.2
+2020,98,Mitsubishi Electric Corp.,Japan,920.0,39260.0,2.3
+2020,99,CAE,Canada,910.0,2220.0,41.0
+2020,100,Mercury Systems,United States,910.0,920.0,98.9
+2019,1,Lockheed Martin Corp.,United States,53230.0,59810.0,89.0
+2019,2,Boeing,United States,32450.0,76560.0,42.4
+2019,3,Northrop Grumman Corp.,United States,29220.0,33840.0,86.3
+2019,4,General Dynamics Corp.,United States,26560.0,39350.0,67.5
+2019,5,Raytheon,United States,25320.0,29180.0,86.8
+2019,6,BAE Systems,United Kingdom,22830.0,24470.0,93.3
+2019,7,Rostec,Russia,18860.0,27380.0,68.9
+2019,8,AVIC,China,16710.0,66850.0,25.0
+2019,9,NORINCO,China,15580.0,68720.0,22.7
+2019,10,CETC,China,15090.0,32950.0,45.8
+2019,11,L3Harris Technologies,United States,13920.0,18070.0,77.0
+2019,12,United Technologies Corp.,United States,13100.0,77050.0,17.0
+2019,13,CASC,China,12930.0,36210.0,35.7
+2019,14,CASIC,China,11850.0,37610.0,31.5
+2019,15,Airbus,Trans-European,11290.0,78910.0,14.3
+2019,16,Leonardo,Italy,11110.0,15430.0,72.0
+2019,17,Almaz-Antey,Russia,9420.0,9660.0,97.5
+2019,18,Thales,France,9390.0,20600.0,45.6
+2019,19,Huntington Ingalls Industries,United States,7740.0,8900.0,87.0
+2019,20,Leidos,United States,6300.0,11090.0,56.8
+2019,21,CSIC - MERGED!,China,6190.0,41260.0,15.0
+2019,22,Dassault Aviation Group,France,5760.0,8220.0,70.1
+2019,23,Rolls-Royce,United Kingdom,5530.0,19730.0,28.0
+2019,24,Honeywell International,United States,5330.0,36710.0,14.5
+2019,25,Booz Allen Hamilton,United States,5140.0,7460.0,68.9
+2019,26,EDGE Group,United Arab Emirates,4750.0,5000.0,95.0
+2019,27,CSGC,China,4610.0,28550.0,16.1
+2019,28,United Shipbuilding Corp.,Russia,4500.0,5420.0,83.0
+2019,29,General Electric,United States,4390.0,95200.0,4.6
+2019,30,Naval Group,France,4110.0,4160.0,98.8
+2019,31,MBDA,Trans-European,4100.0,4150.0,98.8
+2019,32,Elbit Systems,Israel,4060.0,4510.0,90.0
+2019,33,CACI International,United States,4000.0,5720.0,69.9
+2019,34,Rheinmetall,Germany,3940.0,7000.0,56.3
+2019,35,Mitsubishi Heavy Industries,Japan,3910.0,37070.0,10.5
+2019,36,Safran,France,3550.0,27590.0,12.9
+2019,37,Tactical Missiles Corp.,Russia,3480.0,3550.0,98.0
+2019,38,Science Applications International Corp.,United States,3320.0,6380.0,52.0
+2019,39,Textron,United States,3310.0,13630.0,24.3
+2019,40,CSSC - MERGED!,China,3310.0,16530.0,20.0
+2019,41,Babcock International Group,United Kingdom,3240.0,6220.0,52.1
+2019,42,AECC,China,3190.0,,
+2019,43,Saab,Sweden,3190.0,3750.0,85.1
+2019,44,KBR,United States,3180.0,5640.0,56.4
+2019,45,Perspecta,United States,3110.0,4500.0,69.1
+2019,46,AECOM,United States,3090.0,13640.0,22.7
+2019,47,Israel Aerospace Industries,Israel,3080.0,4110.0,74.9
+2019,48,Hindustan Aeronautics,India,2930.0,3090.0,94.8
+2019,49,General Atomics,United States,2880.0,,
+2019,50,Hanwha Aerospace,South Korea,2730.0,4520.0,60.4
+2019,51,Bechtel Corp.,United States,2670.0,21800.0,12.2
+2019,52,Rafael,Israel,2670.0,2720.0,98.2
+2019,53,Kawasaki Heavy Industries,Japan,2360.0,15060.0,15.7
+2019,54,ASELSAN,Türkiye,2170.0,2290.0,94.8
+2019,55,Fincantieri,Italy,2130.0,6550.0,32.5
+2019,56,Oshkosh Corp.,United States,2030.0,8380.0,24.2
+2019,57,ThyssenKrupp,Germany,2020.0,47020.0,4.3
+2019,58,TransDigm Group,United States,1930.0,5220.0,37.0
+2019,59,Indian Ordnance Factories,India,1900.0,1940.0,97.9
+2019,60,Fluor Corp.,United States,1810.0,17320.0,10.5
+2019,61,Cobham,United Kingdom,1800.0,2630.0,68.4
+2019,62,ManTech International Corp.,United States,1710.0,2220.0,77.0
+2019,63,ST Engineering,Singapore,1690.0,5770.0,29.3
+2019,64,Jacobs Engineering Group,United States,1680.0,12740.0,13.2
+2019,65,PGZ,Poland,1660.0,1850.0,89.7
+2019,66,Sierra Nevada Corp.,United States,1590.0,1990.0,79.9
+2019,67,Parker-Hannifin Corp.,United States,1510.0,13700.0,11.0
+2019,68,Korea Aerospace Industries,South Korea,1500.0,2670.0,56.2
+2019,69,Serco Group,United Kingdom,1490.0,4650.0,32.0
+2019,70,Krauss-Maffei Wegmann,Germany,1490.0,1570.0,94.9
+2019,71,BWX Technologies,United States,1480.0,1900.0,77.9
+2019,72,Bharat Electronics,India,1470.0,1790.0,82.1
+2019,73,United Launch Alliance,United States,1430.0,1900.0,75.3
+2019,74,NCSIST,Taiwan,1390.0,1460.0,95.2
+2019,75,Parsons Corp.,United States,1350.0,3960.0,34.1
+2019,76,Turkish Aerospace Industries,Türkiye,1330.0,1540.0,86.4
+2019,77,Vectrus,United States,1320.0,1380.0,95.7
+2019,78,UkrOboronProm,Ukraine,1310.0,1380.0,94.9
+2019,79,DynCorp International,United States,1280.0,,
+2019,80,LIG Nex1,South Korea,1250.0,1250.0,100.0
+2019,81,Aerojet Rocketdyne,United States,1230.0,1980.0,62.1
+2019,82,Nexter,France,1170.0,1230.0,95.1
+2019,83,Austal,Australia,1160.0,1450.0,80.0
+2019,84,Hensoldt,Germany,1150.0,1250.0,92.0
+2019,85,Moog,United States,1090.0,2910.0,37.5
+2019,86,Pacific Architects and Engineers,United States,1080.0,2760.0,39.1
+2019,87,Curtiss-Wright Corp.,United States,1080.0,2490.0,43.4
+2019,88,Meggitt,United Kingdom,1050.0,2910.0,36.1
+2019,89,Fujitsu,Japan,1050.0,35390.0,3.0
+2019,90,Precision Castparts Corp.,United States,1030.0,10300.0,10.0
+2019,91,Melrose Industries,United Kingdom,1030.0,14010.0,7.4
+2019,92,QinetiQ,United Kingdom,1030.0,1370.0,75.2
+2019,93,ViaSat,United States,1020.0,2310.0,44.2
+2019,94,Hyundai Heavy Industries,South Korea,1010.0,4680.0,21.6
+2019,95,CAE,Canada,1000.0,2730.0,36.6
+2019,96,Hanwha Corp.,South Korea,990.0,3810.0,26.0
+2019,97,Amphenol Corp.,United States,990.0,8230.0,12.0
+2019,98,Keysight Technologies,United States,980.0,3170.0,30.9
+2019,99,Teledyne Technologies,United States,970.0,3160.0,30.7
+2019,100,The Aerospace Corp.,United States,950.0,1100.0,86.4
+2018,1,Lockheed Martin Corp.,United States,47260.0,53760.0,87.9
+2018,2,Boeing,United States,32120.0,101130.0,31.8
+2018,3,Northrop Grumman Corp.,United States,26190.0,30100.0,87.0
+2018,4,General Dynamics Corp.,United States,24380.0,36190.0,67.4
+2018,5,Raytheon,United States,23440.0,27060.0,86.6
+2018,6,BAE Systems,United Kingdom,22320.0,23810.0,93.7
+2018,7,Rostec,Russia,18340.0,26180.0,70.1
+2018,8,AVIC,China,16580.0,66320.0,25.0
+2018,9,NORINCO,China,14880.0,68700.0,21.7
+2018,10,CASC,China,13930.0,37510.0,37.1
+2018,11,CETC,China,13860.0,33320.0,41.6
+2018,12,CASIC,China,11770.0,37430.0,31.4
+2018,13,Airbus,Trans-European,11650.0,75200.0,15.5
+2018,14,Leonardo,Italy,9820.0,14450.0,68.0
+2018,15,Almaz-Antey,Russia,9640.0,9870.0,97.7
+2018,16,Thales,France,9440.0,18770.0,50.3
+2018,17,United Technologies Corp.,United States,9310.0,66500.0,14.0
+2018,18,L3 Technologies,United States,8250.0,10240.0,80.6
+2018,19,Huntington Ingalls Industries,United States,7200.0,8180.0,88.0
+2018,20,CSIC,China,6920.0,46120.0,15.0
+2018,21,Rolls-Royce,United Kingdom,5510.0,20090.0,27.4
+2018,22,Honeywell International,United States,5430.0,41800.0,13.0
+2018,23,Leidos,United States,5000.0,10190.0,49.1
+2018,24,Harris Corp.,United States,4970.0,6800.0,73.1
+2018,25,United Shipbuilding Corp.,Russia,4700.0,5570.0,84.4
+2018,26,Booz Allen Hamilton,United States,4680.0,6700.0,69.9
+2018,27,Naval Group,France,4220.0,4260.0,99.1
+2018,28,CSGC,China,4210.0,33890.0,12.4
+2018,29,General Electric,United States,4100.0,97010.0,4.2
+2018,30,Rheinmetall,Germany,3800.0,7260.0,52.3
+2018,31,MBDA,Trans-European,3780.0,3780.0,100.0
+2018,32,Mitsubishi Heavy Industries,Japan,3620.0,36950.0,9.8
+2018,33,Tactical Missiles Corp.,Russia,3580.0,3660.0,97.8
+2018,34,Textron,United States,3500.0,13970.0,25.1
+2018,35,CACI International,United States,3490.0,4990.0,69.9
+2018,36,CSSC,China,3460.0,17290.0,20.0
+2018,37,Elbit Systems,Israel,3320.0,3680.0,90.2
+2018,38,Saab,Sweden,3240.0,3810.0,85.0
+2018,39,Safran,France,3240.0,24850.0,13.0
+2018,40,Babcock International Group,United Kingdom,3180.0,6880.0,46.2
+2018,41,AECC,China,2980.0,,
+2018,42,Dassault Aviation Group,France,2930.0,6000.0,48.8
+2018,43,Hindustan Aeronautics,India,2830.0,2980.0,95.0
+2018,44,Science Applications International Corp.,United States,2800.0,4660.0,60.1
+2018,45,AECOM,United States,2770.0,20160.0,13.7
+2018,46,General Atomics,United States,2750.0,,
+2018,47,Israel Aerospace Industries,Israel,2650.0,3680.0,72.0
+2018,48,Rockwell Collins,United States,2630.0,8670.0,30.3
+2018,49,KBR,United States,2600.0,4910.0,53.0
+2018,50,Perspecta,United States,2590.0,4030.0,64.3
+2018,51,Rafael,Israel,2540.0,2600.0,97.7
+2018,52,Fluor Corp.,United States,2390.0,18850.0,12.7
+2018,53,Hanwha Aerospace,South Korea,2320.0,4050.0,57.3
+2018,54,Kawasaki Heavy Industries,Japan,2260.0,14460.0,15.6
+2018,55,Bechtel Corp.,United States,2000.0,25500.0,7.8
+2018,56,Fincantieri,Italy,1900.0,6460.0,29.4
+2018,57,Oshkosh Corp.,United States,1850.0,7710.0,24.0
+2018,58,ASELSAN,Türkiye,1740.0,1870.0,93.0
+2018,59,Indian Ordnance Factories,India,1650.0,1680.0,98.2
+2018,60,ThyssenKrupp,Germany,1650.0,50400.0,3.3
+2018,61,Korea Aerospace Industries,South Korea,1620.0,2530.0,64.0
+2018,62,Cobham,United Kingdom,1590.0,2480.0,64.1
+2018,63,DynCorp International,United States,1560.0,2150.0,72.6
+2018,64,ST Engineering,Singapore,1540.0,4970.0,31.0
+2018,65,Parker-Hannifin Corp,United States,1470.0,14320.0,10.3
+2018,66,Krauss-Maffei Wegmann,Germany,1440.0,1510.0,95.4
+2018,67,ManTech International Corp.,United States,1430.0,1960.0,73.0
+2018,68,Jacobs Engineering Group,United States,1370.0,14990.0,9.1
+2018,69,LIG Nex1,South Korea,1340.0,1340.0,100.0
+2018,70,TransDigm Group,United States,1330.0,3810.0,34.9
+2018,71,Melrose Industries,United Kingdom,1320.0,16330.0,8.1
+2018,72,United Launch Alliance,United States,1320.0,1800.0,73.3
+2018,73,UkrOboronProm,Ukraine,1300.0,1380.0,94.2
+2018,74,Fujitsu,Japan,1270.0,35810.0,3.5
+2018,75,Serco Group,United Kingdom,1260.0,4280.0,29.4
+2018,76,PGZ,Poland,1250.0,1390.0,89.9
+2018,77,Vectrus,United States,1230.0,1280.0,96.1
+2018,78,Aerojet Rocketdyne,United States,1220.0,1900.0,64.2
+2018,79,Hensoldt,Germany,1200.0,1300.0,92.3
+2018,80,Bharat Electronics,India,1170.0,1730.0,67.6
+2018,81,Austal,Australia,1140.0,1380.0,82.6
+2018,82,Sierra Nevada Corp.,United States,1100.0,1690.0,65.1
+2018,83,Nexter,France,1080.0,1140.0,94.7
+2018,84,Turkish Aerospace Industries,Türkiye,1070.0,1250.0,85.6
+2018,85,BWX Technologies,United States,1070.0,1800.0,59.4
+2018,86,Engility,United States,1070.0,1610.0,66.5
+2018,87,IHI Corp.,Japan,1040.0,13440.0,7.7
+2018,88,NCSIST,Taiwan,1020.0,1080.0,94.4
+2018,89,Precision Castparts Corp.,United States,1020.0,10200.0,10.0
+2018,90,CAE,Canada,1010.0,2550.0,39.6
+2018,91,Pacific Architects and Engineers,United States,990.0,2610.0,37.9
+2018,92,Parsons Corp.,United States,990.0,3560.0,27.8
+2018,93,Meggitt,United Kingdom,970.0,2780.0,34.9
+2018,94,The Aerospace Corp.,United States,970.0,1050.0,92.4
+2018,95,Curtiss-Wright Corp.,United States,970.0,2410.0,40.2
+2018,96,Moog,United States,920.0,2710.0,33.9
+2018,97,Navantia,Spain,910.0,1310.0,69.5
+2018,98,QinetiQ,United Kingdom,910.0,1220.0,74.6
+2018,99,RUAG,Switzerland,900.0,2040.0,44.1
+2018,100,Teledyne Technologies,United States,880.0,2900.0,30.3
+2017,1,Lockheed Martin Corp.,United States,43880.0,49960.0,87.8
+2017,2,Boeing,United States,29450.0,93390.0,31.5
+2017,3,Northrop Grumman Corp.,United States,22370.0,25800.0,86.7
+2017,4,Raytheon,United States,22040.0,25350.0,86.9
+2017,5,BAE Systems,United Kingdom,22010.0,23370.0,94.2
+2017,6,General Dynamics Corp.,United States,20790.0,30970.0,67.1
+2017,7,Rostec,Russia,19400.0,27250.0,71.2
+2017,8,NORINCO,China,17190.0,64650.0,26.6
+2017,9,AVIC,China,14970.0,59890.0,25.0
+2017,10,CASC,China,13210.0,34250.0,38.6
+2017,11,CETC,China,12170.0,30180.0,40.3
+2017,12,CASIC,China,10530.0,34060.0,30.9
+2017,13,Airbus Group,Trans-European,9980.0,66510.0,15.0
+2017,14,Thales,France,8960.0,17720.0,50.6
+2017,15,Leonardo,Italy,8820.0,12930.0,68.2
+2017,16,Almaz-Antey,Russia,8570.0,9130.0,93.9
+2017,17,United Technologies Corp.,United States,7780.0,59840.0,13.0
+2017,18,L3 Technologies,United States,7750.0,9750.0,79.5
+2017,19,Huntington Ingalls Industries,United States,6470.0,7440.0,87.0
+2017,20,CSIC,China,6170.0,41160.0,15.0
+2017,21,Rolls-Royce,United Kingdom,5050.0,19350.0,26.1
+2017,22,United Shipbuilding Corp.,Russia,4980.0,5590.0,89.1
+2017,23,CSGC,China,4630.0,44780.0,10.3
+2017,24,CSSC,China,4520.0,22580.0,20.0
+2017,25,Honeywell International,United States,4460.0,40530.0,11.0
+2017,26,Harris Corp.,United States,4450.0,6180.0,72.0
+2017,27,Leidos,United States,4380.0,10170.0,43.1
+2017,28,Booz Allen Hamilton,United States,4320.0,5800.0,74.5
+2017,29,Naval Group,France,4110.0,4150.0,99.0
+2017,30,Textron,United States,4100.0,14200.0,28.9
+2017,31,General Electric,United States,3990.0,99300.0,4.0
+2017,32,Tactical Missiles Corp.,Russia,3600.0,3630.0,99.2
+2017,33,Mitsubishi Heavy Industries,Japan,3570.0,36670.0,9.7
+2017,34,Rheinmetall,Germany,3410.0,6620.0,51.5
+2017,35,MBDA,Trans-European,3380.0,3500.0,96.6
+2017,36,Babcock International Group,United Kingdom,3230.0,6880.0,46.9
+2017,37,Bechtel Corp.,United States,3150.0,25900.0,12.2
+2017,38,Saab,Sweden,3080.0,3670.0,83.9
+2017,39,Elbit Systems,Israel,3040.0,3380.0,89.9
+2017,40,CACI International,United States,2980.0,4470.0,66.7
+2017,41,Safran,France,2900.0,19010.0,15.3
+2017,42,Hindustan Aeronautics,India,2820.0,2970.0,94.9
+2017,43,AECC,China,2800.0,,
+2017,44,Science Applications International Corp.,United States,2760.0,4450.0,62.0
+2017,45,CSRA,United States,2580.0,5400.0,47.8
+2017,46,Israel Aerospace Industries,Israel,2460.0,3520.0,69.9
+2017,47,Orbital ATK,United States,2390.0,4760.0,50.2
+2017,48,Rockwell Collins,United States,2300.0,6820.0,33.7
+2017,49,Indian Ordnance Factories,India,2260.0,2300.0,98.3
+2017,50,General Atomics,United States,2220.0,,
+2017,51,Rafael,Israel,2200.0,2250.0,97.8
+2017,52,Kawasaki Heavy Industries,Japan,2140.0,14040.0,15.2
+2017,53,Hanwha Techwin,South Korea,2120.0,3720.0,57.0
+2017,54,Dassault Aviation Group,France,2100.0,5470.0,38.4
+2017,55,AECOM,United States,2070.0,18200.0,11.4
+2017,56,Fluor Corp.,United States,2070.0,19520.0,10.6
+2017,57,United Launch Alliance,United States,1950.0,,
+2017,58,ThyssenKrupp,Germany,1910.0,46500.0,4.1
+2017,59,Oshkosh Corp.,United States,1840.0,6830.0,26.9
+2017,60,KBR,United States,1750.0,4170.0,42.0
+2017,61,ST Engineering,Singapore,1670.0,4780.0,34.9
+2017,62,Krauss-Maffei Wegmann,Germany,1650.0,1740.0,94.8
+2017,63,Fincantieri,Italy,1650.0,5630.0,29.3
+2017,64,Cobham,United Kingdom,1580.0,2630.0,60.1
+2017,65,LIG Nex1,South Korea,1550.0,1550.0,100.0
+2017,66,IHI Corp.,Japan,1470.0,14190.0,10.4
+2017,67,ASELSAN,Türkiye,1440.0,1500.0,96.0
+2017,68,DynCorp International,United States,1420.0,2000.0,71.0
+2017,69,GKN,United Kingdom,1410.0,13350.0,10.6
+2017,70,ManTech International Corp.,United States,1360.0,1720.0,79.1
+2017,71,Bharat Electronics,India,1310.0,1550.0,84.5
+2017,72,Engility,United States,1300.0,1930.0,67.4
+2017,73,BWX Technologies,United States,1300.0,1690.0,76.9
+2017,74,Serco Group,United Kingdom,1250.0,4240.0,29.5
+2017,75,Turkish Aerospace Industries,Türkiye,1240.0,1440.0,86.1
+2017,76,Aerojet Rocketdyne,United States,1220.0,1880.0,64.9
+2017,77,TransDigm Group,United States,1190.0,3500.0,34.0
+2017,78,PGZ,Poland,1180.0,1310.0,90.1
+2017,79,Vencore,United States,1130.0,1370.0,82.5
+2017,80,Pacific Architects and Engineers,United States,1130.0,2330.0,48.5
+2017,81,Hensoldt,Germany,1120.0,1210.0,92.6
+2017,82,Fujitsu,Japan,1120.0,36560.0,3.1
+2017,83,Vectrus,United States,1120.0,1120.0,100.0
+2017,84,Austal,Australia,1030.0,1070.0,96.3
+2017,85,Sierra Nevada Corp.,United States,1020.0,1600.0,63.7
+2017,86,UkrOboronProm,Ukraine,1020.0,1070.0,95.3
+2017,87,DXC,United States,1000.0,24560.0,4.1
+2017,88,Nexter,France,960.0,1010.0,95.0
+2017,89,Embraer,Brazil,950.0,5840.0,16.3
+2017,90,Precision Castparts Corp.,United States,950.0,9520.0,10.0
+2017,91,DSME,South Korea,940.0,9780.0,9.6
+2017,92,Jacobs Engineering Group,United States,900.0,10020.0,9.0
+2017,93,Curtiss-Wright Corp.,United States,890.0,2270.0,39.2
+2017,94,The Aerospace Corp.,United States,890.0,970.0,91.8
+2017,95,Meggitt,United Kingdom,880.0,2600.0,33.8
+2017,96,Teledyne Technologies,United States,880.0,2600.0,33.8
+2017,97,RUAG,Switzerland,870.0,1990.0,43.7
+2017,98,Moog,United States,860.0,2500.0,34.4
+2017,99,Korea Aerospace Industries,South Korea,860.0,1830.0,47.0
+2017,100,Cubic Corp.,United States,850.0,1490.0,57.0
+2016,1,Lockheed Martin Corp.,United States,40630.0,47290.0,85.9
+2016,2,Boeing,United States,29510.0,94570.0,31.2
+2016,3,BAE Systems,United Kingdom,23690.0,25350.0,93.5
+2016,4,Raytheon,United States,22910.0,24070.0,95.2
+2016,5,Northrop Grumman Corp.,United States,21400.0,24510.0,87.3
+2016,6,General Dynamics Corp.,United States,19200.0,30650.0,62.6
+2016,7,NORINCO,China,17320.0,61260.0,28.3
+2016,8,AVIC,China,14290.0,55820.0,25.6
+2016,9,Rostec,Russia,13210.0,18870.0,70.0
+2016,10,CASC,China,12810.0,32060.0,40.0
+2016,11,Airbus Group,Trans-European,12520.0,73650.0,17.0
+2016,12,CETC,China,10970.0,27160.0,40.4
+2016,13,CASIC,China,9490.0,30550.0,31.1
+2016,14,Leonardo,Italy,8500.0,13280.0,64.0
+2016,15,Thales,France,8170.0,16470.0,49.6
+2016,16,CSGC,China,8080.0,71080.0,11.4
+2016,17,L3 Technologies,United States,7630.0,9210.0,82.8
+2016,18,United Technologies Corp.,United States,6870.0,57240.0,12.0
+2016,19,Huntington Ingalls Industries,United States,6720.0,7070.0,95.0
+2016,20,CSIC,China,6170.0,42110.0,14.7
+2016,21,Almaz-Antey,Russia,6110.0,6540.0,93.4
+2016,22,CSSC,China,5970.0,29850.0,20.0
+2016,23,Rolls-Royce,United Kingdom,4880.0,18600.0,26.2
+2016,24,Textron,United States,4760.0,13790.0,34.5
+2016,25,Leidos,United States,4300.0,7040.0,61.1
+2016,26,Harris Corp.,United States,4200.0,5900.0,71.2
+2016,27,United Shipbuilding Corp.,Russia,4060.0,4500.0,90.2
+2016,28,Booz Allen Hamilton,United States,4000.0,5800.0,69.0
+2016,29,Mitsubishi Heavy Industries,Japan,3670.0,35950.0,10.2
+2016,30,General Electric,United States,3590.0,123780.0,2.9
+2016,31,Honeywell International,United States,3480.0,39300.0,8.9
+2016,32,DCNS,France,3480.0,3530.0,98.6
+2016,33,Babcock International Group,United Kingdom,3380.0,7040.0,48.0
+2016,34,Rheinmetall,Germany,3260.0,6200.0,52.6
+2016,35,MBDA,Trans-European,3240.0,3270.0,99.1
+2016,36,Elbit Systems,Israel,2930.0,3260.0,89.9
+2016,37,CACI International,United States,2830.0,4360.0,64.9
+2016,38,Bechtel Corp.,United States,2820.0,32900.0,8.6
+2016,39,Saab,Sweden,2770.0,3340.0,82.9
+2016,40,Hindustan Aeronautics,India,2770.0,2920.0,94.9
+2016,41,AECC,China,2650.0,,
+2016,42,Science Applications International Corp.,United States,2630.0,4450.0,59.1
+2016,43,Israel Aerospace Industries,Israel,2610.0,3580.0,72.9
+2016,44,Safran,France,2600.0,18230.0,14.3
+2016,45,Tactical Missiles Corp.,Russia,2530.0,2580.0,98.1
+2016,46,Indian Ordnance Factories,India,2280.0,2380.0,95.8
+2016,47,CSRA,United States,2250.0,4990.0,45.1
+2016,48,Hanwha Techwin,South Korea,2250.0,3030.0,74.3
+2016,49,Rockwell Collins,United States,2230.0,5260.0,42.4
+2016,50,Kawasaki Heavy Industries,Japan,2170.0,13950.0,15.6
+2016,51,AECOM,United States,2120.0,17410.0,12.2
+2016,52,Rafael,Israel,1990.0,2030.0,98.0
+2016,53,Orbital ATK,United States,1920.0,4460.0,43.0
+2016,54,General Atomics,United States,1910.0,,
+2016,55,Fluor Corp.,United States,1900.0,19040.0,10.0
+2016,56,ThyssenKrupp,Germany,1770.0,43430.0,4.1
+2016,57,Korea Aerospace Industries,South Korea,1760.0,2540.0,69.3
+2016,58,ST Engineering,Singapore,1690.0,4840.0,34.9
+2016,59,Fincantieri,Italy,1600.0,4900.0,32.7
+2016,60,Krauss-Maffei Wegmann,Germany,1600.0,1660.0,96.4
+2016,61,LIG Nex1,South Korea,1600.0,1600.0,100.0
+2016,62,Cobham,United Kingdom,1550.0,2620.0,59.2
+2016,63,Serco Group,United Kingdom,1500.0,4710.0,31.8
+2016,64,United Launch Alliance,United States,1470.0,1800.0,81.7
+2016,65,ManTech International Corp.,United States,1460.0,1600.0,91.2
+2016,66,Dassault Aviation Group,France,1380.0,3970.0,34.8
+2016,67,IHI Corp.,Japan,1370.0,13650.0,10.0
+2016,68,Oshkosh Corp.,United States,1350.0,6280.0,21.5
+2016,69,Engility,United States,1350.0,2080.0,64.9
+2016,70,DynCorp International,United States,1280.0,1840.0,69.6
+2016,71,BWX Technologies,United States,1250.0,1550.0,80.6
+2016,72,GKN,United Kingdom,1210.0,11910.0,10.2
+2016,73,ASELSAN,Türkiye,1200.0,1250.0,96.0
+2016,74,Hewlett Packard Enterprise Company,United States,1200.0,50120.0,2.4
+2016,75,Vectrus,United States,1190.0,1190.0,100.0
+2016,76,DSME,South Korea,1190.0,11040.0,10.8
+2016,77,Aerojet Rocketdyne,United States,1180.0,1760.0,67.0
+2016,78,Bharat Electronics,India,1160.0,1310.0,88.5
+2016,79,Fujitsu,Japan,1150.0,41420.0,2.8
+2016,80,Pacific Architects and Engineers,United States,1150.0,2230.0,51.6
+2016,81,PGZ,Poland,1140.0,1270.0,89.8
+2016,82,Turkish Aerospace Industries,Türkiye,1120.0,1300.0,86.2
+2016,83,KBR,United States,1090.0,4270.0,25.5
+2016,84,UkrOboronProm,Ukraine,1060.0,1110.0,95.5
+2016,85,Jacobs Engineering Group,United States,990.0,10960.0,9.0
+2016,86,TransDigm Group,United States,950.0,3170.0,30.0
+2016,87,Austal,Australia,940.0,970.0,96.9
+2016,88,Meggitt,United Kingdom,940.0,2690.0,34.9
+2016,89,Embraer,Brazil,930.0,6220.0,15.0
+2016,90,Nexter,France,910.0,960.0,94.8
+2016,91,Sierra Nevada Corp.,United States,900.0,,
+2016,92,Precision Castparts Corp.,United States,880.0,8800.0,10.0
+2016,93,Cubic Corp.,United States,880.0,1460.0,60.3
+2016,94,The Aerospace Corp.,United States,870.0,940.0,92.6
+2016,95,Vencore,United States,860.0,1170.0,73.5
+2016,96,Mitsubishi Electric Corp.,Japan,830.0,38930.0,2.1
+2016,97,Moog,United States,830.0,2410.0,34.4
+2016,98,QinetiQ,United Kingdom,820.0,1060.0,77.4
+2016,99,RUAG,Switzerland,820.0,1910.0,42.9
+2016,100,NEC Corp.,Japan,810.0,24480.0,3.3
+2015,1,Lockheed Martin Corp.,United States,36440.0,46130.0,79.0
+2015,2,Boeing,United States,27960.0,96110.0,29.1
+2015,3,BAE Systems,United Kingdom,26470.0,27810.0,95.2
+2015,4,Raytheon,United States,21780.0,23250.0,93.7
+2015,5,Northrop Grumman Corp.,United States,20060.0,23260.0,86.2
+2015,6,General Dynamics Corp.,United States,19240.0,31470.0,61.1
+2015,7,NORINCO,China,16910.0,62160.0,27.2
+2015,8,AVIC,China,15090.0,59710.0,25.3
+2015,9,Rostec,Russia,13100.0,18710.0,70.0
+2015,10,Airbus Group,Trans-European,12860.0,71480.0,18.0
+2015,11,CASC,China,12330.0,30830.0,40.0
+2015,12,CETC,China,12000.0,26650.0,45.0
+2015,13,United Technologies Corp.,United States,9500.0,61050.0,15.6
+2015,14,Finmeccanica,Italy,9300.0,14410.0,64.5
+2015,15,CSGC,China,9080.0,70720.0,12.8
+2015,16,L-3 Communications,United States,8770.0,10470.0,83.8
+2015,17,Thales,France,8100.0,15600.0,51.9
+2015,18,Almaz-Antey,Russia,7380.0,7830.0,94.3
+2015,19,Huntington Ingalls Industries,United States,6740.0,7020.0,96.0
+2015,20,CSSC,China,6090.0,30470.0,20.0
+2015,21,CSIC,China,5320.0,35450.0,15.0
+2015,22,Rolls-Royce,United Kingdom,5230.0,20400.0,25.6
+2015,23,Harris Corp.,United States,4920.0,7470.0,65.9
+2015,24,United Shipbuilding Corp.,Russia,4140.0,4610.0,89.8
+2015,25,Booz Allen Hamilton,United States,3900.0,5400.0,72.2
+2015,26,Textron,United States,3650.0,13420.0,27.2
+2015,27,Mitsubishi Heavy Industries,Japan,3470.0,33430.0,10.4
+2015,28,Babcock International Group,United Kingdom,3400.0,7400.0,45.9
+2015,29,Honeywell International,United States,3380.0,38580.0,8.8
+2015,30,DCNS,France,3330.0,3370.0,98.8
+2015,31,Leidos,United States,3290.0,4710.0,69.9
+2015,32,MBDA,Trans-European,3160.0,3220.0,98.1
+2015,33,General Electric,United States,2990.0,117400.0,2.5
+2015,34,Rheinmetall,Germany,2870.0,5750.0,49.9
+2015,35,Science Applications International Corp.,United States,2850.0,4320.0,66.0
+2015,36,Elbit Systems,Israel,2800.0,3110.0,90.0
+2015,37,Israel Aerospace Industries,Israel,2780.0,3710.0,74.9
+2015,38,Bechtel Corp.,United States,2650.0,32300.0,8.2
+2015,39,Saab,Sweden,2640.0,3220.0,82.0
+2015,40,CACI International,United States,2440.0,3740.0,65.2
+2015,41,Tactical Missiles Corp.,Russia,2390.0,2500.0,95.6
+2015,42,Safran,France,2380.0,19310.0,12.3
+2015,43,Hindustan Aeronautics,India,2350.0,2610.0,90.0
+2015,44,Rockwell Collins,United States,2220.0,5240.0,42.4
+2015,45,Indian Ordnance Factories,India,2180.0,2260.0,96.5
+2015,46,AECOM,United States,2150.0,17990.0,12.0
+2015,47,CSRA,United States,2070.0,4250.0,48.7
+2015,48,Fluor Corp.,United States,2050.0,18110.0,11.3
+2015,49,General Atomics,United States,2020.0,,
+2015,50,Hewlett-Packard Company,United States,2000.0,103360.0,1.9
+2015,51,Rafael,Israel,1980.0,2020.0,98.0
+2015,52,Cobham,United Kingdom,1960.0,3170.0,61.8
+2015,53,ThyssenKrupp,Germany,1890.0,47440.0,4.0
+2015,54,Kawasaki Heavy Industries,Japan,1880.0,12730.0,14.8
+2015,55,Dassault Aviation Group,France,1850.0,4630.0,40.0
+2015,56,United Launch Alliance,United States,1730.0,,
+2015,57,LIG Nex1,South Korea,1680.0,1680.0,100.0
+2015,58,ST Engineering,Singapore,1660.0,4610.0,36.0
+2015,59,Korea Aerospace Industries,South Korea,1650.0,2690.0,61.3
+2015,60,Serco Group,United Kingdom,1630.0,5980.0,27.3
+2015,61,Orbital ATK,United States,1630.0,3170.0,51.4
+2015,62,Fincantieri,Italy,1500.0,4640.0,32.3
+2015,63,ManTech International Corp.,United States,1420.0,1560.0,91.0
+2015,64,Engility,United States,1300.0,2090.0,62.2
+2015,65,IHI Corp.,Japan,1270.0,12720.0,10.0
+2015,66,Aerojet Rocketdyne,United States,1220.0,1710.0,71.3
+2015,67,PGZ,Poland,1190.0,1330.0,89.5
+2015,68,Vectrus,United States,1180.0,1180.0,100.0
+2015,69,Jacobs Engineering Group,United States,1150.0,12120.0,9.5
+2015,70,BWX Technologies,United States,1150.0,1420.0,81.0
+2015,71,Nexter,France,1130.0,1190.0,95.0
+2015,72,Hanwha Techwin,South Korea,1080.0,2310.0,46.8
+2015,73,Krauss-Maffei Wegmann,Germany,1030.0,1090.0,94.5
+2015,74,Sierra Nevada Corp.,United States,1010.0,,
+2015,75,DSME,South Korea,1000.0,13650.0,7.3
+2015,76,ASELSAN,Türkiye,1000.0,1020.0,98.0
+2015,77,DynCorp International,United States,990.0,1920.0,51.6
+2015,78,Austal,Australia,980.0,1010.0,97.0
+2015,79,Bharat Electronics,India,960.0,1180.0,81.4
+2015,80,GKN,United Kingdom,950.0,11750.0,8.1
+2015,81,Oshkosh Corp.,United States,940.0,6100.0,15.4
+2015,82,Pacific Architects and Engineers,United States,940.0,2100.0,44.8
+2015,83,QinetiQ,United Kingdom,910.0,1160.0,78.4
+2015,84,Triumph Group,United States,890.0,3890.0,22.9
+2015,85,Turkish Aerospace Industries,Türkiye,890.0,1040.0,85.6
+2015,86,Moog,United States,880.0,2530.0,34.8
+2015,87,Pilatus Aircraft,Switzerland,870.0,1170.0,74.4
+2015,88,Meggitt,United Kingdom,870.0,2520.0,34.5
+2015,89,UkrOboronProm,Ukraine,870.0,920.0,94.6
+2015,90,Cubic Corp.,United States,860.0,1430.0,60.1
+2015,91,Vencore,United States,850.0,1170.0,72.6
+2015,92,Precision Castparts Corp.,United States,840.0,9300.0,9.0
+2015,93,Fujitsu,Japan,830.0,39150.0,2.1
+2015,94,The Aerospace Corp.,United States,830.0,920.0,90.2
+2015,95,Mitsubishi Electric Corp.,Japan,820.0,36300.0,2.3
+2015,96,RUAG,Switzerland,820.0,1810.0,45.3
+2015,97,Embraer,Brazil,810.0,5830.0,13.9
+2015,98,Curtiss-Wright Corp.,United States,790.0,2210.0,35.7
+2015,99,TransDigm Group,United States,790.0,2710.0,29.2
+2015,100,Teledyne Technologies,United States,780.0,2300.0,33.9
+2014,1,Lockheed Martin Corp.,United States,36480.0,45600.0,80.0
+2014,2,Boeing,United States,28300.0,90760.0,31.2
+2014,3,BAE Systems,United Kingdom,25580.0,27210.0,94.0
+2014,4,Raytheon,United States,21370.0,22830.0,93.6
+2014,5,Northrop Grumman Corp.,United States,19660.0,23980.0,82.0
+2014,6,General Dynamics Corp.,United States,18600.0,30850.0,60.3
+2014,7,Airbus Group,Trans-European,14490.0,80520.0,18.0
+2014,8,United Technologies Corp.,United States,13020.0,65100.0,20.0
+2014,9,Finmeccanica,Italy,10540.0,19460.0,54.2
+2014,10,L-3 Communications,United States,9810.0,12120.0,80.9
+2014,11,Thales,France,8600.0,17210.0,50.0
+2014,12,Huntington Ingalls Industries,United States,6680.0,6960.0,96.0
+2014,13,United Aircraft Corp.,Russia,6120.0,7680.0,79.7
+2014,14,United Shipbuilding Corp.,Russia,5990.0,7340.0,81.6
+2014,15,Rolls-Royce,United Kingdom,5430.0,24020.0,22.6
+2014,16,Almaz-Antey,Russia,5130.0,5450.0,94.1
+2014,17,Honeywell International,United States,4750.0,40310.0,11.8
+2014,18,Textron,United States,4450.0,13880.0,32.1
+2014,19,DCNS,France,3980.0,4070.0,97.8
+2014,20,Mitsubishi Heavy Industries,Japan,3920.0,37680.0,10.4
+2014,21,Booz Allen Hamilton,United States,3900.0,5280.0,73.9
+2014,22,Russian Helicopters,Russia,3890.0,4430.0,87.8
+2014,23,Babcock International Group,United Kingdom,3560.0,7420.0,48.0
+2014,24,Leidos,United States,3390.0,5060.0,67.0
+2014,25,General Electric,United States,3210.0,148590.0,2.2
+2014,26,Science Applications International Corp.,United States,3170.0,4120.0,76.9
+2014,27,MBDA,Trans-European,3120.0,3180.0,98.1
+2014,28,Harris Corp.,United States,3110.0,5080.0,61.2
+2014,29,Safran,France,3100.0,20370.0,15.2
+2014,30,AECOM Technology Corp.,United States,3080.0,19500.0,15.8
+2014,31,Rheinmetall,Germany,2970.0,6220.0,47.7
+2014,32,Israel Aerospace Industries,Israel,2880.0,3950.0,72.9
+2014,33,Tactical Missiles Corp.,Russia,2810.0,2910.0,96.6
+2014,34,Elbit Systems,Israel,2810.0,2960.0,94.9
+2014,35,CACI International,United States,2730.0,3310.0,82.5
+2014,36,Saab,Sweden,2710.0,3430.0,79.0
+2014,37,United Launch Alliance,United States,2520.0,,
+2014,38,Bechtel Corp.,United States,2480.0,37200.0,6.7
+2014,39,Alliant Techsystems,United States,2340.0,4230.0,55.3
+2014,40,Hindustan Aeronautics,India,2330.0,2560.0,91.0
+2014,41,High Precision Systems,Russia,2320.0,2320.0,100.0
+2014,42,ThyssenKrupp,Germany,2310.0,54800.0,4.2
+2014,43,Hewlett-Packard Company,United States,2300.0,111450.0,2.1
+2014,44,United Instrument Manufacturing Corp.,Russia,2290.0,2540.0,90.2
+2014,45,KRET,Russia,2240.0,2750.0,81.5
+2014,46,United Engine Corp.,Russia,2240.0,3670.0,61.0
+2014,47,Rockwell Collins,United States,2230.0,4980.0,44.8
+2014,48,Computer Sciences Corp.,United States,2230.0,12170.0,18.3
+2014,49,Exelis,United States,2230.0,3280.0,68.0
+2014,50,Serco Group,United Kingdom,2180.0,7830.0,27.8
+2014,51,Kawasaki Heavy Industries,Japan,2080.0,14030.0,14.8
+2014,52,General Atomics,United States,2060.0,,
+2014,53,ST Engineering,Singapore,2010.0,5160.0,39.0
+2014,54,Rafael,Israel,2000.0,2050.0,97.6
+2014,55,Cobham,United Kingdom,1860.0,3050.0,61.0
+2014,56,Indian Ordnance Factories,India,1800.0,1860.0,96.8
+2014,57,Oshkosh Corp.,United States,1730.0,6810.0,25.4
+2014,58,ManTech International Corp.,United States,1690.0,1770.0,95.5
+2014,59,Fincantieri,Italy,1590.0,5840.0,27.2
+2014,60,Fluor Corp.,United States,1500.0,21530.0,7.0
+2014,61,PGZ,Poland,1460.0,1620.0,90.1
+2014,62,Embraer,Brazil,1460.0,6350.0,23.0
+2014,63,UralVagonZavod,Russia,1450.0,3320.0,43.7
+2014,64,LIG Nex1,South Korea,1330.0,1330.0,100.0
+2014,65,Nexter,France,1320.0,1390.0,95.0
+2014,66,Dassault Aviation Group,France,1320.0,4880.0,27.0
+2014,67,DynCorp International,United States,1300.0,2250.0,57.8
+2014,68,Austal,Australia,1240.0,1280.0,96.9
+2014,69,The Babcock & Wilcox Companies,United States,1200.0,2920.0,41.1
+2014,70,GenCorp,United States,1180.0,1600.0,73.8
+2014,71,IHI Corp.,Japan,1180.0,13740.0,8.6
+2014,72,Vectrus,United States,1170.0,1200.0,97.5
+2014,73,Korea Aerospace Industries,South Korea,1160.0,2200.0,52.7
+2014,74,Jacobs Engineering Group,United States,1140.0,12700.0,9.0
+2014,75,ASELSAN,Türkiye,1130.0,1160.0,97.4
+2014,76,Sierra Nevada Corp.,United States,1100.0,,
+2014,77,Mitsubishi Electric Corp.,Japan,1040.0,40810.0,2.5
+2014,78,Samsung Techwin,South Korea,1030.0,2560.0,40.2
+2014,79,Triumph Group,United States,1010.0,3890.0,26.0
+2014,80,Precision Castparts Corp.,United States,1000.0,10010.0,10.0
+2014,81,QinetiQ,United Kingdom,990.0,1260.0,78.6
+2014,82,GKN,United Kingdom,990.0,12280.0,8.1
+2014,83,Pilatus Aircraft,Switzerland,960.0,1280.0,75.0
+2014,84,NEC Corp.,Japan,960.0,27710.0,3.5
+2014,85,Bharat Electronics,India,950.0,1100.0,86.4
+2014,86,Hanwha Corp.,South Korea,950.0,35570.0,2.7
+2014,87,Krauss-Maffei Wegmann,Germany,940.0,990.0,94.9
+2014,88,Engility,United States,930.0,1370.0,67.9
+2014,89,ASC,Australia,920.0,930.0,98.9
+2014,90,Kongsberg Gruppen,Norway,920.0,2640.0,34.8
+2014,91,Meggitt,United Kingdom,890.0,2560.0,34.8
+2014,92,Fujitsu,Japan,890.0,44870.0,2.0
+2014,93,Moog,United States,860.0,2650.0,32.5
+2014,94,Turkish Aerospace Industries,Türkiye,850.0,1000.0,85.0
+2014,95,UkrOboronProm,Ukraine,840.0,880.0,95.5
+2014,96,RTI Group,Russia,840.0,2110.0,39.8
+2014,97,RUAG,Switzerland,840.0,1940.0,43.3
+2014,98,CNH Industrial,Trans-European,820.0,32960.0,2.5
+2014,99,Cubic Corp.,United States,800.0,1400.0,57.1
+2014,100,Patria Group,Finland,800.0,910.0,87.9
+2013,1,Lockheed Martin Corp.,United States,35400.0,45360.0,78.0
+2013,2,Boeing,United States,30700.0,86620.0,35.4
+2013,3,BAE Systems,United Kingdom,26840.0,28000.0,95.9
+2013,4,Raytheon,United States,21950.0,23710.0,92.6
+2013,5,Northrop Grumman Corp.,United States,20200.0,24660.0,81.9
+2013,6,General Dynamics Corp.,United States,18660.0,31220.0,59.8
+2013,7,EADS,Trans-European,15740.0,78690.0,20.0
+2013,8,United Technologies Corp.,United States,11900.0,62630.0,19.0
+2013,9,Finmeccanica,Italy,10560.0,21290.0,49.6
+2013,10,Thales,France,10370.0,18850.0,55.0
+2013,11,L-3 Communications,United States,10340.0,12630.0,81.9
+2013,12,Almaz-Antey,Russia,8170.0,8550.0,95.6
+2013,13,Huntington Ingalls Industries,United States,6550.0,6820.0,96.0
+2013,14,United Aircraft Corp.,Russia,5580.0,6910.0,80.8
+2013,15,Rolls-Royce,United Kingdom,5550.0,24250.0,22.9
+2013,16,United Shipbuilding Corp.,Russia,5110.0,6390.0,80.0
+2013,17,Honeywell International,United States,4870.0,39060.0,12.5
+2013,18,DCNS,France,4380.0,4460.0,98.2
+2013,19,Textron,United States,4160.0,12100.0,34.4
+2013,20,Booz Allen Hamilton,United States,4100.0,5480.0,74.8
+2013,21,Science Applications International Corp.,United States,3930.0,5770.0,68.1
+2013,22,Leidos,United States,3930.0,5770.0,68.1
+2013,23,General Electric,United States,3850.0,146050.0,2.6
+2013,24,MBDA,Trans-European,3650.0,3720.0,98.1
+2013,25,Mitsubishi Heavy Industries,Japan,3590.0,34320.0,10.5
+2013,26,Exelis,United States,3560.0,4820.0,73.9
+2013,27,Russian Helicopters,Russia,3500.0,4340.0,80.6
+2013,28,Babcock International Group,United Kingdom,3270.0,5550.0,58.9
+2013,29,Oshkosh Corp.,United States,3050.0,7670.0,39.8
+2013,30,CACI International,United States,3030.0,3570.0,84.9
+2013,31,Safran,France,3000.0,19520.0,15.4
+2013,32,Saab,Sweden,2950.0,3650.0,80.8
+2013,33,Rheinmetall,Germany,2860.0,5870.0,48.7
+2013,34,Harris Corp.,United States,2850.0,5010.0,56.9
+2013,35,Elbit Systems,Israel,2840.0,2930.0,96.9
+2013,36,United Engine Corp.,Russia,2720.0,4990.0,54.5
+2013,37,Hewlett-Packard Company,United States,2700.0,112300.0,2.4
+2013,38,Israel Aerospace Industries,Israel,2660.0,3640.0,73.1
+2013,39,Serco Group,United Kingdom,2560.0,8040.0,31.8
+2013,40,Bechtel Corp.,United States,2470.0,39400.0,6.3
+2013,41,Computer Sciences Corp.,United States,2400.0,13000.0,18.5
+2013,42,Rockwell Collins,United States,2400.0,4610.0,52.1
+2013,43,Hindustan Aeronautics,India,2390.0,2580.0,92.6
+2013,44,URS Corp.,United States,2310.0,10990.0,21.0
+2013,45,Tactical Missiles Corp.,Russia,2230.0,2420.0,92.1
+2013,46,ManTech International Corp.,United States,2210.0,2310.0,95.7
+2013,47,General Atomics,United States,2170.0,,
+2013,48,DynCorp International,United States,2150.0,3290.0,65.3
+2013,49,Kawasaki Heavy Industries,Japan,2030.0,14200.0,14.3
+2013,50,ST Engineering,Singapore,2010.0,5300.0,37.9
+2013,51,Rafael,Israel,2010.0,2050.0,98.0
+2013,52,Fluor Corp.,United States,1970.0,27350.0,7.2
+2013,53,Dassault Aviation Group,France,1860.0,6100.0,30.5
+2013,54,KRET,Russia,1850.0,2430.0,76.1
+2013,55,Indian Ordnance Factories,India,1830.0,1920.0,95.3
+2013,56,Cobham,United Kingdom,1820.0,2800.0,65.0
+2013,57,Alliant Techsystems,United States,1820.0,4780.0,38.1
+2013,58,UkrOboronProm,Ukraine,1780.0,1870.0,95.2
+2013,59,ThyssenKrupp,Germany,1770.0,52830.0,3.4
+2013,60,Fincantieri,Italy,1660.0,5060.0,32.8
+2013,61,Korea Aerospace Industries,South Korea,1400.0,1840.0,76.1
+2013,62,IHI Corp.,Japan,1340.0,13360.0,10.0
+2013,63,United Launch Alliance,United States,1270.0,,
+2013,64,NEC Corp.,Japan,1220.0,31180.0,3.9
+2013,65,Embraer,Brazil,1210.0,6320.0,19.1
+2013,66,QinetiQ,United Kingdom,1190.0,1860.0,64.0
+2013,67,Mitsubishi Electric Corp.,Japan,1170.0,41540.0,2.8
+2013,68,GenCorp,United States,1120.0,1380.0,81.2
+2013,69,ASELSAN,Türkiye,1110.0,1140.0,97.4
+2013,70,LIG Nex1,South Korea,1100.0,1100.0,100.0
+2013,71,Kongsberg Gruppen,Norway,1080.0,2780.0,38.8
+2013,72,Triumph Group,United States,1050.0,3760.0,27.9
+2013,73,Precision Castparts Corp.,United States,1050.0,9530.0,11.0
+2013,74,Austal,Australia,1030.0,1080.0,95.4
+2013,75,Krauss-Maffei Wegmann,Germany,1010.0,1060.0,95.3
+2013,76,Patria Group,Finland,1000.0,1100.0,90.9
+2013,77,Nexter,France,990.0,1050.0,94.3
+2013,78,Engility,United States,990.0,1410.0,70.2
+2013,79,Meggitt,United Kingdom,960.0,2560.0,37.5
+2013,80,Samsung Techwin,South Korea,960.0,2660.0,36.1
+2013,81,GKN,United Kingdom,950.0,11870.0,8.0
+2013,82,Volvo Group,Sweden,950.0,41850.0,2.3
+2013,83,UralVagonZavod,Russia,940.0,2340.0,40.2
+2013,84,Hanwha Corp.,South Korea,930.0,35370.0,2.6
+2013,85,Fujitsu,Japan,920.0,48800.0,1.9
+2013,86,Chemring Group,United Kingdom,920.0,980.0,93.9
+2013,87,Jacobs Engineering Group,United States,920.0,11820.0,7.8
+2013,88,Sozvezdie,Russia,910.0,1140.0,79.8
+2013,89,Bharat Electronics,India,900.0,1050.0,85.7
+2013,90,Navantia,Spain,900.0,940.0,95.7
+2013,91,ASC,Australia,880.0,890.0,98.9
+2013,92,Moog,United States,860.0,2610.0,33.0
+2013,93,Cubic Corp.,United States,840.0,1360.0,61.8
+2013,94,RUAG,Switzerland,830.0,1890.0,43.9
+2013,95,AAR CORP,United States,830.0,2040.0,40.7
+2013,96,CNH Industrial,Trans-European,820.0,34230.0,2.4
+2013,97,Diehl,Germany,810.0,3860.0,21.0
+2013,98,Motor Sich,Ukraine,810.0,1780.0,45.5
+2013,99,CAE,Canada,800.0,2050.0,39.0
+2013,100,Alion Science & Technology Corp.,United States,800.0,850.0,94.1
+2012,1,Lockheed Martin Corp.,United States,36000.0,47180.0,76.3
+2012,2,Boeing,United States,30600.0,81700.0,37.5
+2012,3,BAE Systems,United Kingdom,27220.0,28460.0,95.6
+2012,4,Raytheon,United States,22500.0,24410.0,92.2
+2012,5,General Dynamics Corp.,United States,20940.0,31510.0,66.5
+2012,6,Northrop Grumman Corp.,United States,19400.0,25220.0,76.9
+2012,7,EADS,Trans-European,15400.0,72600.0,21.2
+2012,8,Finmeccanica,Italy,12530.0,22130.0,56.6
+2012,9,United Technologies Corp.,United States,12120.0,57710.0,21.0
+2012,10,L-3 Communications,United States,10840.0,13150.0,82.4
+2012,11,Thales,France,8880.0,18200.0,48.8
+2012,12,Science Applications International Corp.,United States,7820.0,11170.0,70.0
+2012,13,Huntington Ingalls Industries,United States,6440.0,6710.0,96.0
+2012,14,Almaz-Antey,Russia,5810.0,6190.0,93.9
+2012,15,Honeywell International,United States,5110.0,37670.0,13.6
+2012,16,Rolls-Royce,United Kingdom,4990.0,19290.0,25.9
+2012,17,United Aircraft Corp.,Russia,4380.0,5550.0,78.9
+2012,18,General Electric,United States,4100.0,147360.0,2.8
+2012,19,Oshkosh Corp.,United States,3950.0,8140.0,48.5
+2012,20,ITT Exelis,United States,3800.0,5520.0,68.8
+2012,21,MBDA,Trans-European,3790.0,3860.0,98.2
+2012,22,Computer Sciences Corp.,United States,3690.0,14990.0,24.6
+2012,23,DCNS,France,3600.0,3770.0,95.5
+2012,24,Textron,United States,3550.0,12240.0,29.0
+2012,25,Russian Helicopters,Russia,3520.0,4080.0,86.3
+2012,26,Harris Corp.,United States,3220.0,5110.0,63.0
+2012,27,Booz Allen Hamilton,United States,3200.0,5760.0,55.6
+2012,28,CACI International,United States,3180.0,3680.0,86.4
+2012,29,Babcock International Group,United Kingdom,3180.0,5120.0,62.1
+2012,30,Safran,France,3080.0,17430.0,17.7
+2012,31,Mitsubishi Heavy Industries,Japan,3010.0,35320.0,8.5
+2012,32,Rheinmetall,Germany,3000.0,6050.0,49.6
+2012,33,DynCorp International,United States,3000.0,4040.0,74.3
+2012,34,Saab,Sweden,2910.0,3540.0,82.2
+2012,35,URS Corp.,United States,2850.0,10970.0,26.0
+2012,36,Elbit Systems,Israel,2750.0,2890.0,95.2
+2012,37,Rockwell Collins,United States,2590.0,4730.0,54.8
+2012,38,Israel Aerospace Industries,Israel,2540.0,3340.0,76.0
+2012,39,Hewlett-Packard Company,United States,2500.0,120360.0,2.1
+2012,40,ManTech International Corp.,United States,2470.0,2580.0,95.7
+2012,41,United Engine Corp.,Russia,2460.0,4090.0,60.1
+2012,42,Hindustan Aeronautics,India,2430.0,2680.0,90.7
+2012,43,Kawasaki Heavy Industries,Japan,2430.0,16150.0,15.0
+2012,44,United Launch Alliance,United States,2390.0,,
+2012,45,Bechtel Corp.,United States,2340.0,37900.0,6.2
+2012,46,United Shipbuilding Corp.,Russia,2330.0,5190.0,44.9
+2012,47,Alliant Techsystems,United States,2330.0,4360.0,53.4
+2012,48,Fluor Corp.,United States,2260.0,27580.0,8.2
+2012,49,Serco Group,United Kingdom,2200.0,7760.0,28.4
+2012,50,Indian Ordnance Factories,India,2130.0,2240.0,95.1
+2012,51,General Atomics,United States,2070.0,,
+2012,52,ST Engineering,Singapore,1890.0,5110.0,37.0
+2012,53,Cobham,United Kingdom,1880.0,2760.0,68.1
+2012,54,IHI Corp.,Japan,1880.0,15740.0,11.9
+2012,55,Rafael,Israel,1700.0,1730.0,98.3
+2012,56,ThyssenKrupp,Germany,1530.0,60470.0,2.5
+2012,57,NEC Corp.,Japan,1520.0,38500.0,3.9
+2012,58,UkrOboronProm,Ukraine,1520.0,1600.0,95.0
+2012,59,Dassault Aviation Group,France,1470.0,5070.0,29.0
+2012,60,Fincantieri,Italy,1450.0,3060.0,47.4
+2012,61,Mitsubishi Electric Corp.,Japan,1420.0,44710.0,3.2
+2012,62,QinetiQ,United Kingdom,1410.0,2100.0,67.1
+2012,63,KRET,Russia,1380.0,1970.0,70.1
+2012,64,Engility,United States,1250.0,1660.0,75.3
+2012,65,Kongsberg Gruppen,Norway,1180.0,2690.0,43.9
+2012,66,UralVagonZavod,Russia,1130.0,3140.0,36.0
+2012,67,Navantia,Spain,1130.0,1260.0,89.7
+2012,68,Fujitsu,Japan,1130.0,54920.0,2.1
+2012,69,Chemring Group,United Kingdom,1120.0,1170.0,95.7
+2012,70,Samsung Techwin,South Korea,1080.0,2600.0,41.5
+2012,71,Embraer,Brazil,1060.0,6240.0,17.0
+2012,72,Korea Aerospace Industries,South Korea,1030.0,1360.0,75.7
+2012,73,Triumph Group,United States,1030.0,3700.0,27.8
+2012,74,Jacobs Engineering Group,United States,1000.0,10890.0,9.2
+2012,75,Navistar,United States,1000.0,12700.0,7.9
+2012,76,Precision Castparts Corp.,United States,1000.0,8350.0,12.0
+2012,77,Tactical Missiles Corp.,Russia,990.0,1040.0,95.2
+2012,78,Meggitt,United Kingdom,990.0,2540.0,39.0
+2012,79,Krauss-Maffei Wegmann,Germany,980.0,1030.0,95.1
+2012,80,Bharat Electronics,India,970.0,1130.0,85.8
+2012,81,ASC,Australia,950.0,950.0,100.0
+2012,82,RUAG,Switzerland,930.0,1860.0,50.0
+2012,83,Sierra Nevada Corp.,United States,910.0,1200.0,75.8
+2012,84,Nexter,France,910.0,950.0,95.8
+2012,85,GKN,United Kingdom,900.0,10910.0,8.2
+2012,86,Patria Group,Finland,890.0,980.0,90.8
+2012,87,Austal,Australia,880.0,930.0,94.6
+2012,88,KBR,United States,880.0,7920.0,11.1
+2012,89,Cubic Corp.,United States,870.0,1380.0,63.0
+2012,90,ASELSAN,Türkiye,860.0,910.0,94.5
+2012,91,LIG Nex1,South Korea,850.0,850.0,100.0
+2012,92,CAE,Canada,840.0,2110.0,39.8
+2012,93,AAR CORP,United States,840.0,2140.0,39.3
+2012,94,GenCorp,United States,830.0,1000.0,83.0
+2012,95,Bumar Group,Poland,820.0,1030.0,79.6
+2012,96,Ultra Electronics Group,United Kingdom,820.0,1200.0,68.3
+2012,97,Moog,United States,820.0,2470.0,33.2
+2012,98,Diehl,Germany,800.0,3640.0,22.0
+2012,99,RTI Group,Russia,800.0,2400.0,33.3
+2012,100,The Aerospace Corp.,United States,800.0,900.0,88.9
+2011,1,Lockheed Martin Corp.,United States,36270.0,46500.0,78.0
+2011,2,Boeing,United States,30300.0,68740.0,44.1
+2011,3,BAE Systems,United Kingdom,29510.0,30640.0,96.3
+2011,4,General Dynamics Corp.,United States,23330.0,32680.0,71.4
+2011,5,Raytheon,United States,22900.0,24790.0,92.4
+2011,6,Northrop Grumman Corp.,United States,20340.0,26410.0,77.0
+2011,7,EADS,Trans-European,16400.0,68330.0,24.0
+2011,8,Finmeccanica,Italy,14560.0,24070.0,60.5
+2011,9,L-3 Communications,United States,12520.0,15170.0,82.5
+2011,10,United Technologies Corp.,United States,11150.0,55750.0,20.0
+2011,11,Thales,France,9480.0,18110.0,52.3
+2011,12,Science Applications International Corp.,United States,7940.0,10590.0,75.0
+2011,13,Huntington Ingalls Industries,United States,6380.0,6580.0,97.0
+2011,14,Honeywell International,United States,5280.0,36530.0,14.5
+2011,15,United Aircraft Corp.,Russia,4850.0,5500.0,88.2
+2011,16,Rolls-Royce,United Kingdom,4730.0,18070.0,26.2
+2011,17,Oshkosh Corp.,United States,4370.0,7540.0,58.0
+2011,18,ITT Exelis,United States,4150.0,5840.0,71.1
+2011,19,MBDA,Trans-European,4100.0,4170.0,98.3
+2011,20,General Electric,United States,4100.0,147300.0,2.8
+2011,21,Almaz-Antey,Russia,3990.0,4340.0,91.9
+2011,22,Computer Sciences Corp.,United States,3860.0,15360.0,25.1
+2011,23,Mitsubishi Heavy Industries,Japan,3620.0,35350.0,10.2
+2011,24,DCNS,France,3610.0,3610.0,100.0
+2011,25,Textron,United States,3500.0,11280.0,31.0
+2011,26,Harris Corp.,United States,3400.0,5930.0,57.3
+2011,27,CACI International,United States,3380.0,3770.0,89.7
+2011,28,United Shipbuilding Corp.,Russia,3380.0,4220.0,80.1
+2011,29,Babcock International Group,United Kingdom,3220.0,5200.0,61.9
+2011,30,Booz Allen Hamilton,United States,3100.0,5860.0,52.9
+2011,31,Safran,France,3090.0,16320.0,18.9
+2011,32,Saab,Sweden,3080.0,3620.0,85.1
+2011,33,Rheinmetall,Germany,2980.0,6190.0,48.1
+2011,34,Hewlett-Packard Company,United States,2930.0,127250.0,2.3
+2011,35,Rockwell Collins,United States,2810.0,4810.0,58.4
+2011,36,Hindustan Aeronautics,India,2790.0,3040.0,91.8
+2011,37,ManTech International Corp.,United States,2770.0,2870.0,96.5
+2011,38,Russian Helicopters,Russia,2740.0,3540.0,77.4
+2011,39,DynCorp International,United States,2690.0,3720.0,72.3
+2011,40,Elbit Systems,Israel,2680.0,2820.0,95.0
+2011,41,URS Corp.,United States,2670.0,9550.0,28.0
+2011,42,Alliant Techsystems,United States,2550.0,4610.0,55.3
+2011,43,Indian Ordnance Factories,India,2520.0,2660.0,94.7
+2011,44,Israel Aerospace Industries,Israel,2500.0,3430.0,72.9
+2011,45,Goodrich Corp.,United States,2420.0,8080.0,30.0
+2011,46,Bechtel Corp.,United States,2330.0,32900.0,7.1
+2011,47,Fluor Corp.,United States,2260.0,23380.0,9.7
+2011,48,Kawasaki Heavy Industries,Japan,2250.0,16340.0,13.8
+2011,49,Serco Group,United Kingdom,2230.0,7440.0,30.0
+2011,50,KBR,United States,2180.0,9260.0,23.5
+2011,51,Cobham,United Kingdom,2160.0,2970.0,72.7
+2011,52,ThyssenKrupp,Germany,2080.0,68250.0,3.0
+2011,53,Navistar,United States,2000.0,13960.0,14.3
+2011,54,ST Engineering,Singapore,1950.0,4760.0,41.0
+2011,55,Rafael,Israel,1940.0,1980.0,98.0
+2011,56,General Atomics,United States,1710.0,,
+2011,57,Mitsubishi Electric Corp.,Japan,1670.0,45600.0,3.7
+2011,58,Navantia,Spain,1650.0,1740.0,94.8
+2011,59,IHI Corp.,Japan,1610.0,15310.0,10.5
+2011,60,QinetiQ,United Kingdom,1580.0,2360.0,66.9
+2011,61,Kongsberg Gruppen,Norway,1440.0,2700.0,53.3
+2011,62,Fincantieri,Italy,1390.0,3310.0,42.0
+2011,63,UkrOboronProm,Ukraine,1340.0,1400.0,95.7
+2011,64,United Engine Corp.,Russia,1330.0,2220.0,59.9
+2011,65,Tactical Missiles Corp.,Russia,1260.0,1320.0,95.5
+2011,66,Fujitsu,Japan,1250.0,55980.0,2.2
+2011,67,Krauss-Maffei Wegmann,Germany,1240.0,1310.0,94.7
+2011,68,Dassault Aviation Group,France,1240.0,4590.0,27.0
+2011,69,NEC Corp.,Japan,1140.0,38050.0,3.0
+2011,70,AM General,United States,1130.0,,
+2011,71,Nexter,France,1120.0,1180.0,94.9
+2011,72,Samsung Techwin,South Korea,1100.0,2660.0,41.4
+2011,73,Triumph Group,United States,1090.0,3410.0,32.0
+2011,74,Chemring Group,United Kingdom,1080.0,1190.0,90.8
+2011,75,Jacobs Engineering Group,United States,1050.0,10380.0,10.1
+2011,76,RUAG,Switzerland,1040.0,2000.0,52.0
+2011,77,Diehl,Germany,1010.0,4070.0,24.8
+2011,78,Moog,United States,1000.0,2330.0,42.9
+2011,79,GKN,United Kingdom,970.0,9790.0,9.9
+2011,80,Meggitt,United Kingdom,940.0,2330.0,40.3
+2011,81,AAR CORP,United States,930.0,2070.0,44.9
+2011,82,Bharat Electronics,India,920.0,1220.0,75.4
+2011,83,CAE,Canada,900.0,1840.0,48.9
+2011,84,UralVagonZavod,Russia,900.0,3000.0,30.0
+2011,85,Korea Aerospace Industries,South Korea,890.0,1160.0,76.7
+2011,86,Cubic Corp.,United States,870.0,1290.0,67.4
+2011,87,Precision Castparts Corp.,United States,870.0,7200.0,12.1
+2011,88,Embraer,Brazil,860.0,5890.0,14.6
+2011,89,Ultra Electronics Group,United Kingdom,860.0,1170.0,73.5
+2011,90,ASELSAN,Türkiye,850.0,900.0,94.4
+2011,91,Plasan Sasa,Israel,840.0,890.0,94.4
+2011,92,The Aerospace Corp.,United States,840.0,940.0,89.4
+2011,93,Doosan,South Korea,830.0,22550.0,3.7
+2011,94,Bumar Group,Poland,830.0,970.0,85.6
+2011,95,ASC,Australia,830.0,830.0,100.0
+2011,96,Curtiss-Wright Corp.,United States,830.0,2020.0,41.1
+2011,97,LIG Nex1,South Korea,820.0,820.0,100.0
+2011,98,Mitre Corp.,United States,790.0,1390.0,56.8
+2011,99,United Launch Alliance,United States,780.0,,
+2011,100,Patria Group,Finland,770.0,860.0,89.5
+2010,1,Lockheed Martin Corp.,United States,35730.0,45800.0,78.0
+2010,2,BAE Systems,United Kingdom,33180.0,34450.0,96.3
+2010,3,Boeing,United States,30000.0,64310.0,46.6
+2010,4,Northrop Grumman Corp.,United States,26800.0,34760.0,77.1
+2010,5,General Dynamics Corp.,United States,23940.0,32470.0,73.7
+2010,6,Raytheon,United States,22980.0,25180.0,91.3
+2010,7,EADS,Trans-European,16360.0,60600.0,27.0
+2010,8,Finmeccanica,Italy,14410.0,24760.0,58.2
+2010,9,L-3 Communications,United States,13070.0,15680.0,83.4
+2010,10,United Technologies Corp.,United States,10980.0,52280.0,21.0
+2010,11,Thales,France,9950.0,17380.0,57.2
+2010,12,Science Applications International Corp.,United States,8230.0,11120.0,74.0
+2010,13,Oshkosh Corp.,United States,7080.0,9770.0,72.5
+2010,14,Honeywell International,United States,5400.0,32350.0,16.7
+2010,15,Mitsubishi Heavy Industries,Japan,4560.0,33080.0,13.8
+2010,16,Computer Sciences Corp.,United States,4500.0,16040.0,28.1
+2010,17,Rolls-Royce,United Kingdom,4330.0,16790.0,25.8
+2010,18,General Electric,United States,4300.0,150210.0,2.9
+2010,19,ITT Corporation,United States,4000.0,11000.0,36.4
+2010,20,Almaz-Antey,Russia,3950.0,4440.0,89.0
+2010,21,United Aircraft Corp.,Russia,3810.0,4630.0,82.3
+2010,22,MBDA,Trans-European,3640.0,3710.0,98.1
+2010,23,Textron,United States,3600.0,10530.0,34.2
+2010,24,United Shipbuilding Corp.,Russia,3360.0,4480.0,75.0
+2010,25,DCNS,France,3320.0,3320.0,100.0
+2010,26,KBR,United States,3310.0,10100.0,32.8
+2010,27,CACI International,United States,3230.0,3580.0,90.2
+2010,28,URS Corp.,United States,3030.0,9180.0,33.0
+2010,29,Booz Allen Hamilton,United States,3000.0,5590.0,53.7
+2010,30,Harris Corp.,United States,3000.0,5420.0,55.4
+2010,31,Hewlett-Packard Company,United States,2890.0,126030.0,2.3
+2010,32,Rockwell Collins,United States,2860.0,4670.0,61.2
+2010,33,Safran,France,2860.0,14250.0,20.1
+2010,34,Saab,Sweden,2780.0,3390.0,82.0
+2010,35,Alliant Techsystems,United States,2780.0,4840.0,57.4
+2010,36,Babcock International Group,United Kingdom,2770.0,4470.0,62.0
+2010,37,Rheinmetall,Germany,2660.0,5280.0,50.4
+2010,38,Hindustan Aeronautics,India,2620.0,2870.0,91.3
+2010,39,ManTech International Corp.,United States,2500.0,2600.0,96.2
+2010,40,Elbit Systems,Israel,2480.0,2610.0,95.0
+2010,41,Israel Aerospace Industries,Israel,2400.0,3150.0,76.2
+2010,42,Indian Ordnance Factories,India,2330.0,2450.0,95.1
+2010,43,Cobham,United Kingdom,2260.0,2940.0,76.9
+2010,44,Goodrich Corp.,United States,2230.0,6970.0,32.0
+2010,45,DynCorp International,United States,2210.0,3390.0,65.2
+2010,46,Bechtel Corp.,United States,2180.0,27900.0,7.8
+2010,47,Serco Group,United Kingdom,2130.0,6690.0,31.8
+2010,48,Kawasaki Heavy Industries,Japan,2080.0,13980.0,14.9
+2010,49,Navantia,Spain,2010.0,2100.0,95.7
+2010,50,QinetiQ,United Kingdom,1920.0,2630.0,73.0
+2010,51,AM General,United States,1900.0,,
+2010,52,Navistar,United States,1800.0,12150.0,14.8
+2010,53,ST Engineering,Singapore,1800.0,4390.0,41.0
+2010,54,Rafael,Israel,1780.0,1810.0,98.3
+2010,55,Mitsubishi Electric Corp.,Japan,1670.0,41530.0,4.0
+2010,56,Krauss-Maffei Wegmann,Germany,1610.0,1690.0,95.3
+2010,57,Russian Helicopters,Russia,1580.0,2210.0,71.5
+2010,58,Kongsberg Gruppen,Norway,1500.0,2560.0,58.6
+2010,59,Nexter,France,1430.0,1430.0,100.0
+2010,60,IHI Corp.,Japan,1410.0,13530.0,10.4
+2010,61,General Atomics,United States,1410.0,,
+2010,62,ThyssenKrupp,Germany,1340.0,56450.0,2.4
+2010,63,Agility,Kuwait,1310.0,5600.0,23.4
+2010,64,Fluor Corp.,United States,1300.0,20850.0,6.2
+2010,65,Dassault Aviation Group,France,1270.0,5550.0,22.9
+2010,66,United Engine Corp.,Russia,1250.0,2810.0,44.5
+2010,67,Tactical Missiles Corp.,Russia,1100.0,1130.0,97.3
+2010,68,Jacobs Engineering Group,United States,1090.0,9920.0,11.0
+2010,69,Triumph Group,United States,1080.0,2910.0,37.1
+2010,70,Diehl,Germany,1070.0,3610.0,29.6
+2010,71,GKN,United Kingdom,1050.0,8390.0,12.5
+2010,72,Samsung Techwin,South Korea,1010.0,3250.0,31.1
+2010,73,Bharat Electronics,India,1000.0,1230.0,81.3
+2010,74,NEC Corp.,Japan,980.0,35490.0,2.8
+2010,75,Moog,United States,960.0,2110.0,45.5
+2010,76,Fincantieri,Italy,940.0,3810.0,24.7
+2010,77,Chemring Group,United Kingdom,890.0,920.0,96.7
+2010,78,Bumar Group,Poland,880.0,1040.0,84.6
+2010,79,Ultra Electronics Group,United Kingdom,880.0,1100.0,80.0
+2010,80,CAE,Canada,840.0,1580.0,53.2
+2010,81,RUAG,Switzerland,830.0,1720.0,48.3
+2010,82,LIG Nex1,South Korea,820.0,820.0,100.0
+2010,83,Shaw Group,United States,810.0,6980.0,11.6
+2010,84,The Aerospace Corp.,United States,810.0,910.0,89.0
+2010,85,Precision Castparts Corp.,United States,810.0,6210.0,13.0
+2010,86,Cubic Corp.,United States,810.0,1190.0,68.1
+2010,87,Mitre Corp.,United States,790.0,1310.0,60.3
+2010,88,Meggitt,United Kingdom,780.0,1800.0,43.3
+2010,89,Curtiss-Wright Corp.,United States,780.0,1860.0,41.9
+2010,90,Alion Science & Technology Corp.,United States,770.0,830.0,92.8
+2010,91,ASELSAN,Türkiye,760.0,790.0,96.2
+2010,92,Korea Aerospace Industries,South Korea,740.0,1100.0,67.3
+2010,93,UralVagonZavod,Russia,730.0,1810.0,40.3
+2010,94,Hawker Beechcraft Corp.,United States,700.0,2810.0,24.9
+2010,95,Doosan,South Korea,690.0,19880.0,3.5
+2010,96,Esterline Technologies Corp.,United States,690.0,1530.0,45.1
+2010,97,Salut,Russia,690.0,720.0,95.8
+2010,98,VSE Corp.,United States,680.0,870.0,78.2
+2010,99,Embraer,Brazil,670.0,5360.0,12.5
+2010,100,Teledyne Technologies,United States,670.0,1640.0,40.9
+2009,1,Lockheed Martin Corp.,United States,33430.0,45190.0,74.0
+2009,2,Boeing,United States,31900.0,68280.0,46.7
+2009,3,BAE Systems,United Kingdom,31740.0,33410.0,95.0
+2009,4,Northrop Grumman Corp.,United States,26000.0,33760.0,77.0
+2009,5,General Dynamics Corp.,United States,23380.0,31980.0,73.1
+2009,6,Raytheon,United States,23080.0,24880.0,92.8
+2009,7,EADS,Trans-European,15930.0,59480.0,26.8
+2009,8,Finmeccanica,Italy,13280.0,25240.0,52.6
+2009,9,L-3 Communications,United States,13010.0,15620.0,83.3
+2009,10,United Technologies Corp.,United States,10640.0,50650.0,21.0
+2009,11,Thales,France,10200.0,17890.0,57.0
+2009,12,Science Applications International Corp.,United States,8030.0,10850.0,74.0
+2009,13,Honeywell International,United States,5380.0,29950.0,18.0
+2009,14,KBR,United States,4990.0,12110.0,41.2
+2009,15,ITT Corporation,United States,4730.0,10910.0,43.4
+2009,16,General Electric,United States,4700.0,156780.0,3.0
+2009,17,Computer Sciences Corp.,United States,4590.0,16130.0,28.5
+2009,18,Rolls-Royce,United Kingdom,4260.0,15750.0,27.0
+2009,19,Mitsubishi Heavy Industries,Japan,4170.0,31430.0,13.3
+2009,20,AM General,United States,3720.0,,
+2009,21,MBDA,Trans-European,3610.0,3610.0,100.0
+2009,22,DCNS,France,3340.0,3340.0,100.0
+2009,23,Textron,United States,3260.0,10500.0,31.0
+2009,24,Almaz-Antey,Russia,3250.0,3660.0,88.8
+2009,25,Alliant Techsystems,United States,2810.0,4810.0,58.4
+2009,26,Navistar,United States,2800.0,11570.0,24.2
+2009,27,CACI International,United States,2790.0,3150.0,88.6
+2009,28,URS Corp.,United States,2780.0,9250.0,30.1
+2009,29,Oshkosh Corp.,United States,2770.0,5180.0,53.5
+2009,30,Safran,France,2750.0,14510.0,19.0
+2009,31,United Aircraft Corp.,Russia,2710.0,3110.0,87.1
+2009,32,Elbit Systems,Israel,2700.0,2830.0,95.4
+2009,33,Harris Corp.,United States,2700.0,4730.0,57.1
+2009,34,DynCorp International,United States,2650.0,3570.0,74.2
+2009,35,Saab,Sweden,2640.0,3220.0,82.0
+2009,36,Booz Allen Hamilton,United States,2640.0,5120.0,51.6
+2009,37,Rheinmetall,Germany,2640.0,4750.0,55.6
+2009,38,Rockwell Collins,United States,2580.0,4470.0,57.7
+2009,39,Agility,Kuwait,2490.0,5930.0,42.0
+2009,40,Cobham,United Kingdom,2260.0,2930.0,77.1
+2009,41,Hindustan Aeronautics,India,2170.0,2370.0,91.6
+2009,42,Serco Group,United Kingdom,2110.0,6190.0,34.1
+2009,43,Israel Aerospace Industries,Israel,2030.0,2900.0,70.0
+2009,44,Babcock International Group,United Kingdom,2010.0,2950.0,68.1
+2009,45,Goodrich Corp.,United States,2010.0,6690.0,30.0
+2009,46,ThyssenKrupp,Germany,1980.0,56340.0,3.5
+2009,47,Navantia,Spain,1980.0,2200.0,90.0
+2009,48,Bechtel Corp.,United States,1920.0,30800.0,6.2
+2009,49,ManTech International Corp.,United States,1920.0,2020.0,95.0
+2009,50,United Shipbuilding Corp.,Russia,1810.0,2260.0,80.1
+2009,51,QinetiQ,United Kingdom,1770.0,2520.0,70.2
+2009,52,Indian Ordnance Factories,India,1690.0,1800.0,93.9
+2009,53,Krauss-Maffei Wegmann,Germany,1630.0,1720.0,94.8
+2009,54,Hewlett-Packard Company,United States,1580.0,114550.0,1.4
+2009,55,Rafael,Israel,1570.0,1600.0,98.1
+2009,56,Mitsubishi Electric Corp.,Japan,1550.0,35840.0,4.3
+2009,57,ST Engineering,Singapore,1450.0,3810.0,38.1
+2009,58,Dassault Aviation Group,France,1360.0,4750.0,28.6
+2009,59,VT Group,United Kingdom,1240.0,1950.0,63.6
+2009,60,Nexter,France,1230.0,1230.0,100.0
+2009,61,Jacobs Engineering Group,United States,1130.0,11470.0,9.9
+2009,62,General Atomics,United States,1130.0,1500.0,75.3
+2009,63,Kawasaki Heavy Industries,Japan,1110.0,12540.0,8.9
+2009,64,GKN,United Kingdom,1110.0,6940.0,16.0
+2009,65,Shaw Group,United States,1100.0,7280.0,15.1
+2009,66,Kongsberg Gruppen,Norway,1090.0,2200.0,49.5
+2009,67,Diehl,Germany,1070.0,3060.0,35.0
+2009,68,Force Protection,United States,980.0,980.0,100.0
+2009,69,Indra,Spain,940.0,3490.0,26.9
+2009,70,Samsung Techwin,South Korea,930.0,2070.0,44.9
+2009,71,Moog,United States,920.0,1850.0,49.7
+2009,72,Bharat Electronics,India,920.0,1080.0,85.2
+2009,73,Russian Helicopters,Russia,890.0,1490.0,59.7
+2009,74,Tactical Missiles Corp.,Russia,880.0,960.0,91.7
+2009,75,Chugach Alaska Corporation,United States,880.0,1110.0,79.3
+2009,76,Precision Castparts Corp.,United States,880.0,5490.0,16.0
+2009,77,NEC Corp.,Japan,860.0,38290.0,2.2
+2009,78,Fincantieri,Italy,860.0,4540.0,18.9
+2009,79,VSE Corp.,United States,840.0,1020.0,82.4
+2009,80,Ultra Electronics Group,United Kingdom,810.0,1010.0,80.2
+2009,81,Meggitt,United Kingdom,810.0,1790.0,45.3
+2009,82,UralVagonZavod,Russia,790.0,1410.0,56.0
+2009,83,Mitre Corp.,United States,780.0,1260.0,61.9
+2009,84,Bumar Group,Poland,770.0,860.0,89.5
+2009,85,The Aerospace Corp.,United States,770.0,870.0,88.5
+2009,86,Curtiss-Wright Corp.,United States,760.0,1780.0,42.7
+2009,87,Chemring Group,United Kingdom,750.0,790.0,94.9
+2009,88,LIG Nex1,South Korea,750.0,760.0,98.7
+2009,89,MTU Aero Engines,Germany,740.0,3630.0,20.4
+2009,90,Alion Science & Technology Corp.,United States,740.0,800.0,92.5
+2009,91,RUAG,Switzerland,730.0,1560.0,46.8
+2009,92,Plasan Sasa,Israel,720.0,760.0,94.7
+2009,93,Teledyne Technologies,United States,720.0,1650.0,43.6
+2009,94,Cubic Corp.,United States,710.0,1020.0,69.6
+2009,95,CAE,Canada,710.0,1340.0,53.0
+2009,96,Tetra Tech,United States,710.0,2290.0,31.0
+2009,97,Fluor Corp.,United States,710.0,21990.0,3.2
+2009,98,United Engine Corp.,Russia,680.0,2280.0,29.8
+2009,99,Avio,Italy,680.0,2360.0,28.8
+2009,100,Patria Group,Finland,660.0,750.0,88.0
+2008,1,BAE Systems,United Kingdom,30670.0,32280.0,95.0
+2008,2,Boeing,United States,30000.0,60910.0,49.3
+2008,3,Lockheed Martin Corp.,United States,29880.0,42730.0,69.9
+2008,4,Northrop Grumman Corp.,United States,26090.0,33890.0,77.0
+2008,5,General Dynamics Corp.,United States,21070.0,29300.0,71.9
+2008,6,Raytheon,United States,21030.0,23170.0,90.8
+2008,7,EADS,Trans-European,17900.0,63350.0,28.3
+2008,8,Finmeccanica,Italy,13240.0,25040.0,52.9
+2008,9,L-3 Communications,United States,12160.0,14900.0,81.6
+2008,10,Thales,France,10760.0,18540.0,58.0
+2008,11,United Technologies Corp.,United States,9980.0,58680.0,17.0
+2008,12,Science Applications International Corp.,United States,7350.0,10070.0,73.0
+2008,13,KBR,United States,5730.0,11580.0,49.5
+2008,14,Honeywell International,United States,5310.0,36560.0,14.5
+2008,15,ITT Corporation,United States,5170.0,11700.0,44.2
+2008,16,Rolls-Royce,United Kingdom,4720.0,16700.0,28.3
+2008,17,Almaz-Antey,Russia,4340.0,4620.0,93.9
+2008,18,Computer Sciences Corp.,United States,4200.0,16740.0,25.1
+2008,19,AM General,United States,4040.0,,
+2008,20,Navistar,United States,3900.0,14720.0,26.5
+2008,21,MBDA,Trans-European,3880.0,3950.0,98.2
+2008,22,Mitsubishi Heavy Industries,Japan,3870.0,32660.0,11.8
+2008,23,DCNS,France,3660.0,3660.0,100.0
+2008,24,General Electric,United States,3650.0,182520.0,2.0
+2008,25,Textron,United States,3420.0,14250.0,24.0
+2008,26,Saab,Sweden,3000.0,3610.0,83.1
+2008,27,Safran,France,2810.0,15120.0,18.6
+2008,28,URS Corp.,United States,2680.0,10090.0,26.6
+2008,29,Alliant Techsystems,United States,2680.0,4580.0,58.5
+2008,30,Rheinmetall,Germany,2660.0,5670.0,46.9
+2008,31,Agility,Kuwait,2560.0,6830.0,37.5
+2008,32,Hewlett-Packard Company,United States,2540.0,136020.0,1.9
+2008,33,Elbit Systems,Israel,2520.0,2640.0,95.5
+2008,34,Harris Corp.,United States,2480.0,5310.0,46.7
+2008,35,United Aircraft Corp.,Russia,2400.0,3520.0,68.2
+2008,36,CACI International,United States,2400.0,2730.0,87.9
+2008,37,Rockwell Collins,United States,2370.0,4770.0,49.7
+2008,38,Israel Aerospace Industries,Israel,2230.0,3600.0,61.9
+2008,39,Booz Allen Hamilton,United States,2200.0,4350.0,50.6
+2008,40,QinetiQ,United Kingdom,2170.0,2970.0,73.1
+2008,41,Dassault Aviation Group,France,2100.0,5490.0,38.3
+2008,42,Oshkosh Corp.,United States,2070.0,7140.0,29.0
+2008,43,Babcock International Group,United Kingdom,2020.0,3500.0,57.7
+2008,44,Serco Group,United Kingdom,1950.0,5740.0,34.0
+2008,45,Krauss-Maffei Wegmann,Germany,1950.0,2050.0,95.1
+2008,46,Cobham,United Kingdom,1910.0,2700.0,70.7
+2008,47,Hindustan Aeronautics,India,1910.0,2380.0,80.3
+2008,48,Navantia,Spain,1880.0,2140.0,87.9
+2008,49,DynCorp International,United States,1860.0,3090.0,60.2
+2008,50,Goodrich Corp.,United States,1770.0,7060.0,25.1
+2008,51,ThyssenKrupp,Germany,1760.0,78220.0,2.3
+2008,52,ManTech International Corp.,United States,1760.0,1870.0,94.1
+2008,53,Indian Ordnance Factories,India,1560.0,1660.0,94.0
+2008,54,Rafael,Israel,1530.0,1530.0,100.0
+2008,55,Kawasaki Heavy Industries,Japan,1480.0,12950.0,11.4
+2008,56,Bechtel Corp.,United States,1460.0,31400.0,4.6
+2008,57,Force Protection,United States,1330.0,1330.0,100.0
+2008,58,ST Engineering,Singapore,1280.0,3780.0,33.9
+2008,59,VT Group,United Kingdom,1210.0,2020.0,59.9
+2008,60,Mitsubishi Electric Corp.,Japan,1190.0,35460.0,3.4
+2008,61,Tactical Missiles Corp.,Russia,1150.0,1210.0,95.0
+2008,62,Bumar Group,Poland,1100.0,1350.0,81.5
+2008,63,GKN,United Kingdom,1070.0,8040.0,13.3
+2008,64,Indra,Spain,1000.0,3490.0,28.7
+2008,65,Jacobs Engineering Group,United States,960.0,11250.0,8.5
+2008,66,Diehl,Germany,940.0,3120.0,30.1
+2008,67,General Atomics,United States,910.0,,
+2008,68,Bharat Electronics,India,900.0,1060.0,84.9
+2008,69,Precision Castparts Corp.,United States,890.0,6830.0,13.0
+2008,70,Nexter,France,850.0,850.0,100.0
+2008,71,Meggitt,United Kingdom,830.0,2140.0,38.8
+2008,72,VSE Corp.,United States,830.0,1040.0,79.8
+2008,73,NEC Corp.,Japan,820.0,40790.0,2.0
+2008,74,Shaw Group,United States,800.0,7000.0,11.4
+2008,75,LIG Nex1,South Korea,770.0,770.0,100.0
+2008,76,Chugach Alaska Corporation,United States,760.0,950.0,80.0
+2008,77,RUAG,Switzerland,760.0,1420.0,53.5
+2008,78,The Aerospace Corp.,United States,750.0,840.0,89.3
+2008,79,Samsung Techwin,South Korea,750.0,2120.0,35.4
+2008,80,Kongsberg Gruppen,Norway,740.0,1960.0,37.8
+2008,81,Mitre Corp.,United States,740.0,1240.0,59.7
+2008,82,Ultra Electronics Group,United Kingdom,730.0,950.0,76.8
+2008,83,MTU Aero Engines,Germany,730.0,3990.0,18.3
+2008,84,Moog,United States,720.0,1900.0,37.9
+2008,85,Tetra Tech,United States,720.0,2150.0,33.5
+2008,86,ARINC,United States,700.0,1160.0,60.3
+2008,87,Teledyne Technologies,United States,680.0,1890.0,36.0
+2008,88,Russian Helicopters,Russia,680.0,1280.0,53.1
+2008,89,CAE,Canada,680.0,1560.0,43.6
+2008,90,FIAT,Italy,680.0,86940.0,0.8
+2008,91,Patria Group,Finland,670.0,780.0,85.9
+2008,92,Fincantieri,Italy,670.0,4300.0,15.6
+2008,93,Curtiss-Wright Corp.,United States,660.0,1830.0,36.1
+2008,94,Alion Science & Technology Corp.,United States,640.0,740.0,86.5
+2008,95,Avio,Italy,630.0,2430.0,25.9
+2008,96,IHI Corp.,Japan,630.0,13430.0,4.7
+2008,97,Chemring Group,United Kingdom,620.0,650.0,95.4
+2008,98,Israel Military Industries,Israel,620.0,650.0,95.4
+2008,99,Cubic Corp.,United States,610.0,880.0,69.3
+2008,100,KBP,Russia,610.0,610.0,100.0
+2007,1,Boeing,United States,30480.0,66390.0,45.9
+2007,2,Lockheed Martin Corp.,United States,29400.0,41860.0,70.2
+2007,3,BAE Systems,United Kingdom,29210.0,30750.0,95.0
+2007,4,Northrop Grumman Corp.,United States,24600.0,32020.0,76.8
+2007,5,General Dynamics Corp.,United States,21520.0,27240.0,79.0
+2007,6,Raytheon,United States,19540.0,21300.0,91.7
+2007,7,EADS,Trans-European,13090.0,53520.0,24.5
+2007,8,L-3 Communications,United States,11240.0,13960.0,80.5
+2007,9,Finmeccanica,Italy,9850.0,18380.0,53.6
+2007,10,Thales,France,9350.0,16830.0,55.6
+2007,11,United Technologies Corp.,United States,8760.0,54760.0,16.0
+2007,12,Science Applications International Corp.,United States,6260.0,8940.0,70.0
+2007,13,Honeywell International,United States,5020.0,34590.0,14.5
+2007,14,KBR,United States,5000.0,8750.0,57.1
+2007,15,Rolls-Royce,United Kingdom,4580.0,14870.0,30.8
+2007,16,MBDA,Trans-European,4040.0,4100.0,98.5
+2007,17,DCNS,France,3860.0,3860.0,100.0
+2007,18,Computer Sciences Corp.,United States,3860.0,16500.0,23.4
+2007,19,ITT Corporation,United States,3850.0,9000.0,42.8
+2007,20,General Electric,United States,3460.0,172490.0,2.0
+2007,21,DRS Technologies,United States,3230.0,3300.0,97.9
+2007,22,Almaz-Antey,Russia,2780.0,3120.0,89.1
+2007,23,Saab,Sweden,2770.0,3410.0,81.2
+2007,24,AM General,United States,2670.0,,
+2007,25,Safran,France,2550.0,16430.0,15.5
+2007,26,Electronic Data Systems,United States,2540.0,22130.0,11.5
+2007,27,Textron,United States,2510.0,13230.0,19.0
+2007,28,Alliant Techsystems,United States,2460.0,4170.0,59.0
+2007,29,Rheinmetall,Germany,2400.0,5480.0,43.8
+2007,30,Dassault Aviation Group,France,2380.0,5590.0,42.6
+2007,31,Mitsubishi Heavy Industries,Japan,2320.0,27200.0,8.5
+2007,32,URS Corp.,United States,2290.0,9020.0,25.4
+2007,33,Rockwell Collins,United States,2230.0,4420.0,50.5
+2007,34,QinetiQ,United Kingdom,2160.0,2730.0,79.1
+2007,35,CACI International,United States,2120.0,2420.0,87.6
+2007,36,Israel Aerospace Industries,Israel,1960.0,3320.0,59.0
+2007,37,Babcock International Group,United Kingdom,1920.0,3330.0,57.7
+2007,38,Elbit Systems,Israel,1910.0,2070.0,92.3
+2007,39,VT Group,United Kingdom,1870.0,2400.0,77.9
+2007,40,Booz Allen Hamilton,United States,1820.0,3630.0,50.1
+2007,41,ThyssenKrupp,Germany,1740.0,70780.0,2.5
+2007,42,Harris Corp.,United States,1720.0,4240.0,40.6
+2007,43,Sukhoi,Russia,1710.0,1860.0,91.9
+2007,44,Krauss-Maffei Wegmann,Germany,1690.0,1780.0,94.9
+2007,45,Hindustan Aeronautics,India,1670.0,2090.0,79.9
+2007,46,Goodrich Corp.,United States,1600.0,6390.0,25.0
+2007,47,Indian Ordnance Factories,India,1580.0,1680.0,94.0
+2007,48,Oshkosh Truck Corp.,United States,1570.0,6310.0,24.9
+2007,49,Serco Group,United Kingdom,1440.0,5620.0,25.6
+2007,50,Navantia,Spain,1390.0,1730.0,80.3
+2007,51,ManTech International Corp.,United States,1350.0,1450.0,93.1
+2007,52,Cobham,United Kingdom,1220.0,2120.0,57.5
+2007,53,Bechtel Corp.,United States,1170.0,27000.0,4.3
+2007,54,Rafael,Israel,1140.0,1200.0,95.0
+2007,55,ST Engineering,Singapore,1100.0,3350.0,32.8
+2007,56,EDO,United States,1060.0,1150.0,92.2
+2007,57,Tactical Missiles Corp.,Russia,1050.0,1110.0,94.6
+2007,58,GKN,United Kingdom,950.0,7740.0,12.3
+2007,59,Diehl,Germany,900.0,3110.0,28.9
+2007,60,DynCorp International,United States,900.0,2140.0,42.1
+2007,61,Irkut,Russia,900.0,1020.0,88.2
+2007,62,Force Protection,United States,890.0,890.0,100.0
+2007,63,Bumar Group,Poland,870.0,1070.0,81.3
+2007,64,Indra,Spain,870.0,2970.0,29.3
+2007,65,Bharat Electronics,India,840.0,1000.0,84.0
+2007,66,Precision Castparts Corp.,United States,820.0,6850.0,12.0
+2007,67,Nexter,France,800.0,800.0,100.0
+2007,68,Samsung Techwin,South Korea,770.0,3490.0,22.1
+2007,69,General Atomics,United States,750.0,,
+2007,70,NEC Corp.,Japan,740.0,39210.0,1.9
+2007,71,Jacobs Engineering Group,United States,740.0,8470.0,8.7
+2007,72,Chugach Alaska Corporation,United States,720.0,900.0,80.0
+2007,73,The Aerospace Corp.,United States,700.0,790.0,88.6
+2007,74,LIG Nex1,South Korea,690.0,700.0,98.6
+2007,75,Mitre Corp.,United States,680.0,1110.0,61.3
+2007,76,MTU Aero Engines,Germany,680.0,3530.0,19.3
+2007,77,Meggitt,United Kingdom,670.0,1760.0,38.1
+2007,78,Fincantieri,Italy,660.0,3660.0,18.0
+2007,79,Alion Science & Technology Corp.,United States,660.0,740.0,89.2
+2007,80,Korea Aerospace Industries,South Korea,650.0,860.0,75.6
+2007,81,Cubic Corp.,United States,640.0,890.0,71.9
+2007,82,Patria Group,Finland,640.0,740.0,86.5
+2007,83,Teledyne Technologies,United States,620.0,1620.0,38.3
+2007,84,Ultra Electronics Group,United Kingdom,620.0,830.0,74.7
+2007,85,Curtiss-Wright Corp.,United States,610.0,1590.0,38.4
+2007,86,Moog,United States,590.0,1560.0,37.8
+2007,87,UMPO,Russia,590.0,620.0,95.2
+2007,88,Kawasaki Heavy Industries,Japan,580.0,12750.0,4.5
+2007,89,GenCorp,United States,580.0,750.0,77.3
+2007,90,RUAG,Switzerland,580.0,1170.0,49.6
+2007,91,CAE,Canada,570.0,1330.0,42.9
+2007,92,Avio,Italy,570.0,2130.0,26.8
+2007,93,Ceradyne,United States,560.0,760.0,73.7
+2007,94,IHI Corp.,Japan,550.0,11470.0,4.8
+2007,95,ARINC,United States,550.0,1180.0,46.6
+2007,96,FIAT,Italy,550.0,80090.0,0.7
+2007,97,Tenix,Australia,540.0,,
+2007,98,Kongsberg Gruppen,Norway,540.0,1420.0,38.0
+2007,99,VSE Corp.,United States,540.0,650.0,83.1
+2007,100,Vought Aircraft Industries,United States,530.0,1630.0,32.5
+2006,1,Boeing,United States,30690.0,61530.0,49.9
+2006,2,Lockheed Martin Corp.,United States,28120.0,39620.0,71.0
+2006,3,BAE Systems,United Kingdom,23680.0,24920.0,95.0
+2006,4,Northrop Grumman Corp.,United States,23650.0,30150.0,78.4
+2006,5,General Dynamics Corp.,United States,18770.0,24060.0,78.0
+2006,6,Raytheon,United States,17610.0,20290.0,86.8
+2006,7,EADS,Trans-European,12600.0,49480.0,25.5
+2006,8,L-3 Communications,United States,9980.0,12480.0,80.0
+2006,9,Finmeccanica,Italy,8640.0,15650.0,55.2
+2006,10,Thales,France,8240.0,12880.0,64.0
+2006,11,United Technologies Corp.,United States,7650.0,47830.0,16.0
+2006,12,Halliburton,United States,6630.0,22580.0,29.4
+2006,13,Science Applications International Corp.,United States,5800.0,8290.0,70.0
+2006,14,Honeywell International,United States,4400.0,31370.0,14.0
+2006,15,MBDA,Trans-European,4080.0,4140.0,98.6
+2006,16,Rolls-Royce,United Kingdom,3960.0,13170.0,30.1
+2006,17,Computer Sciences Corp.,United States,3600.0,14860.0,24.2
+2006,18,DCN,France,3400.0,3400.0,100.0
+2006,19,ITT Industries,United States,3290.0,7810.0,42.1
+2006,20,General Electric,United States,3260.0,151570.0,2.2
+2006,21,Safran,France,2760.0,14220.0,19.4
+2006,22,DRS Technologies,United States,2740.0,2820.0,97.2
+2006,23,Alliant Techsystems,United States,2350.0,3570.0,65.8
+2006,24,Mitsubishi Heavy Industries,Japan,2260.0,26390.0,8.6
+2006,25,Saab,Sweden,2250.0,2860.0,78.7
+2006,26,Textron,United States,2180.0,11490.0,19.0
+2006,27,Electronic Data Systems,United States,2170.0,21270.0,10.2
+2006,28,Rockwell Collins,United States,2040.0,3860.0,52.8
+2006,29,Almaz-Antey,Russia,1950.0,2290.0,85.2
+2006,30,Armor Holdings,United States,1930.0,2360.0,81.8
+2006,31,Rheinmetall,Germany,1810.0,4550.0,39.8
+2006,32,Israel Aerospace Industries,Israel,1750.0,2810.0,62.3
+2006,33,AM General,United States,1700.0,,
+2006,34,CACI International,United States,1660.0,1940.0,85.6
+2006,35,Harris Corp.,United States,1660.0,3480.0,47.7
+2006,36,QinetiQ,United Kingdom,1610.0,2120.0,75.9
+2006,37,Dassault Aviation Group,France,1570.0,4140.0,37.9
+2006,38,Hindustan Aeronautics,India,1550.0,1720.0,90.1
+2006,39,URS Corp.,United States,1530.0,4240.0,36.1
+2006,40,ThyssenKrupp,Germany,1520.0,59130.0,2.6
+2006,41,Smiths Group,United Kingdom,1480.0,6480.0,22.8
+2006,42,Goodrich Corp.,United States,1470.0,5880.0,25.0
+2006,43,Booz Allen Hamilton,United States,1450.0,3210.0,45.2
+2006,44,VT Group,United Kingdom,1400.0,1850.0,75.7
+2006,45,Elbit Systems,Israel,1400.0,1520.0,92.1
+2006,46,Oshkosh Truck Corp.,United States,1320.0,3430.0,38.5
+2006,47,Indian Ordnance Factories,India,1290.0,1370.0,94.2
+2006,48,Krauss-Maffei Wegmann,Germany,1190.0,1260.0,94.4
+2006,49,Serco Group,United Kingdom,1170.0,4690.0,24.9
+2006,50,Kawasaki Heavy Industries,Japan,1160.0,12370.0,9.4
+2006,51,Cobham,United Kingdom,1140.0,1870.0,61.0
+2006,52,Navantia,Spain,1130.0,1430.0,79.0
+2006,53,ManTech International Corp.,United States,1080.0,1140.0,94.7
+2006,54,Mitsubishi Electric Corp.,Japan,1040.0,33150.0,3.1
+2006,55,Bechtel Corp.,United States,1000.0,20500.0,4.9
+2006,56,Rafael,Israel,950.0,1000.0,95.0
+2006,57,Nexter,France,900.0,900.0,100.0
+2006,58,DynCorp International,United States,900.0,2080.0,43.3
+2006,59,ST Engineering,Singapore,880.0,2820.0,31.2
+2006,60,Diehl,Germany,850.0,2670.0,31.8
+2006,61,Bumar Group,Poland,820.0,990.0,82.8
+2006,62,NEC Corp.,Japan,810.0,42390.0,1.9
+2006,63,Babcock International Group,United Kingdom,760.0,1820.0,41.8
+2006,64,GKN,United Kingdom,740.0,7070.0,10.5
+2006,65,Indra,Spain,740.0,1770.0,41.8
+2006,66,Irkut,Russia,740.0,830.0,89.2
+2006,67,Ishikawajima-Harima Heavy Industries,Japan,720.0,10620.0,6.8
+2006,68,Precision Castparts Corp.,United States,690.0,5320.0,13.0
+2006,69,Jacobs Engineering Group,United States,670.0,7420.0,9.0
+2006,70,Bharat Electronics,India,660.0,870.0,75.9
+2006,71,EDO,United States,660.0,720.0,91.7
+2006,72,Tactical Missiles Corp.,Russia,650.0,690.0,94.2
+2006,73,The Aerospace Corp.,United States,640.0,720.0,88.9
+2006,74,General Atomics,United States,630.0,,
+2006,75,Mitre Corp.,United States,620.0,1030.0,60.2
+2006,76,MTU Aero Engines,Germany,610.0,3030.0,20.1
+2006,77,Sukhoi,Russia,600.0,720.0,83.3
+2006,78,Fincantieri,Italy,580.0,3100.0,18.7
+2006,79,Samsung Techwin,South Korea,580.0,3010.0,19.3
+2006,80,Curtiss-Wright Corp.,United States,580.0,1280.0,45.3
+2006,81,Korea Aerospace Industries,South Korea,570.0,740.0,77.0
+2006,82,RAC MiG,Russia,570.0,580.0,98.3
+2006,83,Cubic Corp.,United States,560.0,820.0,68.3
+2006,84,Vought Aircraft Industries,United States,560.0,1550.0,36.1
+2006,85,Chugach Alaska Corporation,United States,550.0,890.0,61.8
+2006,86,Moog,United States,550.0,1310.0,42.0
+2006,87,United Industrial,United States,550.0,560.0,98.2
+2006,88,RUAG,Switzerland,540.0,1000.0,54.0
+2006,89,Teledyne Technologies,United States,540.0,1430.0,37.8
+2006,90,Shaw Group,United States,540.0,4780.0,11.3
+2006,91,ARINC,United States,540.0,920.0,58.7
+2006,92,UMPO,Russia,530.0,550.0,96.4
+2006,93,Ultra Electronics Group,United Kingdom,530.0,690.0,76.8
+2006,94,Hyundai Heavy Industries,South Korea,520.0,13150.0,4.0
+2006,95,Tenix,Australia,510.0,750.0,68.0
+2006,96,Severnaya Verf,Russia,510.0,640.0,79.7
+2006,97,Ceradyne,United States,510.0,660.0,77.3
+2006,98,Aerokosmicheskoe Oborudovanie,Russia,500.0,710.0,70.4
+2006,99,Avio,Italy,500.0,1760.0,28.4
+2006,100,CAE,Canada,500.0,1100.0,45.5
+2005,1,Boeing,United States,29590.0,54850.0,53.9
+2005,2,Lockheed Martin Corp.,United States,26200.0,37210.0,70.4
+2005,3,Northrop Grumman Corp.,United States,23330.0,30720.0,75.9
+2005,4,BAE Systems,United Kingdom,21180.0,22290.0,95.0
+2005,5,General Dynamics Corp.,United States,16570.0,21240.0,78.0
+2005,6,Raytheon,United States,16120.0,21890.0,73.6
+2005,7,EADS,Trans-European,9580.0,42550.0,22.5
+2005,8,Thales,France,8940.0,12770.0,70.0
+2005,9,Finmeccanica,Italy,8770.0,14270.0,61.5
+2005,10,L-3 Communications,United States,8470.0,10200.0,83.0
+2005,11,United Technologies Corp.,United States,6840.0,42730.0,16.0
+2005,12,Halliburton,United States,6040.0,20990.0,28.8
+2005,13,Science Applications International Corp.,United States,5070.0,7790.0,65.1
+2005,14,Honeywell International,United States,4300.0,27650.0,15.6
+2005,15,MBDA,Trans-European,3920.0,3980.0,98.5
+2005,16,DCN,France,3520.0,3520.0,100.0
+2005,17,Rolls-Royce,United Kingdom,3470.0,12010.0,28.9
+2005,18,Computer Sciences Corp.,United States,3400.0,14620.0,23.3
+2005,19,ITT Industries,United States,3190.0,7430.0,42.9
+2005,20,General Electric,United States,3000.0,136260.0,2.2
+2005,21,Safran,France,2630.0,13160.0,20.0
+2005,22,Mitsubishi Heavy Industries,Japan,2220.0,25330.0,8.8
+2005,23,Dassault Aviation Group,France,2210.0,4260.0,51.9
+2005,24,Saab,Sweden,2110.0,2590.0,81.5
+2005,25,Alliant Techsystems,United States,2060.0,3220.0,64.0
+2005,26,Rockwell Collins,United States,1810.0,3450.0,52.5
+2005,27,Textron,United States,1800.0,10040.0,17.9
+2005,28,Rheinmetall,Germany,1740.0,4300.0,40.5
+2005,29,DRS Technologies,United States,1670.0,1740.0,96.0
+2005,30,Almaz-Antey,Russia,1590.0,1770.0,89.8
+2005,31,Electronic Data Systems,United States,1570.0,19760.0,7.9
+2005,32,QinetiQ,United Kingdom,1550.0,1910.0,81.2
+2005,33,Israel Aircraft Industries,Israel,1520.0,2340.0,65.0
+2005,34,CACI International,United States,1510.0,1760.0,85.8
+2005,35,Goodrich Corp.,United States,1510.0,5400.0,28.0
+2005,36,Indian Ordnance Factories,India,1450.0,1560.0,92.9
+2005,37,Smiths Group,United Kingdom,1450.0,5490.0,26.4
+2005,38,Harris Corp.,United States,1440.0,3000.0,48.0
+2005,39,URS Corp.,United States,1410.0,3920.0,36.0
+2005,40,Kawasaki Heavy Industries,Japan,1380.0,12000.0,11.5
+2005,41,Booz Allen Hamilton,United States,1370.0,2490.0,55.0
+2005,42,Anteon International Corp,United States,1310.0,1490.0,87.9
+2005,43,ThyssenKrupp,Germany,1310.0,52320.0,2.5
+2005,44,AM General,United States,1280.0,,
+2005,45,Armor Holdings,United States,1190.0,1640.0,72.6
+2005,46,VT Group,United Kingdom,1170.0,1540.0,76.0
+2005,47,Hindustan Aeronautics,India,1090.0,1210.0,90.1
+2005,48,Oshkosh Truck Corp.,United States,1060.0,2960.0,35.8
+2005,49,Serco Group,United Kingdom,1030.0,4110.0,25.1
+2005,50,Cobham,United Kingdom,1010.0,1980.0,51.0
+2005,51,Elbit Systems,Israel,1000.0,1070.0,93.5
+2005,52,Navantia,Spain,970.0,1210.0,80.2
+2005,53,Engineered Support Systems,United States,970.0,1020.0,95.1
+2005,54,Mitsubishi Electric Corp.,Japan,950.0,32700.0,2.9
+2005,55,ManTech International Corp.,United States,930.0,980.0,94.9
+2005,56,ST Engineering,Singapore,920.0,2010.0,45.8
+2005,57,GIAT Industries,France,910.0,910.0,100.0
+2005,58,DynCorp International,United States,870.0,1970.0,44.2
+2005,59,Bechtel Corp.,United States,850.0,18100.0,4.7
+2005,60,Rafael,Israel,800.0,850.0,94.1
+2005,61,NEC Corp.,Japan,770.0,43780.0,1.8
+2005,62,Krauss-Maffei Wegmann,Germany,750.0,750.0,100.0
+2005,63,GKN,United Kingdom,740.0,6630.0,11.2
+2005,64,Diehl,Germany,720.0,2050.0,35.1
+2005,65,Ishikawajima-Harima Heavy Industries,Japan,690.0,10230.0,6.7
+2005,66,Indra,Spain,670.0,1500.0,44.7
+2005,67,Bumar Group,Poland,660.0,760.0,86.8
+2005,68,Admiralty Shipyards,Russia,660.0,690.0,95.7
+2005,69,Stewart & Stevenson,United States,630.0,730.0,86.3
+2005,70,Irkut,Russia,630.0,710.0,88.7
+2005,71,MTU Aero Engines,Germany,610.0,2670.0,22.8
+2005,72,Babcock International Group,United Kingdom,610.0,1520.0,40.1
+2005,73,Fincantieri,Italy,610.0,2820.0,21.6
+2005,74,EDO,United States,600.0,650.0,92.3
+2005,75,RUAG,Switzerland,590.0,960.0,61.5
+2005,76,The Aerospace Corp.,United States,580.0,660.0,87.9
+2005,77,Mitre Corp.,United States,570.0,960.0,59.4
+2005,78,Jacobs Engineering Group,United States,570.0,5640.0,10.1
+2005,79,Curtiss-Wright Corp.,United States,570.0,1130.0,50.4
+2005,80,Bharat Electronics,India,560.0,800.0,70.0
+2005,81,Precision Castparts Corp.,United States,560.0,3480.0,16.1
+2005,82,Cubic Corp.,United States,540.0,800.0,67.5
+2005,83,Sevmash,Russia,540.0,680.0,79.4
+2005,84,Korea Aerospace Industries,South Korea,540.0,660.0,81.8
+2005,85,Shaw Group,United States,530.0,3260.0,16.3
+2005,86,DaimlerChrysler,Germany,530.0,186290.0,0.3
+2005,87,Avio,Italy,520.0,1590.0,32.7
+2005,88,Sukhoi,Russia,520.0,560.0,92.9
+2005,89,Chugach Alaska Corporation,United States,520.0,790.0,65.8
+2005,90,Samsung Techwin,South Korea,510.0,2340.0,21.8
+2005,91,ADI,Australia,500.0,560.0,89.3
+2005,92,Tenix,Australia,500.0,780.0,64.1
+2005,93,Ultra Electronics Group,United Kingdom,490.0,620.0,79.0
+2005,94,United Industrial,United States,480.0,520.0,92.3
+2005,95,Vought Aircraft Industries,United States,470.0,1300.0,36.2
+2005,96,Teledyne Technologies,United States,470.0,1210.0,38.8
+2005,97,General Atomics,United States,460.0,,
+2005,98,Moog,United States,460.0,1050.0,43.8
+2005,99,Meggitt,United Kingdom,460.0,1120.0,41.1
+2005,100,Severnaya Verf,Russia,440.0,450.0,97.8
+2004,1,Boeing,United States,28980.0,52460.0,55.2
+2004,2,Lockheed Martin Corp.,United States,26150.0,35530.0,73.6
+2004,3,Northrop Grumman Corp.,United States,22160.0,29850.0,74.2
+2004,4,BAE Systems,United Kingdom,16460.0,17320.0,95.0
+2004,5,General Dynamics Corp.,United States,15150.0,19180.0,79.0
+2004,6,Raytheon,United States,14970.0,20250.0,73.9
+2004,7,EADS,Trans-European,9470.0,39460.0,24.0
+2004,8,Thales,France,8950.0,12780.0,70.0
+2004,9,Finmeccanica,Italy,7960.0,11660.0,68.3
+2004,10,United Technologies Corp.,United States,6740.0,37450.0,18.0
+2004,11,Halliburton,United States,6570.0,20470.0,32.1
+2004,12,L-3 Communications,United States,5640.0,6900.0,81.7
+2004,13,Science Applications International Corp.,United States,4670.0,7190.0,65.0
+2004,14,Computer Sciences Corp.,United States,4330.0,14060.0,30.8
+2004,15,Honeywell International,United States,4190.0,25600.0,16.4
+2004,16,MBDA,Trans-European,3790.0,3850.0,98.4
+2004,17,Rolls-Royce,United Kingdom,3310.0,10880.0,30.4
+2004,18,DCN,France,3240.0,3240.0,100.0
+2004,19,General Electric,United States,3000.0,123810.0,2.4
+2004,20,Mitsubishi Heavy Industries,Japan,2770.0,23950.0,11.6
+2004,21,ITT Industries,United States,2410.0,6760.0,35.7
+2004,22,GKN,United Kingdom,2400.0,8150.0,29.4
+2004,23,United Defense Industries,United States,2290.0,2290.0,100.0
+2004,24,Snecma Groupe,France,1950.0,8460.0,23.0
+2004,25,Saab,Sweden,1930.0,2430.0,79.4
+2004,26,Alliant Techsystems,United States,1740.0,2800.0,62.1
+2004,27,Rheinmetall,Germany,1720.0,4240.0,40.6
+2004,28,Dassault Aviation Group,France,1670.0,4300.0,38.8
+2004,29,Harris Corp.,United States,1550.0,2520.0,61.5
+2004,30,Rockwell Collins,United States,1540.0,2930.0,52.6
+2004,31,Sukhoi,Russia,1470.0,1500.0,98.0
+2004,32,Goodrich Corp.,United States,1420.0,4730.0,30.0
+2004,33,CACI International,United States,1390.0,1620.0,85.8
+2004,34,QinetiQ,United Kingdom,1390.0,1600.0,86.9
+2004,35,Israel Aircraft Industries,Israel,1370.0,2050.0,66.8
+2004,36,Kawasaki Heavy Industries,Japan,1350.0,11480.0,11.8
+2004,37,Textron,United States,1300.0,10240.0,12.7
+2004,38,Indian Ordnance Factories,India,1300.0,1370.0,94.9
+2004,39,Titan Corp.,United States,1290.0,2050.0,62.9
+2004,40,DRS Technologies,United States,1260.0,1310.0,96.2
+2004,41,Smiths Group,United Kingdom,1240.0,4850.0,25.6
+2004,42,Almaz-Antey,Russia,1190.0,1330.0,89.5
+2004,43,URS Corp.,United States,1150.0,3380.0,34.0
+2004,44,Anteon International Corp,United States,1130.0,1270.0,89.0
+2004,45,New Izar,Spain,1090.0,1370.0,79.6
+2004,46,SAGEM Groupe,France,1090.0,4440.0,24.5
+2004,47,Booz Allen Hamilton,United States,1060.0,2490.0,42.6
+2004,48,VT Group,United Kingdom,1040.0,1360.0,76.5
+2004,49,Electronic Data Systems,United States,990.0,20670.0,4.8
+2004,50,Elbit Systems,Israel,940.0,940.0,100.0
+2004,51,ThyssenKrupp,Germany,930.0,48870.0,1.9
+2004,52,Hindustan Aeronautics,India,900.0,1000.0,90.0
+2004,53,Cobham,United Kingdom,900.0,1800.0,50.0
+2004,54,Serco Group,United Kingdom,890.0,3000.0,29.7
+2004,55,AM General,United States,860.0,,
+2004,56,ST Engineering,Singapore,850.0,1740.0,48.9
+2004,57,Engineered Support Systems,United States,840.0,880.0,95.5
+2004,58,Mitsubishi Electric Corp.,Japan,840.0,31520.0,2.7
+2004,59,Bechtel Corp.,United States,800.0,17400.0,4.6
+2004,60,Oshkosh Truck Corp.,United States,770.0,2260.0,34.1
+2004,61,ManTech International Corp.,United States,770.0,840.0,91.7
+2004,62,Ishikawajima-Harima Heavy Industries,Japan,760.0,10070.0,7.5
+2004,63,Rafael,Israel,760.0,800.0,95.0
+2004,64,Krauss-Maffei Wegmann,Germany,750.0,750.0,100.0
+2004,65,GIAT Industries,France,730.0,730.0,100.0
+2004,66,Babcock International Group,United Kingdom,700.0,1390.0,50.4
+2004,67,Diehl,Germany,650.0,1980.0,32.8
+2004,68,RUAG,Switzerland,620.0,970.0,63.9
+2004,69,Bharat Electronics,India,620.0,710.0,87.3
+2004,70,MTU Aero Engines,Germany,620.0,2380.0,26.1
+2004,71,Indra,Spain,610.0,1350.0,45.2
+2004,72,Armor Holdings,United States,610.0,980.0,62.2
+2004,73,NEC Corp.,Japan,600.0,43400.0,1.4
+2004,74,Irkut,Russia,580.0,620.0,93.5
+2004,75,Jacobs Engineering Group,United States,580.0,4590.0,12.6
+2004,76,Fincantieri,Italy,560.0,2700.0,20.7
+2004,77,Avio,Italy,560.0,1520.0,36.8
+2004,78,Chugach Alaska Corporation,United States,550.0,700.0,78.6
+2004,79,Stewart & Stevenson,United States,550.0,1160.0,47.4
+2004,80,Precision Castparts Corp.,United States,540.0,2920.0,18.5
+2004,81,ARINC,United States,530.0,730.0,72.6
+2004,82,The Aerospace Corp.,United States,510.0,600.0,85.0
+2004,83,Mitre Corp.,United States,500.0,870.0,57.5
+2004,84,Shaw Group,United States,480.0,3020.0,15.9
+2004,85,Curtiss-Wright Corp.,United States,480.0,960.0,50.0
+2004,86,EDO,United States,480.0,540.0,88.9
+2004,87,DaimlerChrysler,Germany,470.0,176470.0,0.3
+2004,88,Samsung Techwin,South Korea,460.0,1730.0,26.6
+2004,89,CAE,Canada,460.0,760.0,60.5
+2004,90,Korea Aerospace Industries,South Korea,450.0,570.0,78.9
+2004,91,Cubic Corp.,United States,450.0,720.0,62.5
+2004,92,Ultra Electronics Group,United Kingdom,450.0,590.0,76.3
+2004,93,Aerokosmicheskoe Oborudovanie,Russia,440.0,580.0,75.9
+2004,94,Marine United,Japan,440.0,1130.0,38.9
+2004,95,Tenix,Australia,440.0,650.0,67.7
+2004,96,Denel,South Africa,440.0,590.0,74.6
+2004,97,ADI,Australia,440.0,510.0,86.3
+2004,98,Vought Aircraft Industries,United States,440.0,1220.0,36.1
+2004,99,Moog,United States,430.0,940.0,45.7
+2004,100,Ericsson,Sweden,410.0,17960.0,2.3
+2003,1,Boeing,United States,25870.0,50490.0,51.2
+2003,2,Lockheed Martin Corp.,United States,24910.0,31820.0,78.3
+2003,3,Northrop Grumman Corp.,United States,20310.0,26400.0,76.9
+2003,4,BAE Systems,United Kingdom,15760.0,20540.0,76.7
+2003,5,Raytheon,United States,13140.0,18110.0,72.6
+2003,6,General Dynamics Corp.,United States,13100.0,16620.0,78.8
+2003,7,Thales,France,8350.0,11930.0,70.0
+2003,8,EADS,Trans-European,8010.0,34010.0,23.6
+2003,9,United Technologies Corp.,United States,6210.0,31030.0,20.0
+2003,10,Finmeccanica,Italy,5300.0,9760.0,54.3
+2003,11,L-3 Communications,United States,4480.0,5060.0,88.5
+2003,12,Honeywell International,United States,3970.0,23100.0,17.2
+2003,13,Computer Sciences Corp.,United States,3780.0,14770.0,25.6
+2003,14,Science Applications International Corp.,United States,3700.0,6720.0,55.1
+2003,15,Rolls-Royce,United Kingdom,3020.0,9220.0,32.8
+2003,16,Halliburton,United States,3010.0,16270.0,18.5
+2003,17,MBDA,Trans-European,2650.0,2710.0,97.8
+2003,18,Mitsubishi Heavy Industries,Japan,2600.0,20470.0,12.7
+2003,19,General Electric,United States,2400.0,134640.0,1.8
+2003,20,DCN,France,2150.0,2150.0,100.0
+2003,21,United Defense Industries,United States,2050.0,2050.0,100.0
+2003,22,GKN,United Kingdom,2020.0,7490.0,27.0
+2003,23,Dassault Aviation Group,France,1810.0,3720.0,48.7
+2003,24,Rheinmetall,Germany,1810.0,4800.0,37.7
+2003,25,ITT Industries,United States,1790.0,5610.0,31.9
+2003,26,Saab,Sweden,1700.0,2130.0,79.8
+2003,27,SNECMA Groupe,France,1670.0,7260.0,23.0
+2003,28,Alliant Techsystems,United States,1460.0,2370.0,61.6
+2003,29,Sukhoi,Russia,1430.0,1500.0,95.3
+2003,30,Textron,United States,1400.0,9860.0,14.2
+2003,31,Goodrich Corp.,United States,1320.0,4380.0,30.1
+2003,32,Indian Ordnance Factories,India,1310.0,1390.0,94.2
+2003,33,Israel Aircraft Industries,Israel,1310.0,1870.0,70.1
+2003,34,Rockwell Collins,United States,1270.0,2540.0,50.0
+2003,35,Kawasaki Heavy Industries,Japan,1200.0,10010.0,12.0
+2003,36,Harris Corp.,United States,1170.0,2090.0,56.0
+2003,37,QinetiQ,United Kingdom,1110.0,1300.0,85.4
+2003,38,ThyssenKrupp,Germany,1110.0,40790.0,2.7
+2003,39,Smiths Group,United Kingdom,1100.0,4300.0,25.6
+2003,40,Titan Corp.,United States,1010.0,1780.0,56.7
+2003,41,URS Corp.,United States,990.0,3190.0,31.0
+2003,42,Almaz-Antey,Russia,960.0,1060.0,90.6
+2003,43,CACI International,United States,950.0,1150.0,82.6
+2003,44,DRS Technologies,United States,940.0,1000.0,94.0
+2003,45,Booz Allen Hamilton,United States,940.0,1970.0,47.7
+2003,46,DaimlerChrysler,Germany,930.0,153990.0,0.6
+2003,47,Anteon International Corp,United States,920.0,1040.0,88.5
+2003,48,Elbit Systems,Israel,900.0,900.0,100.0
+2003,49,ST Engineering,Singapore,890.0,1620.0,54.9
+2003,50,VT Group,United Kingdom,840.0,1100.0,76.4
+2003,51,Izar,Spain,830.0,1930.0,43.0
+2003,52,SAGEM Groupe,France,830.0,3590.0,23.1
+2003,53,GIAT Industries,France,820.0,820.0,100.0
+2003,54,Rafael,Israel,790.0,830.0,95.2
+2003,55,Mitsubishi Electric Corp.,Japan,770.0,28550.0,2.7
+2003,56,Bechtel Corp.,United States,750.0,16300.0,4.6
+2003,57,Krauss-Maffei Wegmann,Germany,710.0,710.0,100.0
+2003,58,Electronic Data Systems,United States,690.0,21480.0,3.2
+2003,59,Cobham,United Kingdom,680.0,1360.0,50.0
+2003,60,Serco Group,United Kingdom,660.0,2540.0,26.0
+2003,61,Oshkosh Truck Corp.,United States,660.0,1930.0,34.2
+2003,62,Hindustan Aeronautics,India,650.0,820.0,79.3
+2003,63,ManTech International Corp.,United States,640.0,700.0,91.4
+2003,64,Diehl,Germany,630.0,1750.0,36.0
+2003,65,Ishikawajima-Harima Heavy Industries,Japan,620.0,9040.0,6.9
+2003,66,RUAG,Switzerland,620.0,910.0,68.1
+2003,67,Jacobs Engineering Group,United States,610.0,4620.0,13.2
+2003,68,Alvis,United Kingdom,570.0,570.0,100.0
+2003,69,Fincantieri,Italy,570.0,2640.0,21.6
+2003,70,Avio,Italy,560.0,1440.0,38.9
+2003,71,Engineered Support Systems,United States,540.0,570.0,94.7
+2003,72,Korea Aerospace Industries,South Korea,540.0,670.0,80.6
+2003,73,Babcock International Group,United Kingdom,520.0,740.0,70.3
+2003,74,Indra,Spain,510.0,1110.0,45.9
+2003,75,The Aerospace Corp.,United States,510.0,580.0,87.9
+2003,76,Aerokosmicheskoe Oborudovanie,Russia,490.0,590.0,83.1
+2003,77,Irkut,Russia,480.0,520.0,92.3
+2003,78,AM General,United States,480.0,,
+2003,79,NEC Corp.,Japan,470.0,42330.0,1.1
+2003,80,Israel Military Industries,Israel,460.0,510.0,90.2
+2003,81,Bharat Electronics,India,460.0,600.0,76.7
+2003,82,Mitre Corp.,United States,460.0,790.0,58.2
+2003,83,Samsung Techwin,South Korea,460.0,1460.0,31.5
+2003,84,CAE,Canada,450.0,780.0,57.7
+2003,85,Denel,South Africa,450.0,590.0,76.3
+2003,86,Stewart & Stevenson,United States,450.0,1180.0,38.1
+2003,87,Chugach Alaska Corporation,United States,440.0,550.0,80.0
+2003,88,Precision Castparts Corp.,United States,430.0,1910.0,22.5
+2003,89,Kongsberg Gruppen,Norway,430.0,940.0,45.7
+2003,90,ADI,Australia,420.0,460.0,91.3
+2003,91,EDO,United States,410.0,460.0,89.1
+2003,92,Ericsson,Sweden,400.0,14560.0,2.7
+2003,93,UMPO,Russia,390.0,410.0,95.1
+2003,94,Toshiba Corp.,Japan,380.0,48130.0,0.8
+2003,95,Tenix,Australia,370.0,570.0,64.9
+2003,96,Ultra Electronics Group,United Kingdom,370.0,460.0,80.4
+2003,97,Cubic Corp.,United States,370.0,630.0,58.7
+2003,98,Moog,United States,360.0,760.0,47.4
+2003,99,Curtiss-Wright Corp.,United States,350.0,750.0,46.7
+2003,100,ARINC,United States,350.0,640.0,54.7
+2002,1,United States,23560,41100.0,0.4357314592195302,
+2002,2,United States,21000,36640.0,0.9271523178807947,
+2002,3,United States,18870,32920.0,0.7099322799097065,
+2002,4,United Kingdom,14070,20920.0,0.7718047174986287,
+2002,5,United States,12020,20970.0,0.7171837708830548,
+2002,6,United States,9820,17130.0,0.7100506146059291,
+2002,7,France,6840,11410.0,0.6545454545454545,
+2002,8,United States,5640,9840.0,0.1999291031549096,
+2002,9,Trans-European,5630,9630.0,0.20014219694276572,
+2002,10,United States,3720,6490.0,0.16704086214638528,
+2002,11,Italy,3720,6550.0,0.4940239043824701,
+2002,12,United States,3020,5270.0,0.7531172069825436,
+2002,13,United States,3000,5230.0,0.5084745762711864,
+2002,14,United Kingdom,2850,4240.0,0.32796317606444186,
+2002,15,Japan,2400,2240.0,0.11599806669888835,
+2002,16,United States,2200,3840.0,0.01663767677531574,
+2002,17,United States,1980,3450.0,0.17444933920704847,
+2002,18,United Kingdom,1800,2680.0,0.2694610778443114,
+2002,19,United States,1730,3020.0,1.0,
+2002,20,Trans-European,1650,2820.0,0.9763313609467456,
+2002,21,Germany,1580,2770.0,0.3674418604651163,
+2002,22,United States,1510,2630.0,0.30443548387096775,
+2002,23,United States,1390,2420.0,0.1303939962476548,
+2002,24,France,1370,2290.0,1.0,
+2002,25,United States,1360,2370.0,,
+2002,26,Sweden,1310,1820.0,0.7705882352941177,
+2002,27,Israel,1260,2280.0,0.6086956521739131,
+2002,28,United States,1250,2180.0,0.576036866359447,
+2002,29,United States,1200,2090.0,0.3761755485893417,
+2002,30,France,1160,1940.0,0.1895424836601307,
+2002,31,India,1160,2590.0,0.8656716417910447,
+2002,32,France,1140,1900.0,0.35185185185185186,
+2002,33,United States,1120,1950.0,0.4497991967871486,
+2002,34,United Kingdom,1100,1640.0,0.2827763496143959,
+2002,35,United States,1020,1780.0,0.2608695652173913,
+2002,36,United States,960,1670.0,0.5106382978723404,
+2002,37,Russia,960,1940.0,0.9504950495049505,
+2002,38,Germany,960,1680.0,0.027793862188766647,
+2002,39,Germany,940,1650.0,0.006777705674525921,
+2002,40,United States,930,1620.0,0.07398568019093078,
+2002,41,United Kingdom,930,1380.0,0.8017241379310345,
+2002,42,United States,900,1570.0,0.004819019061897622,
+2002,43,Japan,880,820.0,0.08897876643073811,
+2002,44,Israel,860,1560.0,1.0,
+2002,45,Singapore,830,1730.0,0.5684931506849316,
+2002,46,United States,800,1400.0,0.49382716049382713,
+2002,47,Japan,780,730.0,0.026878015161957272,
+2002,48,France,730,1220.0,1.0,
+2002,49,United States,730,1270.0,0.5251798561151079,
+2002,50,Israel,720,1300.0,0.9473684210526315,
+2002,51,Italy,720,1270.0,0.01374832919610464,
+2002,52,United States,680,1190.0,0.8095238095238095,
+2002,53,United Kingdom,660,980.0,0.7764705882352941,
+2002,54,United States,640,1120.0,0.7710843373493976,
+2002,55,Japan,640,600.0,0.07872078720787208,
+2002,56,France,620,1030.0,0.23846153846153847,
+2002,57,United States,610,1060.0,0.8970588235294118,
+2002,58,South Korea,610,950.0,0.8026315789473685,
+2002,59,United States,600,1050.0,0.3448275862068966,
+2002,60,Germany,570,1000.0,1.0,
+2002,61,United States,570,990.0,0.026511627906976743,
+2002,62,United States,550,960.0,0.04741379310344827,
+2002,63,United Kingdom,540,800.0,0.4909090909090909,
+2002,64,United Kingdom,540,800.0,0.271356783919598,
+2002,65,India,510,1140.0,0.796875,
+2002,66,Germany,510,890.0,0.37777777777777777,
+2002,67,United States,500,870.0,0.49019607843137253,
+2002,68,Russia,490,990.0,0.9245283018867925,
+2002,69,Russia,480,970.0,0.9056603773584906,
+2002,70,Switzerland,470,940.0,0.7230769230769231,
+2002,71,Italy,460,810.0,0.22330097087378642,
+2002,72,United States,450,790.0,0.8823529411764706,
+2002,73,United States,450,790.0,0.3813559322033898,
+2002,74,United States,450,790.0,0.09868421052631579,
+2002,75,United States,440,770.0,0.5945945945945946,
+2002,76,United Kingdom,440,650.0,0.6875,
+2002,77,United States,430,750.0,0.86,
+2002,78,South Korea,420,650.0,0.358974358974359,
+2002,79,India,410,920.0,0.7884615384615384,
+2002,80,United States,410,720.0,0.2265193370165746,
+2002,81,Japan,410,380.0,0.0109508547008547,
+2002,82,Canada,390,720.0,0.5416666666666666,
+2002,83,Spain,390,730.0,0.2689655172413793,
+2002,84,United States,380,660.0,0.926829268292683,
+2002,85,United States,370,650.0,0.6065573770491803,
+2002,86,United States,370,650.0,,
+2002,87,Japan,370,350.0,0.008600650860065086,
+2002,88,France,360,600.0,0.04627249357326478,
+2002,89,Spain,360,670.0,0.43902439024390244,
+2002,90,United States,360,630.0,0.26865671641791045,
+2002,91,Israel,350,630.0,0.8974358974358975,
+2002,92,Israel,350,630.0,0.9722222222222222,
+2002,93,United Kingdom,340,510.0,1.0,
+2002,94,Norway,330,420.0,0.3793103448275862,
+2002,95,Australia,330,720.0,0.8461538461538461,
+2002,96,Russia,320,650.0,0.9411764705882353,
+2002,97,South Africa,320,540.0,0.7619047619047619,
+2002,98,United Kingdom,320,480.0,0.8205128205128205,
+2002,99,United States,310,540.0,0.5535714285714286,
+2002,100,United States,300,520.0,1.0,

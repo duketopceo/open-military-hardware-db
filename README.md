@@ -20,6 +20,7 @@ Built for researchers, journalists, analysts, and defense enthusiasts. All data 
 
 - **183 platforms** across 5 domains (air, land, sea, munitions, software)
 - **675 source citations** — every data point traceable to public sources
+- **SIPRI external data** — military expenditure (175 countries, 1949–2024), Top 100 arms companies, US arms transfers (3,006 records)
 - **REST API** with filtering, pagination, sorting, comparison, and manufacturer endpoints
 - **Intelligence console UI** — dark blueprint aesthetic, 3-pane layout, role/contractor filters
 - **Structured exports** — JSON, CSV, SQLite, SQL dump
@@ -227,7 +228,8 @@ open-military-hardware-db/
 │   ├── csv/platforms.csv          # Flat CSV export
 │   ├── json/platforms.json        # Full nested JSON dataset
 │   ├── sql/military_hardware.db   # SQLite database
-│   └── migrations/                # Version migration scripts
+│   ├── migrations/                # Version migration scripts
+│   └── sipri/                     # SIPRI external data (expenditure, companies, transfers)
 ├── schemas/                       # SQL DDL + JSON Schema
 ├── scripts/
 │   ├── collectors/                # Pluggable data collection framework
@@ -302,6 +304,7 @@ See `docs/sample_queries.sql` for 20+ more analytical queries.
 All data is collected from publicly available, open-source information:
 
 - [Wikipedia](https://en.wikipedia.org/) (CC-BY-SA) — Primary reference
+- [SIPRI](https://www.sipri.org/) — Military expenditure, Top 100 arms companies, arms transfers (see `data/sipri/`)
 - [GlobalSecurity.org](https://www.globalsecurity.org/) — Operational details
 - [Military Factory](https://www.militaryfactory.com/) — Specifications
 - Official defense ministry publications and press releases
@@ -314,7 +317,7 @@ All data is collected from publicly available, open-source information:
 
 | Document | Description |
 |----------|-------------|
-| **[VERSION_HISTORY.md](docs/VERSION_HISTORY.md)** | Complete version-by-version record (V0.0 → V2.4) with future roadmap |
+| **[VERSION_HISTORY.md](docs/VERSION_HISTORY.md)** | Complete version-by-version record (V0.0 → V2.5) with future roadmap |
 | **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** | System architecture and technical design |
 | **[TECH_STACK.md](docs/TECH_STACK.md)** | Technology catalog |
 | **[ROADMAP.md](docs/ROADMAP.md)** | Version roadmap (V3.0 → V5.0) |
@@ -346,9 +349,10 @@ Contributions welcome. To add a new platform:
 | **V2.2** | Beta UI | Complete — React frontend, dark military theme |
 | **V2.3** | Intel Console | Complete — Blueprint + liquid glass redesign, 3-pane layout |
 | **V2.4** | Software & Roles | Complete — Palantir/Anduril platforms, role classification, contractor filters, military fonts/icons |
-| **V3.0** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL |
+| **V2.5** | SIPRI Integration | Next Up — Military expenditure, Top 100 arms companies, US arms transfers, 4 new DB tables |
+| **V3.0** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL, SIPRI-informed prioritization |
 | **V3.1** | Intelligence | Planned — Vector embeddings, semantic search, RAG |
-| **V4.0** | Experience | Planned — Next.js, interactive dashboards, maps |
+| **V4.0** | Experience | Planned — Advanced data viz, SIPRI charts, transfer maps, AI chat |
 | **V5.0** | Community | Planned — Auth, contributions, public API keys |
 
 See [VERSION_HISTORY.md](docs/VERSION_HISTORY.md) for full details.
@@ -359,7 +363,7 @@ See [VERSION_HISTORY.md](docs/VERSION_HISTORY.md) for full details.
 
 MIT License. See [LICENSE](LICENSE) for details.
 
-Data is sourced from public domain and CC-BY-SA licensed materials. Image attributions are tracked in the media table. When using this dataset, please cite the original sources listed in each platform's `sources` array.
+Data is sourced from public domain and CC-BY-SA licensed materials. Image attributions are tracked in the media table. SIPRI data is free for non-commercial research use with attribution (see `data/sipri/README.md`). When using this dataset, please cite the original sources listed in each platform's `sources` array.
 
 ## Disclaimer
 
