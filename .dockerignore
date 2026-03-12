@@ -1,0 +1,32 @@
+# Git
+.git
+.github
+
+# Node
+frontend/node_modules
+frontend/dist
+frontend/.vite
+
+# Python
+__pycache__
+*.pyc
+venv/
+.venv/
+
+# IDE
+.vscode
+.idea
+.cursor
+.claude
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker/docker-compose.yml
+
+# Large files not needed in build
+images/
+*.db
+*.sqlite
