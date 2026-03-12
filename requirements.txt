@@ -24,9 +24,11 @@ tqdm>=4.66.0                # Progress bars
 rich>=13.7.0                # Pretty console output
 python-dotenv>=1.0.0        # Environment variables
 
+# API layer (V2)
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
 # Future versions
-# fastapi>=0.104.0          # V2: API layer
-# uvicorn>=0.24.0           # V2: ASGI server
 # matplotlib>=3.8.0         # V3: Visualization
 # plotly>=5.18.0            # V3: Interactive charts
 # geopandas>=0.14.0         # V3: Geospatial
