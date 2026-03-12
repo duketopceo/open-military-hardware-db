@@ -1,15 +1,29 @@
 """
 Open Military Hardware Database — REST API
 FastAPI application with read-only endpoints for querying the SQLite database.
-V2: 165 platforms, flexible filters, pagination, comparison.
+V2.1: 165 platforms, Pydantic response models, structured errors.
 """
 
-from fastapi import FastAPI, HTTPException, Query
+import logging
+import time
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from typing import Optional
 
 from . import database as db
+from .models import (
+    RootResponse, HealthResponse, PlatformListResponse, PlatformDetail,
+    StatsResponse, Category, Conflict, CompareResponse,
+)
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+)
+logger = logging.getLogger("mildb.api")
 
 # ── App ──────────────────────────────────────────────────────────────────────
 
@@ -20,7 +34,7 @@ app = FastAPI(
         "165 platforms across air, land, sea, and munitions categories. "
         "All data sourced from public-domain references with full citations."
     ),
-    version="2.0.0",
+    version="2.1.0",
     license_info={"name": "MIT", "url": "https://opensource.org/licenses/MIT"},
     docs_url="/docs",
     redoc_url="/redoc",
@@ -35,14 +49,42 @@ app.add_middleware(
 )
 
 
+# ── Middleware ────────────────────────────────────────────────────────────────
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    """Log request method, path, and response time."""
+    start = time.perf_counter()
+    response = await call_next(request)
+    elapsed_ms = (time.perf_counter() - start) * 1000
+    logger.info(f"{request.method} {request.url.path} → {response.status_code} ({elapsed_ms:.1f}ms)")
+    response.headers["X-Response-Time-Ms"] = f"{elapsed_ms:.1f}"
+    return response
+
+
+# ── Global Error Handler ────────────────────────────────────────────────────
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled error on {request.method} {request.url.path}: {exc}", exc_info=True)
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": "Internal server error",
+            "status_code": 500,
+            "type": "about:blank",
+        },
+    )
+
+
 # ── Health ───────────────────────────────────────────────────────────────────
 
-@app.get("/", tags=["meta"])
+@app.get("/", tags=["meta"], response_model=RootResponse)
 def root():
     """API root — basic info and navigation."""
     return {
         "name": "Open Military Hardware Database",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "platforms": 165,
         "docs": "/docs",
         "endpoints": {
@@ -56,7 +98,7 @@ def root():
     }
 
 
-@app.get("/health", tags=["meta"])
+@app.get("/health", tags=["meta"], response_model=HealthResponse)
 def health():
     """Health check for monitoring."""
     try:
@@ -67,15 +109,16 @@ def health():
             "platforms_count": stats.get("platforms_count", 0),
         }
     except Exception as e:
+        logger.error(f"Health check failed: {e}")
         return JSONResponse(
             status_code=503,
-            content={"status": "unhealthy", "error": str(e)},
+            content={"status": "unhealthy", "database": "disconnected", "platforms_count": 0},
         )
 
 
 # ── Platforms ────────────────────────────────────────────────────────────────
 
-@app.get("/api/v1/platforms", tags=["platforms"])
+@app.get("/api/v1/platforms", tags=["platforms"], response_model=PlatformListResponse)
 def list_platforms(
     category: Optional[str] = Query(None, description="Filter by category ID (e.g., 'air', 'land', 'sea', 'munition')"),
     subcategory: Optional[str] = Query(None, description="Filter by subcategory ID (e.g., 'fighter', 'tank')"),
@@ -118,7 +161,7 @@ def list_platforms(
     )
 
 
-@app.get("/api/v1/platforms/{platform_id}", tags=["platforms"])
+@app.get("/api/v1/platforms/{platform_id}", tags=["platforms"], response_model=PlatformDetail)
 def get_platform(platform_id: str):
     """
     Get full detail for a single platform.
@@ -134,7 +177,7 @@ def get_platform(platform_id: str):
 
 # ── Stats ────────────────────────────────────────────────────────────────────
 
-@app.get("/api/v1/stats", tags=["analytics"])
+@app.get("/api/v1/stats", tags=["analytics"], response_model=StatsResponse)
 def get_stats():
     """
     Database summary statistics.
@@ -146,7 +189,7 @@ def get_stats():
 
 # ── Categories ───────────────────────────────────────────────────────────────
 
-@app.get("/api/v1/categories", tags=["reference"])
+@app.get("/api/v1/categories", tags=["reference"], response_model=list[Category])
 def get_categories():
     """
     List all platform categories with their subcategories.
@@ -158,7 +201,7 @@ def get_categories():
 
 # ── Conflicts ────────────────────────────────────────────────────────────────
 
-@app.get("/api/v1/conflicts", tags=["reference"])
+@app.get("/api/v1/conflicts", tags=["reference"], response_model=list[Conflict])
 def get_conflicts():
     """
     List all conflicts tracked in the database.
@@ -170,7 +213,7 @@ def get_conflicts():
 
 # ── Compare ──────────────────────────────────────────────────────────────────
 
-@app.get("/api/v1/compare", tags=["platforms"])
+@app.get("/api/v1/compare", tags=["platforms"], response_model=CompareResponse)
 def compare_platforms(
     ids: str = Query(
         ...,
