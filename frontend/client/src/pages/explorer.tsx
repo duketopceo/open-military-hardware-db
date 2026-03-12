@@ -8,9 +8,9 @@ import {
   ExternalLink, Shield,
   DollarSign, Swords, Globe, BookOpen, Factory, ChevronRight
 } from "lucide-react";
-import { MILITARY_ICONS, MissileIcon } from "@/components/MilitaryIcons";
+import { MILITARY_ICONS, SUBCATEGORY_ICONS, MissileIcon } from "@/components/MilitaryIcons";
 import type { PlatformListResponse, PlatformDetail } from "@/lib/api";
-import { categoryConfig, statusConfig } from "@/lib/api";
+import { categoryConfig, statusConfig, countryFlag } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
 const CATEGORY_ICONS = MILITARY_ICONS;
@@ -56,7 +56,7 @@ function DetailPanel({ platform }: { platform: PlatformDetail }) {
           {platform.nato_reporting_name && (
             <span className="tag-chip">NATO: {platform.nato_reporting_name}</span>
           )}
-          <span className="tag-chip">{platform.country_of_origin}</span>
+          <span className="tag-chip">{countryFlag(platform.country_of_origin)} {platform.country_of_origin}</span>
           <span className="tag-chip">{platform.category_id}</span>
           {(platform as any).role_type && (
             <span className="tag-chip">{(platform as any).role_type.toUpperCase()}</span>
@@ -168,7 +168,7 @@ function DetailPanel({ platform }: { platform: PlatformDetail }) {
           <div className="flex flex-wrap gap-1">
             {platform.operators.map((op, i) => (
               <span key={i} className="tag-chip">
-                {op.country_name || op.operator_name || op.country_code}
+                {op.country_code ? countryFlag(op.country_code) + ' ' : ''}{op.country_name || op.operator_name || op.country_code}
                 {op.quantity ? ` (${op.quantity})` : ""}
               </span>
             ))}
@@ -439,7 +439,8 @@ export default function ExplorerPage() {
                 ))
               ) : (
                 (data?.platforms || []).map((p) => {
-                  const CatIcon = CATEGORY_ICONS[p.category_id] || MissileIcon;
+                  const SubIcon = p.subcategory_id ? SUBCATEGORY_ICONS[p.subcategory_id] : null;
+                  const CatIcon = SubIcon || CATEGORY_ICONS[p.category_id] || MissileIcon;
                   const isSelected = selectedId === p.platform_id;
                   return (
                     <tr
@@ -460,7 +461,7 @@ export default function ExplorerPage() {
                         {(p as any).role_type || "—"}
                       </td>
                       <td className="text-[hsl(var(--bp-text-muted))]">{p.manufacturer}</td>
-                      <td className="text-[hsl(var(--bp-text-muted))]">{p.country_of_origin}</td>
+                      <td className="text-[hsl(var(--bp-text-muted))]">{countryFlag(p.country_of_origin)} {p.country_of_origin}</td>
                       <td className="text-right tabular-nums">{p.entered_service_year || "—"}</td>
                       <td className="text-right tabular-nums text-[hsl(var(--bp-text-muted))]">
                         {p.units_built ? p.units_built.toLocaleString() : "—"}

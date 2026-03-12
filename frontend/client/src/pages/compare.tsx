@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { MILITARY_ICONS, MissileIcon } from "@/components/MilitaryIcons";
 import type { PlatformListResponse, CompareResponse, PlatformSummary } from "@/lib/api";
-import { categoryConfig } from "@/lib/api";
+import { categoryConfig, countryFlag } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
 const CATEGORY_ICONS = MILITARY_ICONS;
@@ -174,6 +174,8 @@ export default function ComparePage() {
                           </span>
                         ) : field.key === "category_id" && p[field.key] ? (
                           <span className="tag-chip">{p[field.key]}</span>
+                        ) : field.key === "country_of_origin" && p[field.key] ? (
+                          <>{countryFlag(p[field.key])} {String(p[field.key])}</>
                         ) : p[field.key] !== null && p[field.key] !== undefined ? (
                           typeof p[field.key] === "number"
                             ? p[field.key].toLocaleString()

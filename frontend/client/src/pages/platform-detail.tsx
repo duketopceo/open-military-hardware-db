@@ -8,7 +8,7 @@ import {
   Shield, DollarSign, Swords, Globe, BookOpen, AlertTriangle
 } from "lucide-react";
 import type { PlatformDetail } from "@/lib/api";
-import { categoryConfig, statusConfig } from "@/lib/api";
+import { categoryConfig, statusConfig, countryFlag } from "@/lib/api";
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
   air: Plane, land: Truck, sea: Ship, munition: Crosshair,
@@ -108,7 +108,7 @@ export default function PlatformDetailPage() {
               <span>NATO: {platform.nato_reporting_name}</span>
             )}
             <span>{platform.manufacturer}</span>
-            <span>{platform.country_of_origin}</span>
+            <span>{countryFlag(platform.country_of_origin)} {platform.country_of_origin}</span>
             {platform.entered_service_year && (
               <span className="tabular-nums">Service: {platform.entered_service_year}</span>
             )}
@@ -175,7 +175,7 @@ export default function PlatformDetailPage() {
             <div className="flex flex-wrap gap-1.5">
               {platform.operators.map((op, i) => (
                 <Badge key={i} variant="secondary" className="text-[10px]">
-                  {op.country_name || op.operator_name || op.country_code || `Operator ${i + 1}`}
+                  {op.country_code ? countryFlag(op.country_code) + ' ' : ''}{op.country_name || op.operator_name || op.country_code || `Operator ${i + 1}`}
                   {op.quantity && ` (${op.quantity})`}
                 </Badge>
               ))}
