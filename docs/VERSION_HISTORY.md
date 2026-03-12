@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated after V2.3 push.
+> Last updated after V2.4 push.
 
 ---
 
@@ -19,6 +19,7 @@
 | **V2.1** | Hardening | Complete | 51-test suite, data quality audit (0 XX codes, 130→95 mfrs), Pydantic models, Dockerfile, GitHub Actions CI |
 | **V2.2** | Beta UI | Complete | React frontend (Explorer, Detail, Compare, Stats Dashboard), dark military theme, deployed beta |
 | **V2.3** | Intel Console | Complete | Blueprint + liquid glass visual redesign, 3-pane intelligence console, dense sortable table, integrated detail pane |
+| **V2.4** | Software & Roles | Complete | 18 new platforms (Palantir/Anduril), role classification, contractor filters, military fonts/icons |
 | **V3.0** | Global Data | Next Up | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, international research |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
 | **V4.0** | Experience | Planned | Next.js frontend, interactive dashboards, maps, comparison tool UI |
@@ -254,6 +255,54 @@
 **Tech stack:** Same as V2.2 (React 19, Vite, Tailwind CSS 3, shadcn/ui, Recharts, wouter, TanStack Query v5, Express proxy, TypeScript)
 
 **Figma integration:** Connected for future design iteration
+
+**Beta deployment:** Updated at same Perplexity Computer URL
+
+---
+
+### V2.4 — Software & Roles (Just Completed)
+
+**Commit:** `0ee769f feat(v2.4): software platforms, role classification, contractor filters, military fonts/icons`
+
+**Shipped:**
+- 18 new platforms (183 total, was 165):
+  - 6 Palantir software platforms: Gotham (intelligence), Foundry (support), AIP (dual), Maven Smart System (offensive), TITAN Ground Station (intelligence), Apollo (support)
+  - 12 Anduril systems: Lattice OS (dual/software), Lattice Mission Autonomy (dual/software), Fury (dual/air), Roadrunner (dual/air), Roadrunner-M (defensive/air), Ghost-X (intelligence/air), Altius-600 (offensive/air), Altius-700 (offensive/air), Anvil (defensive/air), Sentry Tower (defensive/land), Dive-LD (intelligence/sea), Ghost Shark (offensive/sea)
+- New `software` domain category with subcategories: c2-platform, ai-ml-platform, isr-analytics, data-integration, autonomy-os, cyber-platform
+- `surveillance` subcategory added under land domain
+- Role type classification for all 183 platforms:
+  - `role_type` column: offensive (122), dual (21), support (19), defensive (15), intelligence (6)
+  - Role filter pills in Explorer toolbar (OFFENSIVE / DEFENSIVE / DUAL-ROLE / SUPPORT / INTEL)
+  - Role column in platform table with sort capability
+  - Role type tag in detail panel
+- Contractor dropdown filter:
+  - `/api/v1/manufacturers` endpoint returning manufacturer names, platform counts, and categories
+  - Filterable dropdown in Explorer toolbar showing all manufacturers sorted by platform count
+  - Click-to-filter, clear filter, overlay closes on outside click
+- Offensive / Defensive Classification pie chart on Analytics page
+  - Shows distribution across all 5 role types
+  - Stats grid expanded to 3 columns on xl breakpoints
+- Font overhaul:
+  - Barlow Condensed (sans/UI) — replaces Inter; tall condensed military feel
+  - Share Tech Mono (mono/data) — replaces JetBrains Mono; technical readout aesthetic
+  - Google Fonts import slimmed from 30+ fonts to just 2
+- Custom military SVG icons (replaces Lucide generic icons):
+  - `MilitaryIcons.tsx`: FighterJetIcon (air), TankIcon (land), WarshipIcon (sea), MissileIcon (munition), SoftwareIcon (software)
+  - Applied in sidebar domain filters, table type column, detail panel headers, compare page
+- API updates:
+  - FastAPI version bumped to v2.4.0
+  - `role_type` query parameter for platform filtering
+  - `role_types` breakdown in stats response
+  - `/api/v1/manufacturers` endpoint with count and category data
+- Domain sidebar filter bug fix: URL category param now syncs to explorer state via useEffect
+- Full research citations and economics data for all 18 new platforms
+- DB migration script: `data/migrations/v2_4_software_roles.py`
+
+**Database stats (V2.4):**
+- 183 platforms | 172 specifications | 158 economics | 223 armaments
+- 665 operators | 313 conflicts | 165 media records | 675 source citations
+
+**Tech stack:** Same as V2.3 + Barlow Condensed/Share Tech Mono fonts, custom SVG icon system
 
 **Beta deployment:** Updated at same Perplexity Computer URL
 
