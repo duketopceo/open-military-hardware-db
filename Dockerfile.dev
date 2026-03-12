@@ -1,0 +1,82 @@
+# Open Military Hardware Database — Single-Container Build
+# Serves both the FastAPI API and the React/Express frontend from one container.
+# Usage: docker build -f Dockerfile.dev -t mildb:latest .
+#        docker run -p 5001:5000 mildb:latest
+
+# ── Stage 1: Build frontend ──────────────────────────────────────────────────
+FROM node:20-slim AS frontend-builder
+
+WORKDIR /build
+
+# Copy package files and install dependencies
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm install --ignore-scripts
+
+# Copy frontend source
+COPY frontend/ ./
+
+# Build the React app (Vite) and bundle the Express server (esbuild)
+RUN npm run build
+
+# ── Stage 2: Build SQLite database from dump ─────────────────────────────────
+FROM python:3.12-slim AS db-builder
+
+RUN apt-get update && apt-get install -y --no-install-recommends sqlite3 && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+COPY data/sql/military_hardware_dump.sql ./dump.sql
+RUN sqlite3 military_hardware.db < dump.sql
+
+# ── Stage 3: Runtime — Python + Node serving everything ──────────────────────
+FROM python:3.12-slim
+
+LABEL maintainer="Open Military Hardware DB <https://github.com/duketopceo/open-military-hardware-db>"
+LABEL description="Single-container deployment: FastAPI API + React/Express frontend"
+LABEL version="2.4.0"
+
+# Install Node.js 20
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Install Python API dependencies (only what's needed for runtime)
+RUN pip install --no-cache-dir fastapi uvicorn pydantic
+
+# Copy FastAPI application
+COPY api/ ./api/
+COPY schemas/ ./schemas/
+
+# Copy SQLite database built from dump
+COPY --from=db-builder /build/military_hardware.db ./data/sql/military_hardware.db
+
+# Copy JSON data
+COPY data/json/platforms.json ./data/json/platforms.json
+
+# Copy built frontend (Express server bundle + static assets)
+COPY --from=frontend-builder /build/dist/ ./frontend/dist/
+
+# Install only the production Node.js dependencies needed by the bundled Express server
+WORKDIR /app/frontend
+COPY frontend/package.json ./
+RUN npm install --omit=dev --ignore-scripts
+WORKDIR /app
+
+# Copy entrypoint
+COPY entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
+# Create non-root user
+RUN adduser --disabled-password --gecos "" appuser && \
+    chown -R appuser:appuser /app
+USER appuser
+
+EXPOSE 5000
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" || exit 1
+
+ENTRYPOINT ["./entrypoint.sh"]
