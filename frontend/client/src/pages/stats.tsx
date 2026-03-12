@@ -5,6 +5,7 @@ import {
   PieChart, Pie, Cell, Legend
 } from "recharts";
 import type { StatsResponse } from "@/lib/api";
+import { countryFlag, countryColors } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
 const CHART_COLORS = [
@@ -184,9 +185,19 @@ export default function StatsPage() {
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={countryData} layout="vertical">
                 <XAxis type="number" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} />
-                <YAxis type="category" dataKey="name" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={80} />
+                <YAxis type="category" dataKey="name" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={100}
+                  tickFormatter={(name: string) => {
+                    const code = Object.entries(countryColors).find(([k]) => k === name)?.[0];
+                    const flag = code ? countryFlag(code) : '';
+                    return flag ? `${flag} ${name}` : name;
+                  }}
+                />
                 <Tooltip content={<BpTooltip />} />
-                <Bar dataKey="value" fill="hsl(190, 65%, 50%)" radius={[0, 2, 2, 0]} opacity={0.8} />
+                <Bar dataKey="value" radius={[0, 2, 2, 0]} opacity={0.85}>
+                  {countryData.map((entry, i) => (
+                    <Cell key={i} fill={countryColors[entry.name] || "hsl(190, 65%, 50%)"} />
+                  ))}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>

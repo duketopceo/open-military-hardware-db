@@ -24,7 +24,7 @@
   --bp-line-faint: 210 25% 22%;
   --bp-text: 210 15% 85%;
   --bp-text-muted: 210 15% 55%;
-  --bp-text-faint: 210 12% 38%;
+  --bp-text-faint: 210 12% 45%;
 
   /* Accent — warm amber for highlights */
   --bp-accent: 38 90% 58%;
@@ -190,7 +190,7 @@ html, body, #root {
 }
 
 .label-caps {
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -210,7 +210,7 @@ html, body, #root {
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -276,7 +276,7 @@ html, body, #root {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.4;
 }
 
@@ -286,7 +286,7 @@ html, body, #root {
   z-index: 5;
   padding: 6px 10px;
   text-align: left;
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -318,7 +318,7 @@ html, body, #root {
 }
 
 .intel-table tbody td {
-  padding: 5px 10px;
+  padding: 7px 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -76,6 +76,47 @@ export interface CompareResponse {
   platforms: PlatformDetail[];
 }
 
+// ─── Country flag emoji from 2-letter ISO code ───
+export function countryFlag(code: string): string {
+  if (!code || code.length !== 2) return '';
+  return String.fromCodePoint(
+    ...code.toUpperCase().split('').map(c => c.charCodeAt(0) + 127397)
+  );
+}
+
+// ─── Country → dominant flag color for charts ───
+export const countryColors: Record<string, string> = {
+  'US': '#3C3B6E',
+  'United States': '#3C3B6E',
+  'RU': '#D52B1E',
+  'Russia': '#D52B1E',
+  'CN': '#DE2910',
+  'China': '#DE2910',
+  'GB': '#012169',
+  'United Kingdom': '#012169',
+  'FR': '#002395',
+  'France': '#002395',
+  'DE': '#FFCE00',
+  'Germany': '#FFCE00',
+  'SE': '#006AA7',
+  'Sweden': '#006AA7',
+  'IL': '#0038B8',
+  'Israel': '#0038B8',
+  'IN': '#FF9933',
+  'India': '#FF9933',
+  'AU': '#002868',
+  'Australia': '#002868',
+  'KR': '#003478',
+  'South Korea': '#003478',
+  'JP': '#BC002D',
+  'Japan': '#BC002D',
+  'IT': '#009246',
+  'Italy': '#009246',
+  'Soviet Union': '#CC0000',
+  'TR': '#E30A17',
+  'Turkey': '#E30A17',
+};
+
 // Category icons/colors
 export const categoryConfig: Record<string, { label: string; color: string; icon: string }> = {
   air: { label: "Air", color: "hsl(200, 60%, 55%)", icon: "Plane" },
