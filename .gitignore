@@ -36,3 +36,8 @@ cache/
 
 # Large files (keep DB in git for convenience)
 *.log
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
