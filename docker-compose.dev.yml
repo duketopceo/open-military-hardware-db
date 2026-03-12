@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mildb:
+    image: mildb:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5001:5000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
