@@ -503,7 +503,7 @@ CREATE TABLE arms_transfers (
 - Add `data_quality_score` field to platforms table (0.0–1.0 based on field completeness)
 - Generate `docs/DATA_QUALITY_REPORT.md` — per-category completeness percentages
 
-**Target after V3.0:** 500+ platforms, 40+ countries, PostgreSQL backend, all tests green.
+**Target after V3.0:** 500+ platforms, 40+ countries, PostgreSQL backend, all tests green. SIPRI transfer data cross-referenced with new international platforms.
 
 ---
 
