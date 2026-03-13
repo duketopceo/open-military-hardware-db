@@ -1,0 +1,79 @@
+# =============================================================================
+# OMHDB Production Dockerfile
+# Multi-stage: Node.js frontend build + Python FastAPI backend
+# Serves: Express (port 5000) -> React SPA + /api proxy -> FastAPI (port 8000)
+# =============================================================================
+
+# -- Stage 1: Build frontend + Express server bundle --------------------------
+FROM node:20-alpine AS frontend-builder
+
+WORKDIR /build
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci
+
+COPY frontend/ ./
+RUN npm run build
+
+# -- Stage 2: Production runtime ----------------------------------------------
+FROM python:3.12-slim
+
+LABEL maintainer="OMHDB <https://github.com/duketopceo/open-military-hardware-db>"
+LABEL version="2.4.0"
+
+# Create non-root user FIRST (so --chown works on COPY steps below)
+RUN adduser --disabled-password --gecos "" appuser
+
+# Install Node.js 20 + curl for healthchecks
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl gnupg && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
+    apt-get purge -y gnupg && \
+    apt-get autoremove -y && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# -- Python dependencies (FastAPI) --------------------------------------------
+RUN pip install --no-cache-dir fastapi uvicorn pydantic python-dateutil
+
+# -- Copy application code (--chown avoids 5-min recursive chown later) -------
+COPY --chown=appuser:appuser api/ ./api/
+COPY --chown=appuser:appuser data/json/platforms.json ./data/json/platforms.json
+COPY --chown=appuser:appuser data/sql/military_hardware_dump.sql ./data/sql/military_hardware_dump.sql
+COPY --chown=appuser:appuser data/migrations/ ./data/migrations/
+COPY --chown=appuser:appuser data/sipri/ ./data/sipri/
+COPY --chown=appuser:appuser schemas/ ./schemas/
+
+# Build SQLite database: import dump -> run V2.4 migration -> 183 platforms
+RUN python3 -c "\
+import sqlite3, os; \
+db_path = 'data/sql/military_hardware.db'; \
+dump = open('data/sql/military_hardware_dump.sql').read(); \
+conn = sqlite3.connect(db_path); \
+conn.executescript(dump); \
+conn.close(); \
+print('SQLite DB created from dump'); \
+" && python3 -c "\
+import sys; sys.path.insert(0, '.'); \
+from data.migrations.v2_4_software_roles import run; \
+run(); \
+print('V2.4 migration applied - 183 platforms'); \
+" && chown appuser:appuser data/sql/military_hardware.db
+
+# -- Copy frontend build + node_modules (--chown at copy time) ----------------
+COPY --chown=appuser:appuser --from=frontend-builder /build/dist/ ./frontend/dist/
+COPY --chown=appuser:appuser --from=frontend-builder /build/node_modules/ ./frontend/node_modules/
+
+# -- Startup script -----------------------------------------------------------
+COPY --chown=appuser:appuser docker/start-prod.sh ./start.sh
+RUN chmod +x start.sh
+
+USER appuser
+
+EXPOSE 5000
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD curl -f http://localhost:5000/health || exit 1
+
+CMD ["./start.sh"]
