@@ -1,0 +1,171 @@
+# Cursor Instructions — open-military-hardware-db
+
+> Open-source military hardware database — OSINT project
+> Category: OSINT / Intel
+
+This project is part of the **Cosmic Intelligence** portfolio ecosystem.
+All visual and UI work MUST follow the Cosmic Intelligence brand system below.
+
+---
+
+# Cosmic Intelligence — Brand System
+
+You are working on a project within the **Cosmic Intelligence** portfolio ecosystem.
+All visual work must follow this brand system. When in doubt, refer back to these tokens and principles.
+
+---
+
+## Design Philosophy
+
+Cosmic Intelligence is a personal portfolio brand. The aesthetic is **deep space meets clean engineering** — dark, vast, minimal surfaces punctuated by teal light and subtle cosmic motion.
+
+**Quality bar:** Think high-end macOS screensaver. Slightly alive, shimmery, with hints of space/planets/stars. Not in your face — quietly stunning. The kind of thing that makes someone pause and say "wow" without understanding why.
+
+**Core tension:** Precision vs. wonder. Data-driven interfaces with an undercurrent of cosmic depth.
+
+---
+
+## Design Tokens
+
+### Colors
+
+| Role | Hex | Usage |
+|---|---|---|
+| Background | `#080C14` | Primary dark background — deep space |
+| Surface | `#0C121E` | Cards, panels, elevated containers |
+| Surface alt | `#111827` | Secondary surface, hover states |
+| Border | `#1E293B` | Subtle dividers, card edges |
+| Accent | `#2DD4BF` | Primary interactive — teal glow, CTAs, links |
+| Accent hover | `#14B8A6` | Hover/active state for accent |
+| Accent muted | `rgba(45, 212, 191, 0.15)` | Teal tint for backgrounds, glows |
+| Text primary | `#E4E4E7` | Body text |
+| Text muted | `#A1A1AA` | Secondary text, labels |
+| Text faint | `#52525B` | Placeholder, tertiary |
+
+### Category Accent Colors
+
+Each project category has a designated accent. Use these for tags, indicators, and category-specific highlights — never as primary UI color.
+
+| Category | Hex | Name |
+|---|---|---|
+| Finance | `#2DD4BF` | Teal (same as primary accent) |
+| AI / ML | `#A78BFA` | Violet |
+| OSINT / Intel | `#FBBF24` | Amber |
+| Data / Analytics | `#38BDF8` | Sky |
+| Infrastructure | `#F472B6` | Pink |
+| Apps / Tools | `#34D399` | Emerald |
+
+### Typography
+
+| Role | Font | Weight | Fallback |
+|---|---|---|---|
+| Display / Headings | Space Grotesk | 500–700 | system-ui, sans-serif |
+| Body | Inter | 400–500 | system-ui, sans-serif |
+| Code / Mono | JetBrains Mono | 400 | Consolas, monospace |
+
+**Sizes (web):**
+- Hero: 48–72px, Space Grotesk 700
+- Section heading: 24–32px, Space Grotesk 600
+- Body: 16–18px, Inter 400
+- Caption / label: 12–14px, Inter 400, text-muted color
+- Code: 14px, JetBrains Mono 400
+
+### Spacing & Layout
+
+- Base unit: 4px
+- Section padding: 64–96px vertical, 24–48px horizontal
+- Card padding: 24–32px
+- Card border-radius: 12–16px
+- Max content width: 1200px
+- Card gap: 24px
+
+### Motion & Cosmic Effects
+
+This is the soul of the brand. Every page should feel slightly alive.
+
+**Background:**
+- Subtle animated gradient: slow drift across deep blues and purples (`#080C14` → `#0C1220` → `#10081E`)
+- Faint star field: tiny white/teal dots with gentle twinkle (opacity oscillating 0.3–0.8 over 3–6s, staggered)
+- Optional: very slow-moving nebula wisps at low opacity (0.03–0.08)
+
+**Interactive elements:**
+- Teal glow on hover: `box-shadow: 0 0 20px rgba(45, 212, 191, 0.15)`
+- Cards lift on hover: `transform: translateY(-2px)` with 300ms ease
+- Accent underlines animate width on hover (0 → 100%, 200ms)
+
+**Transitions:**
+- Default: 300ms ease for all interactive state changes
+- Page/section entrance: fade-in + translateY(20px → 0) with stagger (100ms per element)
+- Number counters: count-up animation on scroll-into-view (800ms)
+
+**Performance:**
+- All animations must use `transform` and `opacity` only (GPU-composited)
+- Respect `prefers-reduced-motion` — disable star field, gradient animation, and entrance animations
+- Star field: use CSS or lightweight canvas, never heavy WebGL unless the project specifically warrants it
+
+### Iconography
+
+- Style: Lucide icons (outline, 1.5px stroke)
+- Size: 16–24px depending on context
+- Color: inherit from text or accent
+
+---
+
+## Per-Project Variation Rules
+
+The brand is a **center Venn diagram** — all projects share the core tokens above, but each has wiggle room for its own personality.
+
+**What's shared (never deviate):**
+- Background color (#080C14)
+- Accent teal (#2DD4BF) as primary interactive color
+- Typography stack (Space Grotesk / Inter / JetBrains Mono)
+- Dark-first design
+- Cosmic motion (star field, subtle gradients, hover glows)
+- Card-based layouts with the spacing tokens above
+
+**What can flex per project:**
+- Category accent color for highlights and secondary emphasis
+- Density of cosmic effects (data dashboards = more restrained; landing pages = more expressive)
+- Additional data-viz colors (follow the category palette, not random)
+- Layout structure (grid vs. list vs. dashboard vs. editorial)
+- Content-specific iconography
+
+---
+
+## Exclusions
+
+- **Bartlett Roofing projects** (BartlettBot, bartlett-permits) do NOT use Cosmic Intelligence branding. They use their own teal + roof-industry theme. Do not apply cosmic tokens to these repos.
+
+---
+
+## Accessibility
+
+- All text must meet WCAG AA contrast (4.5:1 body, 3:1 large text)
+- `#E4E4E7` on `#080C14` = ~15:1 ✓
+- `#2DD4BF` on `#080C14` = ~10:1 ✓
+- `#A1A1AA` on `#080C14` = ~7:1 ✓
+- Never rely on color alone — use labels, shapes, position
+- Provide focus-visible outlines: `outline: 2px solid #2DD4BF; outline-offset: 2px`
+- All motion behind `prefers-reduced-motion` media query
+
+---
+
+## File & Asset Conventions
+
+- Brand assets live in `public/brand/` (or project-appropriate static dir)
+- CSS custom properties preferred: `--cosmic-bg`, `--cosmic-surface`, `--cosmic-accent`, etc.
+- Tailwind: extend theme config with cosmic tokens if using Tailwind
+- Images: WebP preferred, fallback to PNG. Compress aggressively.
+- OG images: 1200×630, dark with teal accent and Space Grotesk text
+
+
+---
+
+## Project-Specific Instructions
+
+- Open-source intelligence (OSINT) database of military hardware
+- Category accent: Amber `#FBBF24` for OSINT classification
+- Data-heavy — prioritize clean tables, search interfaces, and filterable lists
+- Cosmic effects: moderate. The star/space theme actually fits well with military/satellite imagery — lean into it slightly more than a pure data tool
+- Amber accent for category badges and classification markers; teal for interactive elements
+- SECURITY: No personal info in public-facing content
