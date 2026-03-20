@@ -19,7 +19,7 @@ SCHEMA_DIR = PROJECT_ROOT / "schemas"
 
 def load_dataset(json_path: Path) -> list[dict]:
     """Load the master JSON dataset."""
-    with open(json_path) as f:
+    with open(json_path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -28,7 +28,7 @@ def load_dataset(json_path: Path) -> list[dict]:
 def export_json(platforms: list[dict], output_path: Path):
     """Export platforms as pretty-printed JSON."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(platforms, f, indent=2, ensure_ascii=False, default=str)
     logger.info(f"Exported {len(platforms)} platforms to {output_path}")
 

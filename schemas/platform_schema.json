@@ -24,11 +24,11 @@
       "pattern": "^[A-Z]{2}$",
       "description": "ISO 3166-1 alpha-2 country code"
     },
-    "development_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
-    "first_flight_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
-    "entered_service_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
-    "production_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
-    "production_end_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2030 },
+    "development_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "first_flight_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "entered_service_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "production_start_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "production_end_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
     "units_built": { "type": ["integer", "null"], "minimum": 0 },
     "units_built_approx": { "type": "boolean" },
     "status_id": {
@@ -73,7 +73,7 @@
       "type": "object",
       "properties": {
         "unit_cost_usd": { "type": ["number", "null"], "minimum": 0 },
-        "unit_cost_year": { "type": ["integer", "null"], "minimum": 1940, "maximum": 2030 },
+        "unit_cost_year": { "type": ["integer", "null"], "minimum": 1940, "maximum": 2100 },
         "unit_cost_adjusted_2024": { "type": ["number", "null"], "minimum": 0 },
         "program_cost_usd": { "type": ["number", "null"], "minimum": 0 },
         "program_cost_year": { "type": ["integer", "null"] },

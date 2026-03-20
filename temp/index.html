@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Military Hardware DB — Temp UI</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --border: #2d3a4d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --air: #3fb4e5;
+      --land: #7ee787;
+      --sea: #79c0ff;
+      --munition: #ff7b72;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    h1 { margin: 0; font-size: 1.5rem; font-weight: 600; }
+    .sub { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .filters button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .filters button:hover, .filters button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+    .search {
+      width: 100%;
+      max-width: 320px;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .search::placeholder { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card .name { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
+    .card .meta { font-size: 0.8rem; color: var(--muted); }
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+    .tag.air { background: rgba(63,180,229,0.25); color: var(--air); }
+    .tag.land { background: rgba(126,231,135,0.2); color: var(--land); }
+    .tag.sea { background: rgba(121,192,255,0.25); color: var(--sea); }
+    .tag.munition { background: rgba(255,123,114,0.25); color: var(--munition); }
+    .detail {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 1rem;
+    }
+    .detail.open { display: flex; }
+    .detail-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: auto;
+      padding: 1.5rem;
+    }
+    .detail h2 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+    .detail .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .detail section { margin-bottom: 1rem; }
+    .detail section h3 { font-size: 0.75rem; text-transform: uppercase; color: var(--muted); margin: 0 0 0.5rem; }
+    .detail .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; font-size: 0.85rem; }
+    .detail .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .detail .close:hover { background: var(--border); }
+    .loading { text-align: center; padding: 2rem; color: var(--muted); }
+    .error { color: var(--munition); padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Military Hardware DB</h1>
+      <p class="sub">Temp UI — 50 platforms (air, land, sea, munitions)</p>
+    </header>
+    <input type="text" class="search" id="search" placeholder="Search by name, manufacturer, country…">
+    <div class="filters" id="filters">
+      <button data-category="">All</button>
+      <button data-category="air">Air</button>
+      <button data-category="land">Land</button>
+      <button data-category="sea">Sea</button>
+      <button data-category="munition">Munitions</button>
+    </div>
+    <div id="list" class="grid"></div>
+  </div>
+  <div class="detail" id="detail">
+    <div class="detail-inner">
+      <button class="close" id="closeDetail" aria-label="Close">&times;</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script>
+    let platforms = [];
+    let filterCategory = '';
+    let searchQuery = '';
+
+    async function load() {
+      const list = document.getElementById('list');
+      list.innerHTML = '<div class="loading">Loading…</div>';
+      try {
+        const r = await fetch('/api/platforms.json');
+        if (!r.ok) throw new Error(r.statusText);
+        platforms = await r.json();
+        render();
+      } catch (e) {
+        list.innerHTML = '<div class="error">Failed to load: ' + e.message + '</div>';
+      }
+    }
+
+    function render() {
+      const list = document.getElementById('list');
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = platforms.filter(p => {
+        const matchCat = !filterCategory || p.category_id === filterCategory;
+        const matchSearch = !q || [p.common_name, p.manufacturer, p.country_of_origin, p.description].some(
+          v => v && String(v).toLowerCase().includes(q)
+        );
+        return matchCat && matchSearch;
+      });
+      list.innerHTML = filtered.length === 0
+        ? '<p class="loading">No platforms match.</p>'
+        : filtered.map(p => `
+          <article class="card" data-id="${p.platform_id}">
+            <div class="name">${escapeHtml(p.common_name)}</div>
+            <div class="meta">${escapeHtml(p.manufacturer || '')} · ${escapeHtml(p.country_of_origin || '')}</div>
+            <span class="tag ${p.category_id}">${escapeHtml(p.category_id)}</span>
+          </article>
+        `).join('');
+      list.querySelectorAll('.card').forEach(el => {
+        el.addEventListener('click', () => showDetail(el.dataset.id));
+      });
+    }
+
+    function showDetail(id) {
+      const p = platforms.find(x => x.platform_id === id);
+      if (!p) return;
+      const spec = p.specifications || {};
+      const econ = p.economics || {};
+      const specRows = Object.entries(spec).slice(0, 12).map(([k, v]) =>
+        `<span>${k.replace(/_/g, ' ')}</span><span>${v != null ? v : '—'}</span>`
+      ).join('');
+      document.getElementById('detailContent').innerHTML = `
+        <h2>${escapeHtml(p.common_name)}</h2>
+        <div class="meta">${escapeHtml(p.official_designation || '')} · ${escapeHtml(p.manufacturer || '')} · ${escapeHtml(p.country_of_origin || '')}</div>
+        <span class="tag ${p.category_id}">${escapeHtml(p.category_id)}</span>
+        ${p.description ? `<section><h3>Description</h3><p>${escapeHtml(p.description)}</p></section>` : ''}
+        <section><h3>Specifications</h3><div class="specs">${specRows}</div></section>
+        ${econ.unit_cost_usd ? `<section><h3>Economics</h3><div class="specs"><span>Unit cost (USD)</span><span>${formatNum(econ.unit_cost_usd)}</span></div></section>` : ''}
+      `;
+      document.getElementById('detail').classList.add('open');
+    }
+
+    function escapeHtml(s) {
+      if (s == null) return '';
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+    function formatNum(n) {
+      if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+      if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+      if (n >= 1e3) return (n / 1e3).toFixed(1) + 'k';
+      return String(n);
+    }
+
+    document.getElementById('search').addEventListener('input', e => {
+      searchQuery = e.target.value;
+      render();
+    });
+    document.getElementById('filters').addEventListener('click', e => {
+      const btn = e.target.closest('button[data-category]');
+      if (!btn) return;
+      document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCategory = btn.dataset.category || '';
+      render();
+    });
+    document.querySelector('.filters button[data-category=""]').classList.add('active');
+    document.getElementById('closeDetail').addEventListener('click', () => document.getElementById('detail').classList.remove('open'));
+    document.getElementById('detail').addEventListener('click', e => {
+      if (e.target.id === 'detail') e.target.classList.remove('open');
+    });
+
+    load();
+  </script>
+</body>
+</html>

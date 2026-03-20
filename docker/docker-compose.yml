@@ -110,6 +110,7 @@ services:
       - OLLAMA_URL=http://ollama:11434
       - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
       - DEBUG=true
+      - OMHDB_REPO_ROOT=/import
     depends_on:
       postgres:
         condition: service_healthy
@@ -117,7 +118,15 @@ services:
         condition: service_healthy
     volumes:
       - ../backend:/app
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      - ..:/import:ro
+    command:
+      - uvicorn
+      - app.main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8000"
+      - --reload
     profiles:
       - backend  # Only start with: docker compose --profile backend up
 

@@ -19,8 +19,8 @@ Transform the Open Military Hardware Database into a **world-class, AI-enhanced 
 | Version | Codename | Focus | Status | Timeline |
 |---------|----------|-------|--------|----------|
 | **V1.0** | Foundation | Core database, schema, data collection | ✅ Complete | Done |
-| **V1.1** | Structure | Application framework, architecture docs | 🚧 In Progress | Q1 2026 |
-| **V2.0** | API | FastAPI backend, REST/GraphQL endpoints | 📋 Planned | Q2 2026 |
+| **V1.1** | Structure | Application framework, architecture docs | ✅ Complete | Q1 2026 |
+| **V2.0** | API | FastAPI backend, REST/GraphQL endpoints | 🚧 MVP shipped (polish ongoing) | Q2 2026 |
 | **V3.0** | Intelligence | RAG system, vector embeddings, AI search | 📋 Planned | Q3 2026 |
 | **V4.0** | Experience | Full UI/UX, dashboards, visualizations | 📋 Planned | Q4 2026 |
 | **V5.0** | Community | Multi-user, contributions, moderation | 📋 Future | 2027 |
@@ -51,18 +51,20 @@ Transform the Open Military Hardware Database into a **world-class, AI-enhanced 
 
 ---
 
-## V1.1 — Structure (🚧 In Progress)
+## V1.1 — Structure (✅ Complete)
 
 **Goal:** Establish the application framework, architecture, and development roadmap.
 
+**Completed:** March 2026 — CI validates dataset + export pipeline; Docker init-db and docs; contributing guides and GitHub templates; formal UI/UX spec (`docs/UI_UX.md`). Runnable API/Next.js/RAG app code remains **V2.0+**.
+
 ### Deliverables
-- [ ] **Application Architecture Document** — Full system design
-- [ ] **Technology Stack Specification** — All open-source tools and versions
-- [ ] **RAG System Design** — Vector DB, embeddings, retrieval pipeline
-- [ ] **UI/UX Framework Specification** — Component library, design system
-- [ ] **Database Schema Extensions** — RAG tables, user management, analytics
-- [ ] **Development Environment Setup** — Docker, dev containers, CI/CD
-- [ ] **Contributing Guidelines** — Code standards, PR process, issue templates
+- [x] **Application Architecture Document** — Full system design (`docs/ARCHITECTURE.md`)
+- [x] **Technology Stack Specification** — All open-source tools and versions (`docs/TECH_STACK.md`)
+- [x] **RAG System Design** — Vector DB, embeddings, retrieval pipeline (`docs/ARCHITECTURE.md` — RAG System Architecture)
+- [x] **UI/UX Framework Specification** — Component library, design system (`docs/UI_UX.md` + Frontend Architecture / Design System in `docs/ARCHITECTURE.md`)
+- [x] **Database Schema Extensions** — RAG tables, user management, analytics (`schemas/004_extended_schema.sql`)
+- [x] **Development Environment Setup** — Docker (`docker/`), dev container (`.devcontainer/`), CI/CD (`.github/workflows/ci.yml`)
+- [x] **Contributing Guidelines** — Code standards, PR process, issue templates (`CONTRIBUTING.md`, `.github/`)
 
 ---
 
@@ -70,26 +72,28 @@ Transform the Open Military Hardware Database into a **world-class, AI-enhanced 
 
 **Goal:** Build a robust, scalable API backend with full CRUD operations and advanced querying.
 
+**Progress (2026):** Initial backend shipped in [`backend/`](../backend/README.md): FastAPI + SQLAlchemy, read/write REST for platforms, categories/conflicts read, JWT admin login, optional Redis list cache, Strawberry GraphQL (read), bulk JSON import, Alembic + Postgres seed via Docker entrypoint, `/health` and `/ready`, structlog. Still open: refresh tokens, rate limiting, FastAPI-Admin UI, webhooks, Celery, full CRUD for every entity, audit log.
+
 ### Core API Features
-- [ ] **FastAPI Backend** — Modern Python async framework
-- [ ] **REST API** — Full CRUD for all entities
-- [ ] **GraphQL API** — Flexible querying with Strawberry
-- [ ] **Authentication** — JWT-based auth with refresh tokens
-- [ ] **Rate Limiting** — Redis-based request throttling
-- [ ] **API Documentation** — Auto-generated OpenAPI/Swagger docs
+- [x] **FastAPI Backend** — Sync SQLAlchemy sessions, `backend/` package
+- [x] **REST API** — Platforms list/detail + admin CRUD; categories & conflicts list (more entities TBD)
+- [x] **GraphQL API** — Strawberry read schema (`platforms`, `platform`)
+- [x] **Authentication** — JWT access token via `/api/v1/auth/login` (refresh tokens TBD)
+- [ ] **Rate Limiting** — Redis-based request throttling (deferred)
+- [x] **API Documentation** — OpenAPI at `/docs`
 
 ### Data Management
 - [ ] **Admin Interface** — FastAPI-Admin for data management
-- [ ] **Bulk Import/Export** — CSV, JSON batch operations
+- [x] **Bulk Import/Export** — `POST /api/v1/admin/import` (JSON array, schema-validated); export still via `export_all.py`
 - [ ] **Data Versioning** — Audit trail for all changes
 - [ ] **Webhook Support** — Event notifications for integrations
 
 ### DevOps
-- [ ] **Docker Compose** — Development environment
-- [ ] **PostgreSQL Migration** — Production-ready database
-- [ ] **Redis Cache** — Query caching, session storage
-- [ ] **Health Checks** — Monitoring endpoints
-- [ ] **Structured Logging** — JSON logs with correlation IDs
+- [x] **Docker Compose** — `api` service + `OMHDB_REPO_ROOT` mount; see `docker/README.md`
+- [x] **PostgreSQL Migration** — Alembic initial revision (`Base.metadata.create_all` equivalent)
+- [x] **Redis Cache** — Optional list cache for `GET /platforms` (fails open if Redis down)
+- [x] **Health Checks** — `/health`, `/ready` (DB `SELECT 1`)
+- [x] **Structured Logging** — structlog (JSON when `DEBUG=false`)
 
 ### Open-Source Stack (V2.0)
 | Component | Technology | License |

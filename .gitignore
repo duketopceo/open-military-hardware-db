@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.pyc
+.pytest_cache/
 *.pyo
 *.egg-info/
 dist/
@@ -34,7 +35,7 @@ cache/
 # Jupyter
 .ipynb_checkpoints/
 
-# Large files (keep DB in git for convenience)
+# Large files
 *.log
 
 # Frontend build artifacts
@@ -42,7 +43,7 @@ frontend/node_modules/
 frontend/dist/
 frontend/.vite/
 
-# Database files
+# Generated SQLite (create with scripts/exporters/export_all.py)
 *.db
 *.sqlite
 *.sqlite3

@@ -1130,12 +1130,13 @@ open-military-hardware-db/
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── ROADMAP.md
-│   ├── API.md
+│   ├── TECH_STACK.md
+│   ├── UI_UX.md
 │   └── sample_queries.sql
 │
 ├── docker/
 │   ├── docker-compose.yml
-│   ├── docker-compose.prod.yml
+│   ├── init-db/
 │   └── .env.example
 │
 ├── k8s/
