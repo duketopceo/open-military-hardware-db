@@ -6,7 +6,7 @@
 [![FastAPI](https://img.shields.io/badge/api-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/frontend-React_19-61DAFB.svg)](https://react.dev/)
 [![Platforms](https://img.shields.io/badge/platforms-183-orange.svg)](#dataset-coverage)
-[![Version](https://img.shields.io/badge/version-2.5-brightgreen.svg)](docs/VERSION_HISTORY.md)
+[![Version](https://img.shields.io/badge/version-3.0-brightgreen.svg)](docs/VERSION_HISTORY.md)
 
 A comprehensive, open-source relational database of military hardware systems — air, land, sea, munitions, and software platforms. Ships with a FastAPI REST API, a React intelligence console frontend, and structured data in JSON/CSV/SQLite formats.
 
@@ -20,8 +20,8 @@ Built for researchers, journalists, analysts, and defense enthusiasts. All data 
 
 - **183 platforms** across 5 domains (air, land, sea, munitions, software)
 - **675 source citations** — every data point traceable to public sources
-- **SIPRI external data** — military expenditure (175 countries, 1949–2024), Top 100 arms companies, US arms transfers (3,006 records)
-- **REST API** with filtering, pagination, sorting, comparison, and manufacturer endpoints
+- **SIPRI database** — 8,173 expenditure records (175 countries, 1949–2024), 271 arms companies, 2,219 revenue records, 3,006 US arms transfers — fully integrated with 4 dedicated API endpoints and analytics charts
+- **REST API** with filtering, pagination, sorting, comparison, manufacturer, and SIPRI endpoints
 - **Intelligence console UI** — dark blueprint aesthetic, 3-pane layout, role/contractor filters
 - **Structured exports** — JSON, CSV, SQLite, SQL dump
 - **Data collection framework** — pluggable collectors with rate limiting, caching, and validation
@@ -76,7 +76,7 @@ For the **Docker / Postgres `backend/`** service, see **[backend/README.md](back
 
 ---
 
-## REST API (v2.5)
+## REST API (v3.0)
 
 Interactive docs at `http://localhost:8000/docs` (Swagger UI).
 
@@ -91,6 +91,10 @@ Interactive docs at `http://localhost:8000/docs` (Swagger UI).
 | `GET` | `/api/v1/conflicts` | All tracked conflicts with platform counts |
 | `GET` | `/api/v1/compare?ids=a,b,c` | Side-by-side comparison (max 10) |
 | `GET` | `/api/v1/manufacturers` | All manufacturers with platform counts and categories |
+| `GET` | `/api/v1/sipri/expenditure` | Military spending by country/year, filterable |
+| `GET` | `/api/v1/sipri/companies` | Arms companies list with revenue data |
+| `GET` | `/api/v1/sipri/transfers` | US arms transfers, filterable |
+| `GET` | `/api/v1/sipri/stats` | SIPRI dataset statistics and KPIs |
 | `GET` | `/health` | Health check |
 
 ### Query Parameters for `/api/v1/platforms`
@@ -138,7 +142,7 @@ curl "http://localhost:8000/api/v1/manufacturers"
 
 ## Dataset Coverage
 
-**V2.5 — 183 Platforms**
+**V3.0 — 183 Platforms + SIPRI Database**
 
 | Domain | Count | Examples |
 |--------|-------|---------|
@@ -157,6 +161,15 @@ curl "http://localhost:8000/api/v1/manufacturers"
 | Support | 19 | Logistics, transport, C2, ISR support |
 | Defensive | 15 | Air defense, counter-UAS, missile defense |
 | Intelligence | 6 | ISR, surveillance, reconnaissance |
+
+**SIPRI integrated data:**
+
+| Dataset | Records | Coverage |
+|---------|---------|----------|
+| Military Expenditure | 8,173 | 175 countries, 1949–2024 |
+| Arms Companies | 271 | SIPRI Top 100, 2002–2024 |
+| Company Revenue | 2,219 | Annual arms revenue records |
+| US Arms Transfers | 3,006 | 130 recipients, 2000–2025 |
 
 **Key manufacturers:** Boeing (20), Lockheed Martin (18), Anduril Industries (12), Raytheon/RTX (10), BAE Systems (8), General Dynamics (8+), Northrop Grumman (6), Palantir Technologies (6).
 
@@ -205,7 +218,7 @@ Each platform entry includes:
 └─────────────┘     └──────────────┘
 ```
 
-**11 tables** with full referential integrity. See `schemas/` for complete DDL.
+**11 core tables** + **4 SIPRI tables** (`country_military_expenditure`, `arms_companies`, `company_revenue_history`, `arms_transfers`) with full referential integrity. See `schemas/` for complete DDL.
 
 ---
 
@@ -365,9 +378,10 @@ To add a new platform:
 | **V2.3** | Intel Console | Complete — Blueprint + liquid glass redesign, 3-pane layout |
 | **V2.4** | Software & Roles | Complete — Palantir/Anduril platforms, role classification, contractor filters, military fonts/icons |
 | **V2.5** | SIPRI Integration + Enterprise Hardening | Complete — SIPRI data staged, production deployment, enterprise standards |
-| **V3.0** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL migration, SIPRI DB integration |
-| **V3.1** | Intelligence | Planned — Vector embeddings, semantic search, RAG |
-| **V4.0** | Experience | Planned — Advanced data viz, SIPRI charts, transfer maps, AI chat |
+| **V3.0** | SIPRI Database Integration | Complete — 4 SIPRI tables, 4 API endpoints, analytics charts (8,173 expenditure records, 271 companies, 3,006 transfers) |
+| **V3.1** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL migration |
+| **V3.2** | Intelligence | Planned — Vector embeddings, semantic search, RAG |
+| **V4.0** | Experience | Planned — Advanced data viz, transfer maps, AI chat |
 | **V5.0** | Community | Planned — Auth, contributions, public API keys |
 
 See [VERSION_HISTORY.md](docs/VERSION_HISTORY.md) for full details.

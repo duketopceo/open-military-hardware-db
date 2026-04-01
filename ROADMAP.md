@@ -1,9 +1,8 @@
 # Open Military Hardware DB — Roadmap
 
-## Current: V2.5 (Stable — SIPRI Integration + Enterprise Hardening)
+## Current: v3.0.0 (Stable)
 - [x] 183 platforms across 5 domains (air, land, sea, munitions, software)
 - [x] 675 source citations with full provenance
-- [x] SIPRI external data staged (175 countries, 1949–2024; Top 100 companies; 3,006 US arms transfers)
 - [x] FastAPI REST API with filtering, pagination, sorting, comparison
 - [x] Intelligence console frontend (React 19, dark blueprint aesthetic)
 - [x] Structured exports (JSON, CSV, SQLite, SQL dump)
@@ -14,20 +13,24 @@
 - [x] CI pipeline (GitHub Actions, Python 3.11/3.12 matrix)
 - [x] Test suite (51 tests — API tests + data integrity tests)
 - [x] Enterprise standards (AGENTS.md, CHANGELOG.md, CONTRIBUTING.md, SECURITY.md, structured logging, release automation, Dependabot)
-- [x] Backend scaffolding for V3.0 PostgreSQL migration (backend/ directory)
+- [x] Backend scaffolding for PostgreSQL migration (backend/ directory)
+- [x] SIPRI military expenditure data integrated (175 countries, 1949–2024)
+- [x] SIPRI Top 100 arms companies integrated (271 companies, 2002–2024)
+- [x] SIPRI US arms transfers integrated (3,006 records, 2000–2025)
+- [x] 4 new API endpoints (/api/v1/sipri/*)
+- [x] SIPRI analytics charts (spending, companies, transfers, trends)
 
-## V3.0 — Global Data + PostgreSQL Migration
+## V3.1 — Global Data + PostgreSQL Migration
 - [ ] 500+ platforms (expand to NATO allies and key adversaries)
-- [ ] SIPRI database integration (4 new tables: expenditure, arms companies, revenue history, transfers)
-- [ ] 6 new SIPRI API endpoints (expenditure, companies, transfers)
 - [ ] PostgreSQL migration with Alembic (SQLite retained as fallback)
 - [ ] SIPRI-informed prioritization for international platform research
 - [ ] Conflict timeline visualization (interactive D3.js)
 - [ ] Force composition analysis tool (compare countries side-by-side)
 - [ ] Procurement cost trend charts (constant-dollar adjusted)
 - [ ] GraphQL API alongside REST
+- [ ] Expand test coverage (target: 80%+ coverage)
 
-## V3.1 — Intelligence (RAG System)
+## V3.2 — Intelligence (RAG System)
 - [ ] Vector embeddings with Sentence-Transformers
 - [ ] Semantic search API (natural language queries)
 - [ ] RAG pipeline with local LLM inference (Ollama)

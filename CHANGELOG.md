@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Version numbering follows the project's own V0.0–V5.0 scheme documented in [docs/VERSION_HISTORY.md](docs/VERSION_HISTORY.md).
 
+## [3.0.0] - 2026-04-01
+
+### Added
+- **4 SIPRI database tables:** `country_military_expenditure`, `arms_companies`, `company_revenue_history`, `arms_transfers`
+- **SIPRI migration script** (`data/migrations/v3_0_sipri_integration.py`) — loads 8,173 expenditure records (175 countries, 1949–2024), 271 companies, 2,219 revenue records, 3,006 US transfer records
+- **4 new API endpoints** with Pydantic models: `/api/v1/sipri/expenditure`, `/api/v1/sipri/companies`, `/api/v1/sipri/transfers`, `/api/v1/sipri/stats`
+- **SIPRI analytics section** on frontend: 4 KPI cards + 4 charts (top military spenders, top arms companies, transfer recipients, spending over time)
+- TypeScript types for all SIPRI API endpoints
+
+### Changed
+- `Dockerfile.prod` runs V3.0 SIPRI migration at build time
+- API version bumped to 3.0.0
+- `/api/v1/stats` endpoint includes SIPRI dataset counts
+
 ## [2.5.0] - 2026-04-01
 
 ### Added

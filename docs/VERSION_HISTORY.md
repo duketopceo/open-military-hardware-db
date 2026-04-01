@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated: V2.5 complete (2026-04-01).
+> Last updated: V3.0 complete (2026-04-01).
 
 ---
 
@@ -21,7 +21,7 @@
 | **V2.3** | Intel Console | Complete | Blueprint + liquid glass visual redesign, 3-pane intelligence console, dense sortable table, integrated detail pane |
 | **V2.4** | Software & Roles | Complete | 18 new platforms (Palantir/Anduril), role classification, contractor filters, military fonts/icons |
 | **V2.5** | SIPRI Integration + Enterprise Hardening | Complete | SIPRI data staged, UI improvements, production deployment, enterprise standards (CI/CD, CHANGELOG, SECURITY, CONTRIBUTING, structured logging) |
-| **V3.0** | Global Data | Planned | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, SIPRI-informed prioritization |
+| **V3.0** | Global Data | Complete | SIPRI database integration — 4 new tables (8,173 expenditure records, 271 companies, 2,219 revenue records, 3,006 transfers), 4 API endpoints, analytics charts |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
 | **V4.0** | Experience | Planned | Advanced frontend features: interactive data visualizations, SIPRI charts, conflict maps, AI search chat |
 | **V4.1** | Deployment | Planned | Self-hosted production: Docker Compose, Cloudflare proxy, monitoring, backups |
@@ -368,9 +368,9 @@ SIPRI data is staged for future database table integration (V3.0 scope: 4 new ta
 
 ---
 
-## V2.5 Plan — SIPRI Database Integration (Deferred to V3.0)
+## V2.5 Plan — SIPRI Database Integration (Shipped in V3.0.0)
 
-The following SIPRI integration plan (new database tables, import pipeline, API endpoints, frontend charts) was originally scoped for V2.5 but has been deferred to V3.0 alongside the PostgreSQL migration. The SIPRI data files are staged and ready.
+The following SIPRI integration plan was originally scoped for V2.5, deferred to V3.0, and shipped in V3.0.0. See the V3.0.0 subsection below for what was delivered.
 
 ### New Database Tables (Planned)
 
@@ -470,7 +470,43 @@ CREATE TABLE arms_transfers (
 
 **Goal:** Scale from 183 to 500+ platforms covering NATO allies, near-peer adversaries, and key regional powers. Migrate from SQLite to PostgreSQL for production readiness. Leverage SIPRI arms transfer data (V2.5) to prioritize which international platforms to research first — countries receiving the most US weapons exports get priority.
 
-### V3.0.1 — NATO Allies Research
+### V3.0.0 — SIPRI Database Integration (Complete)
+
+**Commit:** `5208b35 feat: V3.0 — SIPRI database integration (4 tables, 4 API endpoints, analytics charts)`
+**Tag:** `v3.0.0`
+
+**Migration script:** `data/migrations/v3_0_sipri_integration.py`
+
+**4 new SQLite tables:**
+- `country_military_expenditure` — military spending by country and year
+- `arms_companies` — SIPRI Top 100 arms companies
+- `company_revenue_history` — annual revenue data per company
+- `arms_transfers` — US arms transfer records
+
+**Data loaded:**
+- 8,173 expenditure records (175 countries, 1949–2024)
+- 271 unique arms companies
+- 2,219 revenue records
+- 3,006 US arms transfer records
+
+**4 new API endpoints:**
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/v1/sipri/expenditure` | Military spending by country/year, filterable |
+| `GET` | `/api/v1/sipri/companies` | Arms companies list with revenue data |
+| `GET` | `/api/v1/sipri/transfers` | US arms transfers, filterable |
+| `GET` | `/api/v1/sipri/stats` | SIPRI dataset statistics and KPIs |
+
+**Frontend:** SIPRI analytics section on the analytics page:
+- 4 KPI cards (expenditure records, companies, revenue records, transfers)
+- 4 charts: top military spenders, top arms companies, transfer recipients, spending over time
+
+**Docker:** V3.0 migration runs automatically at build time via `Dockerfile.prod`.
+
+---
+
+### V3.0.1 — NATO Allies Research (Planned)
 
 **New platforms (~80):**
 
@@ -494,7 +530,7 @@ CREATE TABLE arms_transfers (
 - Validate via `scripts/validators/data_validator.py`
 - Each batch: ~30 min research, ~10 min transform/validate
 
-### V3.0.2 — Adversary/Competitor Research
+### V3.0.2 — Adversary/Competitor Research (Planned)
 
 **New platforms (~70):**
 
@@ -507,7 +543,7 @@ CREATE TABLE arms_transfers (
 | India | 10 | Tejas Mk 1A, Arjun Mk 2, BrahMos, Agni-V, INS Vikrant, Kolkata-class DDG, Kalvari-class SSK, HAL Prachand, Akash-NG, Pinaka MLRS |
 | Israel | 8 | Merkava Mk 4M, Iron Dome (detailed), David's Sling, Arrow 3, Namer IFV, Sa'ar 6 corvette, Hermes 900, Spike NLOS |
 
-### V3.0.3 — PostgreSQL Migration
+### V3.0.3 — PostgreSQL Migration (Planned)
 
 **Files to create/modify:**
 
@@ -534,7 +570,7 @@ CREATE TABLE arms_transfers (
 - Connection pooling for PostgreSQL (min=2, max=10)
 - Async query support (optional, prepare for V4 frontend)
 
-### V3.0.4 — Data Quality Pass
+### V3.0.4 — Data Quality Pass (Planned)
 
 - Fill remaining 12 missing economics records
 - Cross-reference V1 international platforms with new research (update specs if better data found)
