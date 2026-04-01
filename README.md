@@ -383,3 +383,9 @@ Data is sourced from public domain and CC-BY-SA licensed materials. Image attrib
 ## Disclaimer
 
 This database is for educational and research purposes only. All information is derived from publicly available sources. Specifications may vary by variant, production block, and configuration. Cost figures are approximate and may reflect different contract terms or quantities. Combat data reflects open-source reporting and may be incomplete.
+
+---
+
+## AI-Assisted Development
+
+This project uses AI-assisted development tools including [Cursor](https://cursor.com), [Claude Code](https://claude.ai), and [GitHub Copilot](https://github.com/features/copilot). All AI-generated code is reviewed by the maintainer before merge. See `AGENTS.md` for AI agent rules and constraints.
