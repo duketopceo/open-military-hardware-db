@@ -18,7 +18,7 @@ RUN npm run build
 FROM python:3.12-slim
 
 LABEL maintainer="OMHDB <https://github.com/duketopceo/open-military-hardware-db>"
-LABEL version="2.5.0"
+LABEL version="3.0.0"
 
 # Create non-root user FIRST (so --chown works on COPY steps below)
 RUN adduser --disabled-password --gecos "" appuser
@@ -59,6 +59,11 @@ import sys; sys.path.insert(0, '.'); \
 from data.migrations.v2_4_software_roles import run; \
 run(); \
 print('V2.4 migration applied - 183 platforms'); \
+" && python3 -c "\
+import sys; sys.path.insert(0, '.'); \
+from data.migrations.v3_0_sipri_integration import run; \
+run(); \
+print('V3.0 SIPRI integration applied'); \
 " && chown appuser:appuser data/sql/military_hardware.db
 
 # -- Copy frontend build + node_modules (--chown at copy time) ----------------

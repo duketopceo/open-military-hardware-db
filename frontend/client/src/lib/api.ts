@@ -76,6 +76,66 @@ export interface CompareResponse {
   platforms: PlatformDetail[];
 }
 
+// ─── SIPRI Types ───────────────────────────────────────────────────────
+
+export interface MilexRecord {
+  country_name: string;
+  region?: string;
+  year: number;
+  spending_usd_m?: number;
+}
+
+export interface MilexResponse {
+  records: MilexRecord[];
+  total: number;
+}
+
+export interface CompanyRecord {
+  company_id: number;
+  company_name: string;
+  country: string;
+  year?: number;
+  rank?: number;
+  arms_revenue_usd_m?: number;
+  total_revenue_usd_m?: number;
+  arms_pct_of_total?: number;
+}
+
+export interface CompanyResponse {
+  companies: CompanyRecord[];
+  total: number;
+}
+
+export interface TransferRecord {
+  transfer_id: number;
+  supplier: string;
+  recipient: string;
+  weapon_designation?: string;
+  weapon_description?: string;
+  year_of_order?: number;
+  number_ordered?: number;
+  number_delivered?: number;
+  delivery_years?: string;
+  status?: string;
+  comments?: string;
+  sipri_tiv_per_unit?: number;
+  sipri_tiv_total?: number;
+  sipri_tiv_delivered?: number;
+}
+
+export interface TransferResponse {
+  transfers: TransferRecord[];
+  total: number;
+}
+
+export interface SipriStatsResponse {
+  milex_records: number;
+  countries_tracked: number;
+  arms_companies: number;
+  revenue_records: number;
+  transfer_records: number;
+}
+
 // ─── Country flag emoji from 2-letter ISO code ───
 export function countryFlag(code: string): string {
   if (!code || code.length !== 2) return '';

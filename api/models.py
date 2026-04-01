@@ -90,6 +90,7 @@ class StatsResponse(BaseModel):
     statuses: dict[str, int]
     eras: dict[str, int]
     role_types: dict[str, int] = {}
+    sipri: Optional[dict] = None
 
 
 # ── Categories ───────────────────────────────────────────────────────────────
@@ -142,3 +143,70 @@ class RootResponse(BaseModel):
     platforms: int
     docs: str
     endpoints: dict[str, str]
+
+
+# ── SIPRI Models ────────────────────────────────────────────────────────
+
+class MilexRecord(BaseModel):
+    """Military expenditure record."""
+    country_name: str
+    region: Optional[str] = None
+    year: int
+    spending_usd_m: Optional[float] = None
+
+
+class MilexResponse(BaseModel):
+    """Military expenditure query response."""
+    records: list[MilexRecord]
+    total: int
+
+
+class CompanyRecord(BaseModel):
+    """Arms company with revenue data."""
+    company_id: int
+    company_name: str
+    country: str
+    year: Optional[int] = None
+    rank: Optional[int] = None
+    arms_revenue_usd_m: Optional[float] = None
+    total_revenue_usd_m: Optional[float] = None
+    arms_pct_of_total: Optional[float] = None
+
+
+class CompanyResponse(BaseModel):
+    """Arms companies query response."""
+    companies: list[CompanyRecord]
+    total: int
+
+
+class TransferRecord(BaseModel):
+    """Arms transfer record."""
+    transfer_id: int
+    supplier: str
+    recipient: str
+    weapon_designation: Optional[str] = None
+    weapon_description: Optional[str] = None
+    year_of_order: Optional[int] = None
+    number_ordered: Optional[int] = None
+    number_delivered: Optional[int] = None
+    delivery_years: Optional[str] = None
+    status: Optional[str] = None
+    comments: Optional[str] = None
+    sipri_tiv_per_unit: Optional[float] = None
+    sipri_tiv_total: Optional[float] = None
+    sipri_tiv_delivered: Optional[float] = None
+
+
+class TransferResponse(BaseModel):
+    """Arms transfers query response."""
+    transfers: list[TransferRecord]
+    total: int
+
+
+class SipriStatsResponse(BaseModel):
+    """SIPRI data summary statistics."""
+    milex_records: int
+    countries_tracked: int
+    arms_companies: int
+    revenue_records: int
+    transfer_records: int

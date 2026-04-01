@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { Database, Shield, DollarSign, Swords, Globe, BookOpen, Plane, Crosshair } from "lucide-react";
+import { Database, Shield, DollarSign, Swords, Globe, BookOpen, Plane, Crosshair, MapPin, Calendar, Building2, ArrowRightLeft } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell, Legend
+  PieChart, Pie, Cell, Legend, LineChart, Line
 } from "recharts";
-import type { StatsResponse } from "@/lib/api";
+import type { StatsResponse, MilexResponse, CompanyResponse, TransferResponse, SipriStatsResponse } from "@/lib/api";
 import { countryFlag, countryColors } from "@/lib/api";
 import { AppShell } from "@/components/AppShell";
 
@@ -47,6 +47,30 @@ function BpTooltip({ active, payload, label }: any) {
 export default function StatsPage() {
   const { data: stats, isLoading } = useQuery<StatsResponse>({
     queryKey: ["/api/v1/stats"],
+  });
+
+  const { data: sipriStats } = useQuery<SipriStatsResponse>({
+    queryKey: ["/api/v1/sipri/stats"],
+  });
+
+  const { data: milexData } = useQuery<MilexResponse>({
+    queryKey: ["/api/v1/sipri/expenditure", { year_from: 2024, year_to: 2024 }],
+    queryFn: () => fetch("/api/v1/sipri/expenditure?year_from=2024&year_to=2024").then(r => r.json()),
+  });
+
+  const { data: companiesData } = useQuery<CompanyResponse>({
+    queryKey: ["/api/v1/sipri/companies", { year: 2024, limit: 10 }],
+    queryFn: () => fetch("/api/v1/sipri/companies?year=2024&limit=10").then(r => r.json()),
+  });
+
+  const { data: transfersData } = useQuery<TransferResponse>({
+    queryKey: ["/api/v1/sipri/transfers", { limit: 500 }],
+    queryFn: () => fetch("/api/v1/sipri/transfers?limit=500").then(r => r.json()),
+  });
+
+  const { data: milexTimeData } = useQuery<MilexResponse>({
+    queryKey: ["/api/v1/sipri/expenditure/timeseries"],
+    queryFn: () => fetch("/api/v1/sipri/expenditure?year_from=2000&year_to=2024").then(r => r.json()),
   });
 
   if (isLoading || !stats) {
@@ -201,6 +225,228 @@ export default function StatsPage() {
               </BarChart>
             </ResponsiveContainer>
           </div>
+        </div>
+
+        {/* ── SIPRI OPEN DATA ─────────────────────────────────────────── */}
+        <div className="border-t border-[hsl(var(--bp-border))] pt-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-[11px] font-semibold tracking-[0.2em] text-[hsl(var(--bp-text-muted))]">
+              SIPRI OPEN DATA
+            </h2>
+            <span className="text-[9px] font-mono text-[hsl(var(--bp-text-faint))]">
+              MILITARY EXPENDITURE &middot; ARMS INDUSTRY &middot; TRANSFERS
+            </span>
+          </div>
+
+          {/* SIPRI KPIs */}
+          {sipriStats && (
+            <div className="grid grid-cols-4 gap-3 mb-4 stagger-in">
+              <KpiCard label="Countries Tracked" value={sipriStats.countries_tracked} icon={MapPin} />
+              <KpiCard label="Years of Data" value="1949–2024" icon={Calendar} />
+              <KpiCard label="Arms Companies" value={sipriStats.arms_companies} icon={Building2} />
+              <KpiCard label="US Transfer Records" value={sipriStats.transfer_records} icon={ArrowRightLeft} />
+            </div>
+          )}
+
+          {/* SIPRI Charts */}
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
+            {/* Top 10 Military Spenders */}
+            {milexData && milexData.records.length > 0 && (() => {
+              const top10 = [...milexData.records]
+                .filter(r => r.spending_usd_m && r.spending_usd_m > 0)
+                .sort((a, b) => (b.spending_usd_m || 0) - (a.spending_usd_m || 0))
+                .slice(0, 10)
+                .map(r => ({
+                  name: r.country_name,
+                  value: Math.round(r.spending_usd_m || 0),
+                }));
+              return (
+                <div className="glass rounded p-3 animate-in">
+                  <p className="label-caps mb-3">Top 10 military spenders (2024)</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <BarChart data={top10} layout="vertical">
+                      <XAxis type="number" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false}
+                        tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}B`} />
+                      <YAxis type="category" dataKey="name" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={110}
+                        tickFormatter={(name: string) => {
+                          const flag = countryColors[name] ? countryFlag(Object.keys(countryColors).find(k => k === name) || '') : '';
+                          return flag ? `${flag} ${name}` : name;
+                        }}
+                      />
+                      <Tooltip content={({ active, payload, label }: any) => {
+                        if (active && payload?.length) {
+                          return (
+                            <div className="glass-heavy rounded px-3 py-2 text-[11px]">
+                              <p className="font-medium text-[hsl(var(--bp-text))]">{label}</p>
+                              <p className="font-mono tabular-nums text-[hsl(var(--bp-accent-text))]">${(payload[0].value / 1000).toFixed(1)}B USD</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="value" radius={[0, 2, 2, 0]} opacity={0.85}>
+                        {top10.map((entry, i) => (
+                          <Cell key={i} fill={countryColors[entry.name] || CHART_COLORS[i % CHART_COLORS.length]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              );
+            })()}
+
+            {/* Top 10 Arms Companies */}
+            {companiesData && companiesData.companies.length > 0 && (() => {
+              const top10 = companiesData.companies.slice(0, 10).map(c => ({
+                name: c.company_name.length > 20 ? c.company_name.slice(0, 18) + '…' : c.company_name,
+                fullName: c.company_name,
+                value: Math.round(c.arms_revenue_usd_m || 0),
+                country: c.country,
+              }));
+              return (
+                <div className="glass rounded p-3 animate-in">
+                  <p className="label-caps mb-3">Top 10 arms companies by revenue (2024)</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <BarChart data={top10} layout="vertical">
+                      <XAxis type="number" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false}
+                        tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}B`} />
+                      <YAxis type="category" dataKey="name" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={130} />
+                      <Tooltip content={({ active, payload }: any) => {
+                        if (active && payload?.length) {
+                          const d = payload[0].payload;
+                          return (
+                            <div className="glass-heavy rounded px-3 py-2 text-[11px]">
+                              <p className="font-medium text-[hsl(var(--bp-text))]">{d.fullName}</p>
+                              <p className="font-mono tabular-nums text-[hsl(var(--bp-accent-text))]">${(payload[0].value / 1000).toFixed(1)}B arms revenue</p>
+                              <p className="text-[hsl(var(--bp-text-muted))]">{d.country}</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="value" radius={[0, 2, 2, 0]} opacity={0.85}>
+                        {top10.map((entry, i) => (
+                          <Cell key={i} fill={countryColors[entry.country] || CHART_COLORS[i % CHART_COLORS.length]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              );
+            })()}
+
+            {/* US Arms Transfer Recipients (Top 10) */}
+            {transfersData && transfersData.transfers.length > 0 && (() => {
+              const byRecipient: Record<string, number> = {};
+              transfersData.transfers.forEach(t => {
+                if (t.sipri_tiv_delivered && t.sipri_tiv_delivered > 0) {
+                  byRecipient[t.recipient] = (byRecipient[t.recipient] || 0) + t.sipri_tiv_delivered;
+                }
+              });
+              const top10 = Object.entries(byRecipient)
+                .sort(([, a], [, b]) => b - a)
+                .slice(0, 10)
+                .map(([name, value]) => ({ name, value: Math.round(value) }));
+              return (
+                <div className="glass rounded p-3 animate-in">
+                  <p className="label-caps mb-3">US arms transfer recipients (by TIV delivered)</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <BarChart data={top10} layout="vertical">
+                      <XAxis type="number" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} />
+                      <YAxis type="category" dataKey="name" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={110}
+                        tickFormatter={(name: string) => {
+                          const flag = countryColors[name] ? countryFlag(Object.keys(countryColors).find(k => k === name) || '') : '';
+                          return flag ? `${flag} ${name}` : name;
+                        }}
+                      />
+                      <Tooltip content={({ active, payload, label }: any) => {
+                        if (active && payload?.length) {
+                          return (
+                            <div className="glass-heavy rounded px-3 py-2 text-[11px]">
+                              <p className="font-medium text-[hsl(var(--bp-text))]">{label}</p>
+                              <p className="font-mono tabular-nums text-[hsl(var(--bp-accent-text))]">TIV: {payload[0].value.toLocaleString()}</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="value" radius={[0, 2, 2, 0]} opacity={0.85}>
+                        {top10.map((entry, i) => (
+                          <Cell key={i} fill={countryColors[entry.name] || CHART_COLORS[i % CHART_COLORS.length]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              );
+            })()}
+
+            {/* Global Military Spending Over Time */}
+            {milexTimeData && milexTimeData.records.length > 0 && (() => {
+              // Find top 5 spenders by latest year spending
+              const latestByCountry: Record<string, number> = {};
+              milexTimeData.records.forEach(r => {
+                if (r.spending_usd_m && r.spending_usd_m > 0 && r.year === 2024) {
+                  latestByCountry[r.country_name] = r.spending_usd_m;
+                }
+              });
+              const top5 = Object.entries(latestByCountry)
+                .sort(([, a], [, b]) => b - a)
+                .slice(0, 5)
+                .map(([name]) => name);
+
+              // Build time series: { year, country1, country2, ... }
+              const byYear: Record<number, Record<string, number>> = {};
+              milexTimeData.records.forEach(r => {
+                if (top5.includes(r.country_name) && r.spending_usd_m && r.spending_usd_m > 0) {
+                  if (!byYear[r.year]) byYear[r.year] = {};
+                  byYear[r.year][r.country_name] = Math.round(r.spending_usd_m);
+                }
+              });
+              const lineData = Object.entries(byYear)
+                .sort(([a], [b]) => Number(a) - Number(b))
+                .map(([year, vals]) => ({ year: Number(year), ...vals }));
+
+              const lineColors = top5.map(c => countryColors[c] || CHART_COLORS[top5.indexOf(c) % CHART_COLORS.length]);
+
+              return (
+                <div className="glass rounded p-3 animate-in col-span-2">
+                  <p className="label-caps mb-3">Global military spending over time (top 5, 2000–2024)</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <LineChart data={lineData}>
+                      <XAxis dataKey="year" tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fill: "hsl(210, 15%, 55%)", fontSize: 9, fontFamily: "var(--font-mono)" }} axisLine={false} tickLine={false} width={50}
+                        tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}B`} />
+                      <Tooltip content={({ active, payload, label }: any) => {
+                        if (active && payload?.length) {
+                          return (
+                            <div className="glass-heavy rounded px-3 py-2 text-[11px]">
+                              <p className="font-medium text-[hsl(var(--bp-text))] mb-1">{label}</p>
+                              {payload.map((p: any, i: number) => (
+                                <p key={i} className="font-mono tabular-nums" style={{ color: p.stroke }}>
+                                  {p.dataKey}: ${(p.value / 1000).toFixed(1)}B
+                                </p>
+                              ))}
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      {top5.map((country, i) => (
+                        <Line key={country} type="monotone" dataKey={country} stroke={lineColors[i]} strokeWidth={1.5} dot={false} />
+                      ))}
+                      <Legend formatter={(v) => <span className="text-[10px] font-mono text-[hsl(var(--bp-text-muted))]">{v}</span>} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              );
+            })()}
+          </div>
+
+          {/* Attribution */}
+          <p className="text-[9px] font-mono text-[hsl(var(--bp-text-faint))] mt-4 text-center">
+            Data: Stockholm International Peace Research Institute (SIPRI). CC BY-NC-SA 4.0
+          </p>
         </div>
       </div>
     </AppShell>

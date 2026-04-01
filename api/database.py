@@ -321,3 +321,136 @@ def compare_platforms(platform_ids: list[str]) -> list[dict]:
         if detail:
             results.append(detail)
     return results
+
+
+# ── SIPRI Data Queries ──────────────────────────────────────────────────
+
+
+def get_sipri_milex(
+    country: Optional[str] = None,
+    year_from: Optional[int] = None,
+    year_to: Optional[int] = None,
+) -> list[dict]:
+    """Query military expenditure data with optional filters."""
+    conn = get_connection()
+    conditions = []
+    params = []
+
+    if country:
+        conditions.append("country_name LIKE ?")
+        params.append(f"%{country}%")
+    if year_from:
+        conditions.append("year >= ?")
+        params.append(year_from)
+    if year_to:
+        conditions.append("year <= ?")
+        params.append(year_to)
+
+    where = " AND ".join(conditions) if conditions else "1=1"
+    rows = conn.execute(
+        f"SELECT country_name, region, year, spending_usd_m "
+        f"FROM country_military_expenditure WHERE {where} "
+        f"ORDER BY spending_usd_m DESC",
+        params,
+    ).fetchall()
+    conn.close()
+    return [dict_from_row(r) for r in rows]
+
+
+def get_sipri_companies(
+    year: Optional[int] = None,
+    country: Optional[str] = None,
+    limit: int = 25,
+) -> list[dict]:
+    """Query arms companies with revenue data."""
+    conn = get_connection()
+    conditions = []
+    params = []
+
+    if year:
+        conditions.append("crh.year = ?")
+        params.append(year)
+    if country:
+        conditions.append("ac.country LIKE ?")
+        params.append(f"%{country}%")
+
+    where = " AND ".join(conditions) if conditions else "1=1"
+    rows = conn.execute(
+        f"SELECT ac.company_id, ac.company_name, ac.country, "
+        f"crh.year, crh.rank, crh.arms_revenue_usd_m, "
+        f"crh.total_revenue_usd_m, crh.arms_pct_of_total "
+        f"FROM arms_companies ac "
+        f"JOIN company_revenue_history crh ON ac.company_id = crh.company_id "
+        f"WHERE {where} "
+        f"ORDER BY crh.rank ASC "
+        f"LIMIT ?",
+        params + [limit],
+    ).fetchall()
+    conn.close()
+    return [dict_from_row(r) for r in rows]
+
+
+def get_sipri_transfers(
+    recipient: Optional[str] = None,
+    weapon: Optional[str] = None,
+    year_from: Optional[int] = None,
+    year_to: Optional[int] = None,
+    limit: int = 50,
+) -> list[dict]:
+    """Query US arms transfers."""
+    conn = get_connection()
+    conditions = []
+    params = []
+
+    if recipient:
+        conditions.append("recipient LIKE ?")
+        params.append(f"%{recipient}%")
+    if weapon:
+        conditions.append("(weapon_designation LIKE ? OR weapon_description LIKE ?)")
+        params.extend([f"%{weapon}%", f"%{weapon}%"])
+    if year_from:
+        conditions.append("year_of_order >= ?")
+        params.append(year_from)
+    if year_to:
+        conditions.append("year_of_order <= ?")
+        params.append(year_to)
+
+    where = " AND ".join(conditions) if conditions else "1=1"
+    rows = conn.execute(
+        f"SELECT * FROM arms_transfers WHERE {where} "
+        f"ORDER BY year_of_order DESC "
+        f"LIMIT ?",
+        params + [limit],
+    ).fetchall()
+    conn.close()
+    return [dict_from_row(r) for r in rows]
+
+
+def get_sipri_stats() -> dict:
+    """Summary statistics for SIPRI tables."""
+    conn = get_connection()
+
+    milex_count = conn.execute(
+        "SELECT COUNT(*) FROM country_military_expenditure"
+    ).fetchone()[0]
+    countries_count = conn.execute(
+        "SELECT COUNT(DISTINCT country_name) FROM country_military_expenditure"
+    ).fetchone()[0]
+    companies_count = conn.execute(
+        "SELECT COUNT(*) FROM arms_companies"
+    ).fetchone()[0]
+    revenue_count = conn.execute(
+        "SELECT COUNT(*) FROM company_revenue_history"
+    ).fetchone()[0]
+    transfers_count = conn.execute(
+        "SELECT COUNT(*) FROM arms_transfers"
+    ).fetchone()[0]
+
+    conn.close()
+    return {
+        "milex_records": milex_count,
+        "countries_tracked": countries_count,
+        "arms_companies": companies_count,
+        "revenue_records": revenue_count,
+        "transfer_records": transfers_count,
+    }

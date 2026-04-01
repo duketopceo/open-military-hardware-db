@@ -15,6 +15,7 @@ from . import database as db
 from .models import (
     RootResponse, HealthResponse, PlatformListResponse, PlatformDetail,
     StatsResponse, Category, Conflict, CompareResponse,
+    MilexResponse, CompanyResponse, TransferResponse, SipriStatsResponse,
 )
 
 # ── Logging ──────────────────────────────────────────────────────────────────
@@ -35,7 +36,7 @@ app = FastAPI(
         "Includes Palantir, Anduril, and 90+ defense contractors. "
         "All data sourced from public-domain references with full citations."
     ),
-    version="2.4.0",
+    version="3.0.0",
     license_info={"name": "MIT", "url": "https://opensource.org/licenses/MIT"},
     docs_url="/docs",
     redoc_url="/redoc",
@@ -85,8 +86,8 @@ def root():
     """API root — basic info and navigation."""
     return {
         "name": "Open Military Hardware Database",
-        "version": "2.1.0",
-        "platforms": 165,
+        "version": "3.0.0",
+        "platforms": 183,
         "docs": "/docs",
         "endpoints": {
             "platforms": "/api/v1/platforms",
@@ -95,6 +96,10 @@ def root():
             "categories": "/api/v1/categories",
             "conflicts": "/api/v1/conflicts",
             "compare": "/api/v1/compare",
+            "sipri_expenditure": "/api/v1/sipri/expenditure",
+            "sipri_companies": "/api/v1/sipri/companies",
+            "sipri_transfers": "/api/v1/sipri/transfers",
+            "sipri_stats": "/api/v1/sipri/stats",
         },
     }
 
@@ -186,8 +191,12 @@ def get_stats():
     Database summary statistics.
 
     Returns record counts, category/country/status breakdowns, and era distribution.
+    Includes SIPRI dataset counts.
     """
-    return db.get_stats()
+    stats = db.get_stats()
+    sipri = db.get_sipri_stats()
+    stats["sipri"] = sipri
+    return stats
 
 
 # ── Categories ───────────────────────────────────────────────────────────────
@@ -254,3 +263,60 @@ def compare_platforms(
         "count": len(results),
         "platforms": results,
     }
+
+
+# ── SIPRI Endpoints ────────────────────────────────────────────────────
+
+@app.get("/api/v1/sipri/expenditure", tags=["sipri"], response_model=MilexResponse)
+def sipri_expenditure(
+    country: Optional[str] = Query(None, description="Filter by country name (partial match)"),
+    year_from: Optional[int] = Query(None, description="Start year"),
+    year_to: Optional[int] = Query(None, description="End year"),
+):
+    """
+    Military expenditure data from SIPRI.
+
+    Returns spending in constant 2023 USD millions. Filter by country and/or year range.
+    """
+    records = db.get_sipri_milex(country=country, year_from=year_from, year_to=year_to)
+    return {"records": records, "total": len(records)}
+
+
+@app.get("/api/v1/sipri/companies", tags=["sipri"], response_model=CompanyResponse)
+def sipri_companies(
+    year: Optional[int] = Query(None, description="Filter by year"),
+    country: Optional[str] = Query(None, description="Filter by country (partial match)"),
+    limit: int = Query(25, ge=1, le=100, description="Max results"),
+):
+    """
+    Top arms companies from SIPRI Top 100 dataset.
+
+    Returns companies with arms and total revenue data.
+    """
+    records = db.get_sipri_companies(year=year, country=country, limit=limit)
+    return {"companies": records, "total": len(records)}
+
+
+@app.get("/api/v1/sipri/transfers", tags=["sipri"], response_model=TransferResponse)
+def sipri_transfers(
+    recipient: Optional[str] = Query(None, description="Filter by recipient country (partial match)"),
+    weapon: Optional[str] = Query(None, description="Search weapon designation or description"),
+    year_from: Optional[int] = Query(None, description="Start year of order"),
+    year_to: Optional[int] = Query(None, description="End year of order"),
+    limit: int = Query(50, ge=1, le=500, description="Max results"),
+):
+    """
+    US arms transfer records from SIPRI.
+
+    Includes weapon details, quantities, and SIPRI Trend Indicator Values (TIV).
+    """
+    records = db.get_sipri_transfers(
+        recipient=recipient, weapon=weapon, year_from=year_from, year_to=year_to, limit=limit
+    )
+    return {"transfers": records, "total": len(records)}
+
+
+@app.get("/api/v1/sipri/stats", tags=["sipri"], response_model=SipriStatsResponse)
+def sipri_stats():
+    """SIPRI dataset summary statistics."""
+    return db.get_sipri_stats()
