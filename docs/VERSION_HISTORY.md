@@ -2,7 +2,7 @@
 
 > Definitive version-by-version record from V0.0 through V5.0.
 > Each version builds on the last. Every version ships working code.
-> Last updated after V2.5 SIPRI integration (data staged, roadmap updated).
+> Last updated: V2.5 complete (2026-04-01).
 
 ---
 
@@ -20,7 +20,7 @@
 | **V2.2** | Beta UI | Complete | React frontend (Explorer, Detail, Compare, Stats Dashboard), dark military theme, deployed beta |
 | **V2.3** | Intel Console | Complete | Blueprint + liquid glass visual redesign, 3-pane intelligence console, dense sortable table, integrated detail pane |
 | **V2.4** | Software & Roles | Complete | 18 new platforms (Palantir/Anduril), role classification, contractor filters, military fonts/icons |
-| **V2.5** | SIPRI Integration | Next Up | SIPRI military expenditure, Top 100 arms companies, US arms transfers — 4 new database tables, horizontal data expansion |
+| **V2.5** | SIPRI Integration + Enterprise Hardening | Complete | SIPRI data staged, UI improvements, production deployment, enterprise standards (CI/CD, CHANGELOG, SECURITY, CONTRIBUTING, structured logging) |
 | **V3.0** | Global Data | Planned | 500+ platforms (NATO allies, adversaries, regional powers), PostgreSQL migration, SIPRI-informed prioritization |
 | **V3.1** | Intelligence | Planned | Vector embeddings, semantic search API, RAG pipeline with Ollama |
 | **V4.0** | Experience | Planned | Advanced frontend features: interactive data visualizations, SIPRI charts, conflict maps, AI search chat |
@@ -309,13 +309,15 @@
 
 ---
 
-## V2.5 — SIPRI Integration (Horizontal Data Expansion)
+### V2.5 — SIPRI Integration + Enterprise Hardening (Complete)
 
-**Goal:** Integrate external SIPRI datasets to expand the database horizontally — from platform-centric records to include country-level military expenditure, arms industry financials, and international arms transfer data.
+**Date:** 2026-04-01
 
-### Data Sources
+**Shipped:**
 
-All data from [SIPRI](https://www.sipri.org/) (Stockholm International Peace Research Institute) — the world's leading independent research institute on conflict, armaments, and arms control. Data is free for non-commercial research use with attribution.
+V2.5 consolidates everything added since V2.4, including SIPRI data staging, UI improvements, production deployment infrastructure, and enterprise development standards.
+
+**SIPRI Data (staged in `data/sipri/`):**
 
 | Dataset | Records | Coverage | File |
 |---------|---------|----------|------|
@@ -323,7 +325,54 @@ All data from [SIPRI](https://www.sipri.org/) (Stockholm International Peace Res
 | Top 100 Arms Companies | 2,300 records, 271 companies | 2002–2024, annual revenue + rankings | `data/sipri/top100_arms_companies.csv` |
 | US Arms Transfers | 3,006 records, 130 recipients | 2000–2025, 450 weapon designations | `data/sipri/usa_arms_transfers_2000_2025_clean.csv` |
 
-### V2.5.1 — New Database Tables
+SIPRI data is staged for future database table integration (V3.0 scope: 4 new tables, 6 new API endpoints, frontend charts). See V2.5 plan sections below for the full schema and import pipeline design.
+
+**UI Improvements (from Copilot, commit bb15327):**
+- Flag emojis for countries across all pages
+- Country-colored bar charts in analytics
+- 25+ subcategory SVG icons (fighter, bomber, helicopter, tank, submarine, etc.)
+- Readability improvements (contrast, font sizes, padding)
+
+**Infrastructure & DevOps:**
+- Production Docker deployment (`docker/Dockerfile.prod`, `docker/docker-compose.swarm.yml`, `docker/start-prod.sh`)
+- One-command deploy script (`deploy.sh`)
+- Docker Swarm manager node constraint
+- POSIX-compatible startup script
+- Cloudflare Tunnel routing to https://omhdb.luke-the-duke.com
+- `docs/DEPLOY.md` deployment guide
+
+**Enterprise Standards (from Cursor):**
+- `AGENTS.md` — AI-assisted development instructions
+- `CHANGELOG.md` — Keep a Changelog format
+- `CONTRIBUTING.md` — Contribution workflow, validation, Docker, PR expectations
+- `SECURITY.md` — Vulnerability disclosure policy
+- `.commitlintrc.json` — Conventional commit enforcement
+- `.github/dependabot.yml` — Automated dependency updates
+- `.github/workflows/ci.yml` — CI pipeline (GitHub Actions, Python 3.11/3.12 matrix)
+- `.github/workflows/release.yml` — Automated release workflow with semantic-release
+- `logging_config.py` — Structured logging with structlog
+- `.github/ISSUE_TEMPLATE/` — Bug report and feature request templates
+- `.github/pull_request_template.md` — PR template
+- `.devcontainer/` — Dev container configuration
+
+**Backend Scaffolding (NOT deployed, future V3.0 use):**
+- `backend/` directory: Full PostgreSQL/SQLAlchemy/Alembic/Redis/GraphQL backend
+- `docker/docker-compose.yml` updated for multi-service (Postgres, Redis, API, frontend)
+- Tagged as scaffolding for V3.0 PostgreSQL migration
+
+**Database stats (unchanged from V2.4):**
+- 183 platforms | 172 specifications | 158 economics | 223 armaments
+- 665 operators | 313 conflicts | 165 media records | 675 source citations
+
+**Live deployment:** https://omhdb.luke-the-duke.com
+
+---
+
+## V2.5 Plan — SIPRI Database Integration (Deferred to V3.0)
+
+The following SIPRI integration plan (new database tables, import pipeline, API endpoints, frontend charts) was originally scoped for V2.5 but has been deferred to V3.0 alongside the PostgreSQL migration. The SIPRI data files are staged and ready.
+
+### New Database Tables (Planned)
 
 **Table: `country_military_expenditure`**
 ```sql
@@ -384,9 +433,7 @@ CREATE TABLE arms_transfers (
 );
 ```
 
-### V2.5.2 — Data Import Pipeline
-
-**Files to create:**
+### Data Import Pipeline (Planned)
 
 | File | Description |
 |------|-------------|
@@ -395,32 +442,23 @@ CREATE TABLE arms_transfers (
 | `scripts/import_sipri_transfers.py` | Parse clean CSV → populate `arms_transfers`, auto-match `platform_id` where weapon designation matches existing platforms |
 | `schemas/005_sipri_tables.sql` | DDL for all 4 new tables + indexes |
 
-**Cross-reference logic (transfers → platforms):**
-- Match weapon designations to platform names/designations (e.g., "F-35A" → `f-35a-lightning-ii`)
-- Fuzzy match on common names (e.g., "HIMARS" → `m142-himars`)
-- Unmatchable transfers remain with `platform_id = NULL` (linkable later as more platforms are added)
-
-### V2.5.3 — API Endpoints
-
-**New endpoints:**
+### API Endpoints (Planned)
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET /api/v1/expenditure` | Military spending by country/year, filterable | Returns yearly spending data with optional country, year range, and region filters |
-| `GET /api/v1/expenditure/{country_code}` | Single country time series | Full spending history for one country |
-| `GET /api/v1/companies` | Arms companies list | Paginated, filterable by country and revenue range |
-| `GET /api/v1/companies/{company_id}` | Company detail + revenue history | Full company profile with yearly rankings |
-| `GET /api/v1/transfers` | US arms transfers | Filterable by recipient, weapon type, year range |
-| `GET /api/v1/platforms/{id}/transfers` | Transfers for a specific platform | Cross-referenced transfer records |
+| `GET /api/v1/expenditure` | Military spending by country/year, filterable |
+| `GET /api/v1/expenditure/{country_code}` | Single country time series |
+| `GET /api/v1/companies` | Arms companies list, paginated |
+| `GET /api/v1/companies/{company_id}` | Company detail + revenue history |
+| `GET /api/v1/transfers` | US arms transfers, filterable |
+| `GET /api/v1/platforms/{id}/transfers` | Transfers for a specific platform |
 
-### V2.5.4 — Frontend Integration
+### Frontend Integration (Planned)
 
-- Add "Expenditure" tab to Analytics dashboard — country spending line chart, top spenders bar chart
-- Add "Arms Industry" tab — Top 100 company table, revenue treemap
-- Add "Transfers" section to platform detail panel — show export history for that platform
+- "Expenditure" tab on Analytics dashboard — country spending line chart, top spenders bar chart
+- "Arms Industry" tab — Top 100 company table, revenue treemap
+- "Transfers" section in platform detail panel — export history for that platform
 - SIPRI attribution footer on all new data views
-
-**Target after V2.5:** 4 new database tables, 6 new API endpoints, SIPRI data fully integrated, cross-referenced transfers, frontend charts for expenditure and industry data.
 
 ---
 

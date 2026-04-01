@@ -6,13 +6,13 @@
 [![FastAPI](https://img.shields.io/badge/api-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/frontend-React_19-61DAFB.svg)](https://react.dev/)
 [![Platforms](https://img.shields.io/badge/platforms-183-orange.svg)](#dataset-coverage)
-[![Version](https://img.shields.io/badge/version-2.4-brightgreen.svg)](docs/VERSION_HISTORY.md)
+[![Version](https://img.shields.io/badge/version-2.5-brightgreen.svg)](docs/VERSION_HISTORY.md)
 
 A comprehensive, open-source relational database of military hardware systems — air, land, sea, munitions, and software platforms. Ships with a FastAPI REST API, a React intelligence console frontend, and structured data in JSON/CSV/SQLite formats.
 
 Built for researchers, journalists, analysts, and defense enthusiasts. All data sourced from publicly available, open-source information with full citation tracking.
 
-**[Live Beta →](https://www.perplexity.ai/computer/a/omhdb-open-military-hardware-d-ksEvrWm1RKewmplKmdSK9g)**
+**[Live → omhdb.luke-the-duke.com](https://omhdb.luke-the-duke.com)**
 
 ---
 
@@ -76,7 +76,7 @@ For the **Docker / Postgres `backend/`** service, see **[backend/README.md](back
 
 ---
 
-## REST API (v2.4)
+## REST API (v2.5)
 
 Interactive docs at `http://localhost:8000/docs` (Swagger UI).
 
@@ -138,7 +138,7 @@ curl "http://localhost:8000/api/v1/manufacturers"
 
 ## Dataset Coverage
 
-**V2.4 — 183 Platforms**
+**V2.5 — 183 Platforms**
 
 | Domain | Count | Examples |
 |--------|-------|---------|
@@ -329,7 +329,7 @@ All data is collected from publicly available, open-source information:
 | **[VERSION_HISTORY.md](docs/VERSION_HISTORY.md)** | Complete version-by-version record (V0.0 → V2.5) with future roadmap |
 | **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** | System architecture and technical design |
 | **[TECH_STACK.md](docs/TECH_STACK.md)** | Technology catalog |
-| **[ROADMAP.md](docs/ROADMAP.md)** | Version roadmap (V3.0 → V5.0) |
+| **[ROADMAP.md](ROADMAP.md)** | Version roadmap (V3.0 → V5.0) |
 | **[V2 Research Outline](docs/V2_US_RESEARCH_OUTLINE.md)** | Methodology for V2 US systems research |
 | **[UI_UX.md](docs/UI_UX.md)** | UI/UX framework spec (full implementation in V4.0) |
 | **[CONTRIBUTING.md](CONTRIBUTING.md)** | Contribution workflow, validation, Docker, PR expectations |
@@ -364,8 +364,8 @@ To add a new platform:
 | **V2.2** | Beta UI | Complete — React frontend, dark military theme |
 | **V2.3** | Intel Console | Complete — Blueprint + liquid glass redesign, 3-pane layout |
 | **V2.4** | Software & Roles | Complete — Palantir/Anduril platforms, role classification, contractor filters, military fonts/icons |
-| **V2.5** | SIPRI Integration | Next Up — Military expenditure, Top 100 arms companies, US arms transfers, 4 new DB tables |
-| **V3.0** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL, SIPRI-informed prioritization |
+| **V2.5** | SIPRI Integration + Enterprise Hardening | Complete — SIPRI data staged, production deployment, enterprise standards |
+| **V3.0** | Global Data | Planned — 500+ platforms, NATO allies + adversaries, PostgreSQL migration, SIPRI DB integration |
 | **V3.1** | Intelligence | Planned — Vector embeddings, semantic search, RAG |
 | **V4.0** | Experience | Planned — Advanced data viz, SIPRI charts, transfer maps, AI chat |
 | **V5.0** | Community | Planned — Auth, contributions, public API keys |
