@@ -21,7 +21,7 @@ openpyxl>=3.1.0             # Excel export
 # Utilities
 python-dateutil>=2.8.0
 tqdm>=4.66.0                # Progress bars
-rich>=13.7.0                # Pretty console output
+rich>=15.0.0                # Pretty console output
 python-dotenv>=1.0.0        # Environment variables
 
 # API layer (V2)
