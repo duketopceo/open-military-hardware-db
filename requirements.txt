@@ -19,7 +19,7 @@ sqlalchemy>=2.0.0
 openpyxl>=3.1.0             # Excel export
 
 # Utilities
-python-dateutil>=2.8.0
+python-dateutil>=2.9.0.post0
 tqdm>=4.66.0                # Progress bars
 rich>=13.7.0                # Pretty console output
 python-dotenv>=1.0.0        # Environment variables
