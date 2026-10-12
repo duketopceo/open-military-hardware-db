@@ -23,21 +23,12 @@ const navItems = [
 
 // Shield + grid logo SVG
 function Logo() {
+  // Quadrant datum mark (assets/brand/logo-dark.svg): ring, cross, two filled quadrants.
   return (
-    <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-label="OMHDB">
-      <path
-        d="M16 2L4 8v8c0 7.18 5.12 13.88 12 16 6.88-2.12 12-8.82 12-16V8L16 2z"
-        stroke="hsl(38 90% 58%)"
-        strokeWidth="1.2"
-        fill="none"
-        opacity="0.7"
-      />
-      <line x1="10" y1="12" x2="22" y2="12" stroke="hsl(210 15% 55%)" strokeWidth="0.5" />
-      <line x1="10" y1="16" x2="22" y2="16" stroke="hsl(210 15% 55%)" strokeWidth="0.5" />
-      <line x1="10" y1="20" x2="22" y2="20" stroke="hsl(210 15% 55%)" strokeWidth="0.5" />
-      <circle cx="12.5" cy="12" r="1" fill="hsl(38 90% 58%)" opacity="0.8" />
-      <circle cx="12.5" cy="16" r="1" fill="hsl(38 90% 58%)" opacity="0.6" />
-      <circle cx="12.5" cy="20" r="1" fill="hsl(38 90% 58%)" opacity="0.4" />
+    <svg width="22" height="22" viewBox="0 0 64 64" fill="none" role="img" aria-label="OMHDB">
+      <circle cx="32" cy="32" r="26" stroke="hsl(210 15% 85%)" strokeWidth="4" />
+      <path d="M32 32V6A26 26 0 0 0 6 32Z M32 32V58A26 26 0 0 0 58 32Z" fill="hsl(38 90% 58%)" transform="rotate(180 32 32)" />
+      <path d="M32 6V58M6 32H58" stroke="hsl(210 15% 85%)" strokeWidth="3" />
     </svg>
   );
 }
@@ -60,7 +51,7 @@ export function AppShell({ children, rightPanel }: AppShellProps) {
           <Logo />
           <div className="flex flex-col">
             <span className="text-[11px] font-semibold tracking-[0.15em] text-[hsl(var(--bp-text))]">OMHDB</span>
-            <span className="text-[9px] font-mono tracking-[0.2em] text-[hsl(var(--bp-text-faint))]">v2.4 // INTEL</span>
+            <span className="text-[9px] font-mono tracking-[0.2em] text-[hsl(var(--bp-text-faint))]">v3.0 // INTEL</span>
           </div>
         </div>
 
