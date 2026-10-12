@@ -235,6 +235,14 @@ html, body, #root {
   color: hsl(var(--bp-accent-text));
 }
 
+/* ─── Keyboard focus ─── */
+.tag-chip:focus-visible,
+.intel-table thead th:focus-visible,
+.intel-table tbody tr:focus-visible {
+  outline: 2px solid hsl(var(--bp-accent));
+  outline-offset: -2px;
+}
+
 /* ─── Scrollbar styling ─── */
 ::-webkit-scrollbar {
   width: 6px;
@@ -259,6 +267,11 @@ html, body, #root {
 
 .animate-in {
   animation: fadeIn 200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in, .stagger-in > * { animation: none; }
+  .tag-chip, .intel-table tbody tr { transition: none; }
 }
 
 /* Stagger children */
