@@ -1,3 +1,45 @@
+# Roadmap
+
+## Program roadmap (2026-10-11)
+
+Status key: found = observed in this pass, not yet fixed. Existing product versions are kept unchanged below under "Product roadmap". Evidence for every unit is in [`docs/research/2026-10-10-landscape.md`](docs/research/2026-10-10-landscape.md). Dependabot PRs are out of scope.
+
+### Now
+
+**P1 - Make a fresh clone build a correct database** (found)
+Evidence: `export_all.py` builds a DB without `role_type` and with 165 platforms; the migrations that reach 183 are separate scripts.
+- Difficulty: medium. The migrations are idempotent-looking scripts, not versioned; order and re-run safety need checking.
+- Feasibility: no external blockers. The committed JSON/CSV need regenerating from the 183-platform DB, which changes data files (owner review).
+- Simpler alternative: have `export_all.py` call the two migrations after seeding, and drop the second source of truth later. Do not build Alembic for SQLite yet (the `backend/` Postgres track already has it).
+
+**P2 - Green tests and lint on main** (found)
+Evidence: 5-6 failing tests (version `2.1.0` expectations, `role_type`), 126 ruff errors against the CI lint command.
+- Difficulty: easy for the lint (`ruff --fix` covers 117), easy-medium for tests.
+- Feasibility: depends on P1 for the `role_type` failures.
+- Simpler alternative: update the two version assertions and delete the unused imports; do not loosen the CI gate.
+
+**P3 - Contrast and focus polish** (done in this PR: tokens, focus rings, reduced motion, chip bug)
+Remaining: country-bar colours in Stats.
+- Difficulty: easy. Feasibility: none. Simpler alternative: use one accent for all bars and keep flags as labels.
+
+### Next
+
+**P4 - Reconcile `docs/UI_UX.md` with the shipped stack** - Difficulty: easy. Simpler alternative: delete the Next.js spec and link `DESIGN.md`.
+
+**P5 - Data licence and attribution page** (provenance per row exists; the dataset licence statement does not) - Difficulty: easy. Feasibility: SIPRI terms must be checked before redistribution of derived tables.
+
+**P6 - Frontend tests (smoke)** - none exist. Difficulty: medium. Simpler alternative: one Playwright smoke that loads `/`, `/stats` and `/compare` against the CI-built DB.
+
+### Later
+
+**P7 - NATO/adversary coverage (V3.1 below)** - Difficulty: hard (research per platform, sourcing). Feasibility: public sources vary in quality; keep the citation requirement. Simpler alternative: import structured data from an open source (SIPRI registers, Wikidata) for the skeleton, then cite and curate.
+
+**P8 - Simplify the two services** - `backend/` (Postgres, GraphQL) and `api/` (SQLite) overlap. Difficulty: hard. Simpler alternative: pick one for V3.1 and archive the other; `temp/` (static smoke UI) can be deleted now that the React console exists.
+
+---
+
+## Product roadmap (previous content)
+
 # Open Military Hardware DB — Roadmap
 
 ## Current: v3.0.0 (Stable)
