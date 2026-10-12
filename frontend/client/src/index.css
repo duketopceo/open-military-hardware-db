@@ -230,7 +230,7 @@ html, body, #root {
 }
 
 .tag-chip.active {
-  background: rgba(var(--bp-accent), 0.12);
+  background: hsl(var(--bp-accent) / 0.12);
   border-color: hsl(var(--bp-accent) / 0.3);
   color: hsl(var(--bp-accent-text));
 }
