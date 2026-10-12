@@ -1,4 +1,9 @@
-# Open Military Hardware Database
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/wordmark-dark.svg">
+    <img alt="Open Military Hardware DB" src="assets/brand/wordmark.svg" height="64">
+  </picture>
+</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -33,12 +38,14 @@ Built for researchers, journalists, analysts, and defense enthusiasts. All data 
 
 ## Screenshots
 
-The frontend is a dark-mode intelligence console with a blueprint + liquid glass aesthetic:
+Dark "blueprint console" UI: platform explorer with detail pane, analytics, compare.
 
-- **Platform Explorer** — dense sortable table with domain, role, and contractor filters
-- **Analytics Dashboard** — KPI cards, domain distribution, role classification, era breakdown
-- **Compare Tool** — side-by-side spec comparison for up to 10 platforms
-- **Detail Panel** — specifications, economics, armaments, operators, combat history, sources
+![Platform explorer](docs/screenshots/explorer-after.png)
+![Analytics](docs/screenshots/stats-after.png)
+
+Design notes: [DESIGN.md](DESIGN.md). Logo is a proposal pending owner sign-off.
+
+> **Build note (2026-10-11):** the DB produced by `export_all.py` alone has 165 platforms and no `role_type`; run `python data/migrations/v2_4_software_roles.py` and `python data/migrations/v3_0_sipri_integration.py` afterwards to reach 183. Tracked as ROADMAP P1.
 
 ---
 
@@ -342,7 +349,9 @@ All data is collected from publicly available, open-source information:
 | **[VERSION_HISTORY.md](docs/VERSION_HISTORY.md)** | Complete version-by-version record (V0.0 → V2.5) with future roadmap |
 | **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** | System architecture and technical design |
 | **[TECH_STACK.md](docs/TECH_STACK.md)** | Technology catalog |
-| **[ROADMAP.md](ROADMAP.md)** | Version roadmap (V3.0 → V5.0) |
+| **[ROADMAP.md](ROADMAP.md)** | Program roadmap (difficulty, feasibility) plus version roadmap (V3.0 → V5.0) |
+| **[DESIGN.md](DESIGN.md)** | Design direction, tokens, contrast audit |
+| **[docs/research](docs/research/2026-10-10-landscape.md)** | Landscape notes |
 | **[V2 Research Outline](docs/V2_US_RESEARCH_OUTLINE.md)** | Methodology for V2 US systems research |
 | **[UI_UX.md](docs/UI_UX.md)** | UI/UX framework spec (full implementation in V4.0) |
 | **[CONTRIBUTING.md](CONTRIBUTING.md)** | Contribution workflow, validation, Docker, PR expectations |

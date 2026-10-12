@@ -23,8 +23,8 @@
   --bp-line: 210 30% 35%;
   --bp-line-faint: 210 25% 22%;
   --bp-text: 210 15% 85%;
-  --bp-text-muted: 210 15% 55%;
-  --bp-text-faint: 210 12% 45%;
+  --bp-text-muted: 210 15% 62%;
+  --bp-text-faint: 210 12% 58%;
 
   /* Accent — warm amber for highlights */
   --bp-accent: 38 90% 58%;
@@ -230,9 +230,17 @@ html, body, #root {
 }
 
 .tag-chip.active {
-  background: rgba(var(--bp-accent), 0.12);
+  background: hsl(var(--bp-accent) / 0.12);
   border-color: hsl(var(--bp-accent) / 0.3);
   color: hsl(var(--bp-accent-text));
+}
+
+/* ─── Keyboard focus ─── */
+.tag-chip:focus-visible,
+.intel-table thead th:focus-visible,
+.intel-table tbody tr:focus-visible {
+  outline: 2px solid hsl(var(--bp-accent));
+  outline-offset: -2px;
 }
 
 /* ─── Scrollbar styling ─── */
@@ -259,6 +267,11 @@ html, body, #root {
 
 .animate-in {
   animation: fadeIn 200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in, .stagger-in > * { animation: none; }
+  .tag-chip, .intel-table tbody tr { transition: none; }
 }
 
 /* Stagger children */
